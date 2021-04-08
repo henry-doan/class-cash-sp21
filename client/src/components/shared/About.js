@@ -1,16 +1,17 @@
-import { Component } from 'react'
+import Footer from './Footer';
 import { Container, Divider, Icon, Header, Card, Image, Grid} from 'semantic-ui-react';
-import { Link } from 'react-router-dom';
+import Harry from '../images/Harry.png';
+import Tyler from '../images/Tyler.jpeg';
 
 const About = () => {
   return(
-   
+   <>
     <Container textAlign="center">
        <Header>About Us</Header>
      <Grid columns='3'>
         <Grid.Column>
           <Card>
-            <Image />
+            <Image src={Harry} />
             <Card.Content>
               <Header>Harry Dhillon</Header>
             </Card.Content>
@@ -18,6 +19,11 @@ const About = () => {
             <a style={{color: 'black'}} href="https://github.com"><Icon name='github' size='big' /></a>
             <a href="https://linkedin.com"><Icon name='linkedin' size='big'/></a>
             </Card.Description>
+            <Divider hidden />
+            <Card.Description>
+              I do a bit of everything! I'm a software engineer, a presentation wizard, a MMA fighter and a lifetime student.
+            </Card.Description>
+            <Divider hidden />
           </Card>
         </Grid.Column>
         <Grid.Column>
@@ -39,27 +45,28 @@ const About = () => {
         
         <Grid.Column>
           <Card>
-            <Image />
+            <Image src={Tyler}/>
             <Card.Content>
               <Header>Tyler Cheney</Header>
             </Card.Content>
             <Card.Description>
-              <a style={{color: 'black'}}>
-                <Icon name='github' size="big"></Icon>
+              <a style={{color: 'black'}} href='http://www.linkedin.com/in/tyler-cheney'>
+                <Icon name='github' size="big" />
               </a>
-              <a style={{color: 'black'}}>
-                <Icon name='linkedin' size="big"></Icon>
+              <a href='http://www.linkedin.com/in/tyler-cheney'>
+                <Icon name='linkedin' size="big" />
               </a>
             </Card.Description>
             <Divider hidden />
             <Card.Description>
-              Cool Stuff About Me
+            After getting a degree in Supply Chain from BYU, I quickly realized that coding is a passion of mine and that I had to make it a career if it killed me | I believe that innovative thinking plus technology can produce unimaginable results | Everyone has a creative outlet, for me..it's coding | Runner: 2 marathons, 10+ half marathons.
             </Card.Description>
             <Divider hidden />
           </Card>
         </Grid.Column>
      </Grid>
     </Container>
+    </>
   )
 }
 
