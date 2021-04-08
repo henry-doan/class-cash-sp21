@@ -6,7 +6,7 @@ const Navbar = ({ location, user, handleLogout, history }) => {
     if (user) {
       return (
         <>
-          <Menu secondary>
+          <Menu pointing secondary>
             <Link to='/home'>
               <Menu.Item
                 name='home'
@@ -47,6 +47,13 @@ const Navbar = ({ location, user, handleLogout, history }) => {
   return(
     <>
       <Menu pointing secondary>
+      <Link to='/about'>
+              <Menu.Item
+                name='about'
+                id='about'
+                active={location.pathname === '/about'}
+              />
+            </Link>
         { rightNavItem() }
       </Menu>
     </>
