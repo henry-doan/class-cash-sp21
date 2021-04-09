@@ -9,6 +9,13 @@ import FetchUser from './components/auth/FetchUser';
 import ProtectedRoute from './components/auth/ProtectedRoute';
 import About from './components/shared/About';
 import Footer from './components/shared/Footer';
+import ClassroomSelect from './components/classrooms/ClassroomSelect';
+import MyClassroom from './components/classrooms/MyClassroom';
+import Dashboard from './components/enrollments/Dashboard';
+import CreatePoints from './components/points/CreatePoints';
+import Earn from './components/points/Earn';
+import AdminRewards from './components/rewards/AdminRewards';
+import Spend from './components/rewards/Spend';
 const App = () => (
   <>
     <Navbar />
@@ -20,6 +27,13 @@ const App = () => (
           <Route exact path="/about" component={About} />
           <ProtectedRoute exact path="/" component={Home} />
           <ProtectedRoute exact path="/home" component={Home} />
+          <ProtectedRoute exact path="/ClassroomSelect" component={ClassroomSelect} />
+          <ProtectedRoute exact path="/MyClassroom" component={MyClassroom} />
+          <ProtectedRoute exact path="/Dashboard" component={Dashboard} />
+          <ProtectedRoute exact path="/CreatePoints" component={CreatePoints} />
+          <ProtectedRoute exact path="/Earn" component={Earn} />
+          <ProtectedRoute exact path="/AdminRewards" component={AdminRewards} />
+          <ProtectedRoute exact path="/Spend" component={Spend} />
           <Route component={NoMatch} />
         </Switch>
         <Footer />
