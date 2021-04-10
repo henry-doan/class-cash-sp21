@@ -9,7 +9,7 @@ const Navbar = ({ location, user, handleLogout, history }) => {
           <Menu pointing secondary>
             <Link to='/home'>
               <Menu.Item
-                name='home'
+                name='ClassCash'
                 id='home'
                 active={location.pathname === '/home'}
               />
