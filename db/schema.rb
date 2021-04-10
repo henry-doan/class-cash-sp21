@@ -22,7 +22,7 @@ ActiveRecord::Schema.define(version: 2021_04_09_011924) do
   end
 
   create_table "enrollments", force: :cascade do |t|
-    t.string "points"
+    t.integer "total_points"
     t.bigint "classroom_id", null: false
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
