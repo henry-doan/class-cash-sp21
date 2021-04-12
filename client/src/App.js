@@ -16,6 +16,7 @@ import CreatePoints from './components/points/CreatePoints';
 import Earn from './components/points/Earn';
 import AdminRewards from './components/rewards/AdminRewards';
 import Spend from './components/rewards/Spend';
+import CreateClassroom from './components/classrooms/CreateClassroom';
 const App = () => (
   <>
     <Navbar />
@@ -28,6 +29,7 @@ const App = () => (
           <ProtectedRoute exact path="/" component={Home} />
           <ProtectedRoute exact path="/home" component={Home} />
           <ProtectedRoute exact path="/ClassroomSelect" component={ClassroomSelect} />
+          <ProtectedRoute exact path="/CreateClassroom" component={CreateClassroom} />
           <ProtectedRoute exact path="/MyClassroom" component={MyClassroom} />
           <ProtectedRoute exact path="/Dashboard" component={Dashboard} />
           <ProtectedRoute exact path="/CreatePoints" component={CreatePoints} />
