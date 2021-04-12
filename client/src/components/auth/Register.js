@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { AuthConsumer } from "../../providers/AuthProvider";
 import { Button, Form, Segment, Header } from 'semantic-ui-react';
+import { Link } from 'react-router-dom';
 const Register = ({ handleRegister, history }) => {
   const [user, setUser] = useState({ email: '', password: '', passwordConfirmation: '' }) 
   const handleSubmit = (e) => {
@@ -43,7 +44,12 @@ const Register = ({ handleRegister, history }) => {
           onChange={(e, { value }) => setUser({ ...user, passwordConfirmation: value })}
         />
         <Segment textAlign='center' basic>
-          <Button primary type='submit'>Submit</Button>
+          <Button style={{color: '#ffffff', backgroundColor: '#1CB993' }} type='submit'>Register</Button>
+          <Button>
+            <Link to="/login" style={{color: 'black'}} >
+              Login to an existing account
+            </Link>
+          </Button>
         </Segment>
       </Form>
     </Segment>
