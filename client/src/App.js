@@ -5,6 +5,7 @@ import Navbar from './components/shared/Navbar';
 import NoMatch from './components/shared/NoMatch';
 import Login from './components/auth/Login';
 import Register from './components/auth/Register';
+import RegisterAdmin from './components/auth/RegisterAdmin';
 import FetchUser from './components/auth/FetchUser';
 import ProtectedRoute from './components/auth/ProtectedRoute';
 import About from './components/shared/About';
@@ -25,6 +26,7 @@ const App = () => (
         <Switch>
           <Route exact path='/login' component={Login} />
           <Route exact path='/register' component={Register} />
+          <Route exact path='/registerAdmin' component={RegisterAdmin} />
           <Route exact path="/about" component={About} />
           <ProtectedRoute exact path="/" component={Home} />
           <ProtectedRoute exact path="/home" component={Home} />
