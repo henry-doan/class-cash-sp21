@@ -33,7 +33,6 @@ const Navbar = ({ location, user, handleLogout, history }) => {
               active={location.pathname === '/login'}
             />
           </Link>
-<<<<<<< HEAD
           <Link to='/register'>
             <Menu.Item
               name='register'
@@ -48,9 +47,6 @@ const Navbar = ({ location, user, handleLogout, history }) => {
               active={location.pathname === '/registerAdmin'}
             />
           </Link>
-=======
-          
->>>>>>> f5983ea (fixed changes)
         </Menu.Menu>
       )
     }
