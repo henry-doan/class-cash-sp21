@@ -28,7 +28,8 @@ class Api::ClassroomsController < ApplicationController
   end
 
   def destroy
-    Classroom.find(params[:id]).destroy
+    @classroom = Classroom.find(params[:id])
+    @classroom.destroy
     render json: { message: 'classroom deleted' }
   end
   
