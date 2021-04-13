@@ -40,6 +40,13 @@ const Navbar = ({ location, user, handleLogout, history }) => {
               active={location.pathname === '/register'}
             />
           </Link>
+          <Link to='/registerAdmin'>
+            <Menu.Item
+              name='registerAdmin'
+              id='registerAdmin'
+              active={location.pathname === '/registerAdmin'}
+            />
+          </Link>
         </Menu.Menu>
       )
     }

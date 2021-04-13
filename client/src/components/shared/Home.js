@@ -13,7 +13,7 @@ const Home = () => (
       </List>
       <Button size='large' style={{ backgroundColor: '#1CB993' }} >
         <Link to="/CreateClassroom" style={{color: 'white'}} >
-          Login to an existing account
+          Create a new ClassRoom
         </Link>  
       </Button> 
     </Container>
