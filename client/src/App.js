@@ -18,6 +18,8 @@ import Earn from './components/points/Earn';
 import AdminRewards from './components/rewards/AdminRewards';
 import Spend from './components/rewards/Spend';
 import CreateClassroom from './components/classrooms/CreateClassroom';
+import ClassroomProvider from './providers/ClassroomProvider'
+
 const App = () => (
   <>
     <Navbar />
