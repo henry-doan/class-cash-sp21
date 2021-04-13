@@ -48,7 +48,7 @@ const RegisterAdmin = ({ handleRegister, history }) => {
           type='password'
           onChange={(e, { value }) => setUser({ ...user, passwordConfirmation: value })}
         />
-        <Select fluid placeholder='Are you an Admin' options={adminOpts} />
+        <Select fluid placeholder='Are you an Admin?' options={adminOpts} />
         <Segment textAlign='center' basic>
           <Button style={{color: '#ffffff', backgroundColor: '#1CB993' }} type='submit'>Register</Button>
           <Button>
