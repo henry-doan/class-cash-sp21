@@ -12,7 +12,6 @@ const Login = ({ handleLogin, history }) => {
     <Segment basic>
       <Header as='h1' textAlign='center'>ClassCash</Header>
       <Form onSubmit={handleSubmit}>
-        <div style={{width: "75%", paddingLeft: '275px'}}>
         <Form.Input
           label="Email"
           autoFocus
@@ -31,7 +30,6 @@ const Login = ({ handleLogin, history }) => {
           type='password'
           onChange={(e, { value }) => setUser({ ...user, password: value })}
         />
-        </div>
         <Segment textAlign='center' basic>
           <Button style={{color: '#ffffff', backgroundColor: '#1CB993' }} type='submit'>Login</Button>
           <Button>
