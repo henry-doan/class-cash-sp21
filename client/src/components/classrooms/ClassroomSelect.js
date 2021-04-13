@@ -1,6 +1,8 @@
+import ClassroomList from './ClassroomList'
+
 const ClassroomSelect = () => (
   <>
-    <h1>ClassroomSelect</h1>
+    <ClassroomList/>
   </>
 )
 export default ClassroomSelect;
