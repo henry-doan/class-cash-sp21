@@ -4,7 +4,6 @@ import { useState } from 'react'
 import { ClassroomConsumer } from '../../providers/ClassroomProvider';
 import { Link } from 'react-router-dom'
 import Classroom from './Classroom';
-// import { ClassroomConsumer } from '../../providers/ClassroomProvider'
 
 const ClassroomList = ({deleteClassroom, classrooms}) => {
  
@@ -43,15 +42,4 @@ const ConnectedClassroomList = (props) => (
     )}
   </ClassroomConsumer>
 )
-
-export default ConnectedClassroomList;
-
-// const ConnectedClassroomList = (props) => (
-//   <ClassroomConsumer>
-//     { value => (
-//       <ClassroomList {...props} {...value} />
-//     )}
-//   </ClassroomConsumer>
-// )
-
-// export default ConnectedClassroomList
+export default ConnectedClassroomList

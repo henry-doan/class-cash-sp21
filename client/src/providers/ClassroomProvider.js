@@ -48,7 +48,6 @@ const ClassroomProvider = ({ children }) => {
   return(
     <ClassroomContext.Provider value={{
       classrooms,
-      
       addClassroom: addClassroom,
       deleteClassroom: deleteClassroom,
       updateClassroom: updateClassroom,
