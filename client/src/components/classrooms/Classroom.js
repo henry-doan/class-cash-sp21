@@ -2,6 +2,8 @@ import { useState } from 'react'
 import { Card, Button, Icon } from "semantic-ui-react";
 import {ClassroomConsumer} from '../../providers/ClassroomProvider';
 import UpdateClassroom from './UpdateClassroom';
+import { Link } from 'react-router-dom'
+
 const Classroom = ({c, deleteClassroom}) => {
   const [editing, setEditing] = useState(false)
 
@@ -17,6 +19,16 @@ const Classroom = ({c, deleteClassroom}) => {
           </Card.Header>
         </Card.Content>
         <Card.Content>
+          <Button>
+            <Link to={{
+              pathname: '/Dashboard',
+              state: {
+                classroomId: c.id
+              }
+            }}>
+              Select
+            </Link>
+          </Button>
           <Button
             onClick={() => setEditing(!editing)}
           >
