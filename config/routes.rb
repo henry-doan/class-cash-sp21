@@ -2,9 +2,8 @@ Rails.application.routes.draw do
   mount_devise_token_auth_for 'User', at: 'api/auth'
 
   namespace :api do
-    resources :users 
     resources :classrooms do
-      resources :enrollments , only: [:index, :new, :create, :destroy]
+      resources :enrollments
     end
     
     resources :enrollments do
