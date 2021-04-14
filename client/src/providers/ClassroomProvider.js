@@ -59,4 +59,4 @@ const ClassroomProvider = ({ children }) => {
 
 }
 
-export default ClassroomProvider
+export default ClassroomProvider;

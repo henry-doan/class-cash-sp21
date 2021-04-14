@@ -1,11 +1,16 @@
 class Api::EnrollmentsController < ApplicationController
-
+  before_action: set_classroom
   def index
-    render json: current_user.enrollments 
+    render json: @classroom.enrollments 
+  end
+
+  def show
+    @enrollment = @classroom.enrollments.find(params[:id])
+    render json: @enrollment
   end
 
   def create 
-    @enrollment = current_user.enrollments.new(enrollment_params)
+    @enrollment = @classroom.enrollments.new(enrollment_params)
     if @enrollment.save
       render json: @enrollment
     else
@@ -14,7 +19,7 @@ class Api::EnrollmentsController < ApplicationController
   end
 
   def update 
-    @enrollment = current_user.enrollments.find(params[:id])
+    @enrollment = @classroom.enrollments.find(params[:id])
     if @enrollment.update(enrollment_params)
       render json: @enrollment
     else
@@ -23,7 +28,7 @@ class Api::EnrollmentsController < ApplicationController
   end
 
   def destroy 
-    @enrollment = current_user.enrollments.find(params[:id])
+    @enrollment = @classroom.enrollments.find(params[:id])
     @enrollment.destroy
     render json: { message: 'Enrollment Deleted!' }
   end
@@ -31,6 +36,10 @@ class Api::EnrollmentsController < ApplicationController
   private 
     def enrollment_params
       params.require(:enrollment).permit(:total_points)
+    end
+
+    def set_classroom
+      @classroom = Classroom.find(params[:classroom_id])
     end
 
 end
