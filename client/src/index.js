@@ -7,13 +7,16 @@ import { BrowserRouter } from 'react-router-dom';
 import 'semantic-ui-css/semantic.min.css';
 import AuthProvider from './providers/AuthProvider';
 import { initMiddleware } from 'devise-axios';
+import ClassroomProvider from './providers/ClassroomProvider';
 initMiddleware();
 ReactDOM.render(
   <React.StrictMode>
     <AuthProvider>
-      <BrowserRouter>
-        <App />   
-      </BrowserRouter>
+        <ClassroomProvider>
+        <BrowserRouter>
+          <App />   
+        </BrowserRouter>
+      </ClassroomProvider>
     </AuthProvider>
   </React.StrictMode>,
   document.getElementById('root')

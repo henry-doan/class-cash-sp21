@@ -10,7 +10,7 @@ const Login = ({ handleLogin, history }) => {
   }
   return (
     <Segment basic>
-      <Header as='h1' textAlign='center'>Login</Header>
+      <Header as='h1' textAlign='center'>ClassCash</Header>
       <Form onSubmit={handleSubmit}>
         <Form.Input
           label="Email"

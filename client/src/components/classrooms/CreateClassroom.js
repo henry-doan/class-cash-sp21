@@ -1,13 +1,16 @@
 import { useState } from 'react';
 import { Form, Segment, Button, Header } from "semantic-ui-react";
-
-const CreateClassroom = () => {
+import { ClassroomConsumer } from '../../providers/ClassroomProvider';
+const CreateClassroom = ({addClassroom}) => {
   const [classroom, setClassroom] = useState({ name: '' })
+ 
   const handleSubmit = (e) => {
-    e.preventDefault();
-    
+    e.preventDefault()
+    addClassroom(classroom)
+    setClassroom({name: ""})
   }
-return(
+
+  return(
   <Segment basic>
     <Header as='h1' textAlign='center'>Create a new ClassRoom</Header>
       <Form onSubmit={handleSubmit}>
@@ -26,4 +29,12 @@ return(
       </Form>
   </Segment>
 )}
-export default CreateClassroom;
+
+const ConnectedCreateClassroom = (props) => (
+  <ClassroomConsumer>
+    { value => (
+      <CreateClassroom {...props} {...value} />
+    )}
+  </ClassroomConsumer>
+)
+export default ConnectedCreateClassroom;
