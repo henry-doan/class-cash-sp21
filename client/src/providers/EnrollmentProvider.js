@@ -41,7 +41,6 @@ const ClassroomProvider = ({ children }) => {
       { children }
     </EnrollmentContext.Provider>
   )
-
 }
 
-export default ClassroomProvider;
+export default EnrollmentProvider
