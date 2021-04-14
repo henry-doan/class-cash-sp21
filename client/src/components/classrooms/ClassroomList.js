@@ -1,28 +1,14 @@
 // import { ClassroomConsumer } from "../../providers/ClassroomProvider"
 import { Segment, Header, Card, List, Button, Icon } from 'semantic-ui-react'
-import { useState, useEffect } from 'react'
-import axios from 'axios'
+import { useState } from 'react'
+import { ClassroomConsumer } from '../../providers/ClassroomProvider';
 import { Link } from 'react-router-dom'
 // import { ClassroomConsumer } from '../../providers/ClassroomProvider'
 
-const ClassroomList = () => {
-  const [classrooms ,setClassrooms] = useState([])
+const ClassroomList = ({deleteClassroom, classrooms}) => {
+  
 
-  useEffect ( () => {
-    axios.get('/api/classrooms')
-      .then( res => {
-        setClassrooms(res.data)
-      })
-      .catch( err => console.log(err))
-  }, [])
 
-  const deleteClassroom = (id) => {
-    axios.delete(`/api/classrooms/${id}`)
-      .then( res => {
-        setClassrooms(classrooms.filter((classroom) => classroom.id !== id))
-      })
-      .catch( err => console.log(err))
-  }
 
   const renderClassrooms = () => {
     return classrooms.map( classroom => (
@@ -67,7 +53,15 @@ const ClassroomList = () => {
   )
 }
 
-export default ClassroomList
+const ConnectedClassroomList = (props) => (
+  <ClassroomConsumer>
+    { value => (
+      <ClassroomList {...props} {...value} />
+    )}
+  </ClassroomConsumer>
+)
+
+export default ConnectedClassroomList;
 
 // const ConnectedClassroomList = (props) => (
 //   <ClassroomConsumer>

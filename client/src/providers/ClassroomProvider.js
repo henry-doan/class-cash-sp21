@@ -22,11 +22,22 @@ const ClassroomProvider = ({ children }) => {
       })
       .catch( err => console.log(err))
   }
+
+  const addClassroom = (classroom) => {
+    axios.post('/api/classrooms', { classroom })
+    .then( res => {
+      setClassrooms([...classrooms, res.data])
+    })
+    .catch( err => console.log(err))
+  }
   
   return(
     <ClassroomContext.Provider value={{
-      ...classrooms,
-      deleteClassroom
+      classrooms,
+      
+      addClassroom: addClassroom,
+      deleteClassroom: deleteClassroom,
+      
     }}>
       { children }
     </ClassroomContext.Provider>
