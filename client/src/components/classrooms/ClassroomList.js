@@ -3,40 +3,21 @@ import { Segment, Header, Card, List, Button, Icon } from 'semantic-ui-react'
 import { useState } from 'react'
 import { ClassroomConsumer } from '../../providers/ClassroomProvider';
 import { Link } from 'react-router-dom'
+import Classroom from './Classroom';
 // import { ClassroomConsumer } from '../../providers/ClassroomProvider'
 
 const ClassroomList = ({deleteClassroom, classrooms}) => {
+ 
   
-
-
-
   const renderClassrooms = () => {
-    return classrooms.map( classroom => (
-      <Card key={classroom.id}>
-        <Card.Content>
-          <Card.Header>
-            {classroom.name}
-          </Card.Header>
-        </Card.Content>
-        <Card.Content>
-          <Button>
-            <Link to="/UpdateClassroom">
-              Update
-            </Link>
-          </Button>
-          <Button
-            onClick={() => deleteClassroom(classroom.id)}
-          >
-            <Icon name="trash"/>Delete
-          </Button>
-        </Card.Content>
-      </Card>
+    return classrooms.map( c => (
+      <Classroom c={c}/>
     ))
   }
 
   return (
     <Segment>
-      <Header>ClassroomList</Header>
+      <Header>Classroom List</Header>
       <Card.Group>
         { renderClassrooms() }
         <Card>
