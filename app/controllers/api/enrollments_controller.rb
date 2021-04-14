@@ -4,6 +4,11 @@ class Api::EnrollmentsController < ApplicationController
     render json: @classroom.enrollments 
   end
 
+  def show
+    @enrollment = @classroom.enrollments.find(params[:id])
+    render json: @enrollment
+  end
+
   def create 
     @enrollment = @classroom.enrollments.new(enrollment_params)
     if @enrollment.save
