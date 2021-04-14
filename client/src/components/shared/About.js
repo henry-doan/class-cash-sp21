@@ -2,7 +2,7 @@ import Footer from './Footer';
 import { Container, Divider, Icon, Header, Card, Image, Grid} from 'semantic-ui-react';
 import Harry from '../images/Harry.png';
 import Tyler from '../images/Tyler.jpeg';
-
+import Sean from '../images/Sean.jpg';
 const About = () => {
   return(
    <>
@@ -28,16 +28,20 @@ const About = () => {
         </Grid.Column>
         <Grid.Column>
           <Card>
-            <Image src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT6--u_acpO_tHG6nFkcGQmFw3aYdUt0Yzz5g&usqp=CAU" />
+            <Image src={Sean} />
             <Card.Content>
             <Header>Sean Schmidt</Header>
             </Card.Content>
             <Card.Description>
-              <Icon name='github' size='big' /> <a><Icon name='linkedin'  size='big' /></a>
+              <a style={{color: 'black'}} href='https://github.com/schmidtsean'>
+              <Icon name='github' size='big' /> 
+              </a>
+              <a href='https://www.linkedin.com/in/sean-schmidt-737a7420b/'>
+                <Icon name='linkedin'  size='big' /></a>
             </Card.Description>
             <Divider hidden />
             <Card.Description>
-              This is Discription
+              While working at the U of U Hospital, I heard a friend tell me about coding and I immediately knew that it was something I had to do. | Hockey, Coding and Coffee are my joys | Daily goal to absorb new knowlege everyday.
             </Card.Description>
             
           </Card>
