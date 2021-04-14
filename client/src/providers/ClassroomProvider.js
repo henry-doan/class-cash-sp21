@@ -30,14 +30,28 @@ const ClassroomProvider = ({ children }) => {
     })
     .catch( err => console.log(err))
   }
-  
+
+  const updateClassroom = (id, classroom) => {
+    axios.put(`/api/classrooms/${id}`, {classroom})
+    .then( res => {
+      const updatedClassrooms = classrooms.map( c => {
+        if(c.id === id){
+          return res.data
+        }
+        return c
+      })
+      setClassrooms(updatedClassrooms)
+    })
+    .catch(err => console.log(err))
+  } 
+
   return(
     <ClassroomContext.Provider value={{
       classrooms,
       
       addClassroom: addClassroom,
       deleteClassroom: deleteClassroom,
-      
+      updateClassroom: updateClassroom,
     }}>
       { children }
     </ClassroomContext.Provider>
