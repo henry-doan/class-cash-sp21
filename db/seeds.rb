@@ -6,10 +6,10 @@ Enrollment.delete_all
 User.delete_all
 Classroom.delete_all
 
-5.times do
+5.times do |i|
   user = User.create(
     name: Faker::FunnyName.two_word_name,
-    email: Faker::Internet.email,
+    email: "test#{i}@email.com",
     password: "password"
   )
   classroom = Classroom.create(
