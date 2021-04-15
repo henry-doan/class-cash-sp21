@@ -4,8 +4,14 @@ import axios from 'axios';
 const EnrollmentContext = React.createContext();
 export const EnrollmentConsumer = EnrollmentContext.Consumer;
 
-const ClassroomProvider = ({ children }) => {
-  const [enrollments ,setEnrollments] = useState([])
+const EnrollmentProvider = ({ children }) => {
+  const [enrollment, setEnrollment] = useState([])
+
+  const getEnrollment = (classroomId) => {
+    axios.get(`/api/classrooms/${classroomId}/dpls`)
+      .then( res => setEnrollment(res.data) )
+      .catch( err => console.log(err) )
+  }
 
   useEffect ( () => {
     axios.get(`/api/classrooms/${classroom_id}/enrollments`)

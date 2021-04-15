@@ -1,4 +1,4 @@
-import ClassroomList from './ClassroomList'
+import ClassroomList from './UserEnrollmentsList'
 
 
 const ClassroomSelect = () => (

@@ -6,6 +6,7 @@ export const ClassroomConsumer = ClassroomContext.Consumer;
 
 const ClassroomProvider = ({ children }) => {
   const [classrooms ,setClassrooms] = useState([])
+  const [classroom, setClassroom] = useState([])
 
   useEffect ( () => {
     axios.get('/api/classrooms')
@@ -14,6 +15,12 @@ const ClassroomProvider = ({ children }) => {
       })
       .catch( err => console.log(err))
   }, [])
+
+  const getClassroom = (id) => {
+    axios.get(`/api/classrooms/${id}`)
+    .then( res => setClassroom(res.data) )
+    .catch( err => console.log(err) )
+  }
 
    const deleteClassroom = (id) => {
     axios.delete(`/api/classrooms/${id}`)
