@@ -20,10 +20,10 @@ const ClassroomList = ({deleteClassroom, classrooms}) => {
       <Header>Classroom List</Header>
       <Card.Group>
         { renderClassrooms() }
-        <Card>
+        <Card style={{backgroundColor: '#1CB993'}}>
           <Card.Content>
-            <Card.Header>
-              <Link to="/CreateClassroom">
+            <Card.Header textAlign="center">
+              <Link to="/CreateClassroom"  style={{color:'white'}}>
                 Start new classroom
               </Link>
             </Card.Header>
