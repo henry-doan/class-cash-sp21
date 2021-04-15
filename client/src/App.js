@@ -13,6 +13,7 @@ import Footer from './components/shared/Footer';
 import ClassroomSelect from './components/classrooms/ClassroomSelect';
 import MyClassroom from './components/classrooms/MyClassroom';
 import Dashboard from './components/enrollments/Dashboard';
+import Dashboards from './components/enrollments/Dashboards';
 import CreatePoints from './components/points/CreatePoints';
 import Earn from './components/points/Earn';
 import AdminRewards from './components/rewards/AdminRewards';
@@ -35,7 +36,8 @@ const App = () => (
           <ProtectedRoute exact path="/ClassroomSelect" component={ClassroomSelect} />
           <ProtectedRoute exact path="/CreateClassroom" component={CreateClassroom} />
           <ProtectedRoute exact path="/MyClassroom" component={MyClassroom} />
-          <ProtectedRoute exact path="/Dashboard" component={Dashboard} />
+          <ProtectedRoute exact path="/Dashboard/:id" component={Dashboard} />
+          <ProtectedRoute exact path="/Dashboards" component={Dashboards} />
           <ProtectedRoute exact path="/CreatePoints" component={CreatePoints} />
           <ProtectedRoute exact path="/Earn" component={Earn} />
           <ProtectedRoute exact path="/AdminRewards" component={AdminRewards} />

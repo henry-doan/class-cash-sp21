@@ -1,5 +1,5 @@
 class Api::EnrollmentsController < ApplicationController
-  before_action: set_classroom
+  before_action :set_classroom
   def index
     render json: @classroom.enrollments 
   end
