@@ -1,5 +1,5 @@
 // import { ClassroomConsumer } from "../../providers/ClassroomProvider"
-import { Segment, Header, Card, List, Button, Icon } from 'semantic-ui-react'
+import { Segment, Header, Card, List, Button, Icon, Grid} from 'semantic-ui-react'
 import { useState } from 'react'
 import { ClassroomConsumer } from '../../providers/ClassroomProvider';
 import { Link } from 'react-router-dom'
@@ -11,7 +11,9 @@ const ClassroomList = ({deleteClassroom, classrooms}) => {
   
   const renderClassrooms = () => {
     return classrooms.map( c => (
+      <Link to={{pathname: `/Dashboards`}} >
       <Classroom c={c}/>
+      </Link>
     ))
   }
 
@@ -19,16 +21,16 @@ const ClassroomList = ({deleteClassroom, classrooms}) => {
     <Segment>
       <Header>Classroom List</Header>
       <Card.Group>
-        { renderClassrooms() }
-        <Card style={{backgroundColor: '#1CB993'}}>
-          <Card.Content>
-            <Card.Header textAlign="center">
-              <Link to="/CreateClassroom"  style={{color:'white'}}>
-                Start new classroom
-              </Link>
-            </Card.Header>
-          </Card.Content>
-        </Card>
+          { renderClassrooms() }
+          <Card style={{backgroundColor: '#1CB993'}}>
+            <Card.Content>
+              <Card.Header textAlign="center">
+                <Link to="/CreateClassroom"  style={{color:'white'}}>
+                  Start new classroom
+                </Link>
+              </Card.Header>
+            </Card.Content>
+          </Card>
       </Card.Group>
     </Segment>
   )
