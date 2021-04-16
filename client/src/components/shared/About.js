@@ -43,7 +43,7 @@ const About = () => {
             <Card.Description>
               While working at the U of U Hospital, I heard a friend tell me about coding and I immediately knew that it was something I had to do. | Hockey, Coding and Coffee are my joys | Daily goal to absorb new knowlege everyday.
             </Card.Description>
-            
+            <Divider hidden />
           </Card>
         </Grid.Column>
         
