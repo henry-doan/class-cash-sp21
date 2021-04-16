@@ -13,15 +13,10 @@ const UserEnrollmentsList = ({user}) => {
     .then( res => setUserEnrollments(res.data))
     .catch( err => console.log(err))
   }, [])
-
-  // useEffect( () => {
-  //   getUserEnrollments()
-  // })
   
   const renderUserEnrollments = () => {
     return userEnrollments.map( e => (
       <Classroom e={e}/>
-      // <h3>{e.total_points}</h3>
     ))
   }
 
