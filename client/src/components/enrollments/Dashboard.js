@@ -1,7 +1,8 @@
 import MyPoints from './MyPoints'
 
 const Dashboard = ({location}) => {
-  const { classroomId, enrollmentId } = location.state.classroomId
+  const { classroomId } = location.state.classroomId
+  const { enrollmentId } = location.state.enrollmentId
 
   return(
   <>
