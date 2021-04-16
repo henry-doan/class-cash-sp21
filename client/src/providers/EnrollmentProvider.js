@@ -6,20 +6,21 @@ export const EnrollmentConsumer = EnrollmentContext.Consumer;
 
 const EnrollmentProvider = ({ children }) => {
   const [enrollment, setEnrollment] = useState([])
+  const [enrollments, setEnrollments] = useState([])
 
-  const getEnrollment = (classroomId) => {
-    axios.get(`/api/classrooms/${classroomId}/dpls`)
-      .then( res => setEnrollment(res.data) )
-      .catch( err => console.log(err) )
-  }
+  // const getEnrollment = (classroomId) => {
+  //   axios.get(`/api/classrooms/${classroomId}/dpls`)
+  //     .then( res => setEnrollment(res.data) )
+  //     .catch( err => console.log(err) )
+  // }
 
-  useEffect ( () => {
-    axios.get(`/api/classrooms/${classroom_id}/enrollments`)
-      .then( res => {
-        setEnrollments(res.data)
-      })
-      .catch( err => console.log(err))
-  }, [])
+  // useEffect ( () => {
+  //   axios.get(`/api/classrooms/${classroom_id}/enrollments`)
+  //     .then( res => {
+  //       setEnrollments(res.data)
+  //     })
+  //     .catch( err => console.log(err))
+  // }, [])
 //  dont use UseEffect in the provider for enrollments, create a function for getting all enrollments and useEffect in the enrollment component
    const deleteEnrollment = (id, classroom_id) => {
     axios.delete(`/api/classrooms/${classroom_id}/enrollments/${id}`)
@@ -30,7 +31,7 @@ const EnrollmentProvider = ({ children }) => {
   }
 
   const addEnrollment = (enrollment, classroom_id) => {
-    axios.post(`/api/classrooms/${id}/enrollments`, { enrollment })
+    axios.post(`/api/classrooms/${classroom_id}/enrollments`, { enrollment })
     .then( res => {
       setEnrollments([...enrollment, res.data])
     })
