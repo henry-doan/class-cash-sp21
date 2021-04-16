@@ -20,6 +20,7 @@ import AdminRewards from './components/rewards/AdminRewards';
 import Spend from './components/rewards/Spend';
 import CreateClassroom from './components/classrooms/CreateClassroom';
 import ClassroomProvider from './providers/ClassroomProvider'
+import ViewClassrooms from './components/classrooms/ViewClassrooms'
 
 const App = () => (
   <>
@@ -36,6 +37,7 @@ const App = () => (
           <ProtectedRoute exact path="/ClassroomSelect" component={ClassroomSelect} />
           <ProtectedRoute exact path="/CreateClassroom" component={CreateClassroom} />
           <ProtectedRoute exact path="/MyClassroom" component={MyClassroom} />
+          <ProtectedRoute exact path="/ViewClassrooms" component={ViewClassrooms} />
           <ProtectedRoute exact path="/Dashboard" component={Dashboard} />
           <ProtectedRoute exact path="/CreatePoints" component={CreatePoints} />
           <ProtectedRoute exact path="/Earn" component={Earn} />
