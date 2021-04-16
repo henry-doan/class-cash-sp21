@@ -1,4 +1,4 @@
-import ClassroomList from '../classrooms/ClassroomList'
+import UserEnrollmentsList from '../classrooms/UserEnrollmentsList'
 import React, { useState } from 'react'
 import Dashboard from './Dashboard'
 
@@ -13,7 +13,7 @@ const handleClick = () => {
 return (
   <>
     <button onClick={handleClick}>Change Classroom</button> 
-    {isSelectingClassroom ? <ClassroomList /> : <MyClassroomHeader />}
+    {isSelectingClassroom ? <UserEnrollmentsList /> : <MyClassroomHeader />}
     <h1>my rewards</h1>
     <h1>activities</h1>
   </>
