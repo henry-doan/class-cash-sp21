@@ -8,14 +8,18 @@ import 'semantic-ui-css/semantic.min.css';
 import AuthProvider from './providers/AuthProvider';
 import { initMiddleware } from 'devise-axios';
 import ClassroomProvider from './providers/ClassroomProvider';
+import EnrollmentProvider from './providers/EnrollmentProvider';
+
 initMiddleware();
 ReactDOM.render(
   <React.StrictMode>
     <AuthProvider>
         <ClassroomProvider>
-        <BrowserRouter>
-          <App />   
-        </BrowserRouter>
+          <EnrollmentProvider>
+            <BrowserRouter>
+              <App />   
+            </BrowserRouter>
+          </EnrollmentProvider>
       </ClassroomProvider>
     </AuthProvider>
   </React.StrictMode>,

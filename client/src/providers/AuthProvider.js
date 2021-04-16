@@ -2,8 +2,11 @@ import React, { useState } from 'react';
 import axios from 'axios';
 export const AuthContext = React.createContext();
 export const AuthConsumer = AuthContext.Consumer;
+
 const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null)
+  const [userEnrollments, setUserEnrollments] = useState([])
+
   const handleRegister = (user, history) => {
     axios.post('/api/auth', user)
       .then( res => {
@@ -27,6 +30,12 @@ const AuthProvider = ({ children }) => {
         history.push('/login')
       })
       .catch( err => console.log(err))
+  }
+
+  const getUserEnrollments = () => {
+    axios.get(`/api/userEnrollments/${user.id}`)
+    .then( res => setUserEnrollments(res.data))
+    .catch( err => console.log(err))
   }
   return(
     <AuthContext.Provider value={{
