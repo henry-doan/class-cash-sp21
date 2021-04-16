@@ -39,14 +39,6 @@ const UserEnrollmentsList = ({user}) => {
   )
 }
 
-// const ConnectedClassroomList = (props) => (
-//   <ClassroomConsumer>
-//     { value => (
-//       <ClassroomList {...props} {...value} />
-//     )}
-//   </ClassroomConsumer>
-// )
-
 const ConnectedUserEnrollmentsList = (props) => (
   <AuthConsumer>
     { value => (
