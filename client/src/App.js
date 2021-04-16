@@ -23,7 +23,7 @@ import ClassroomProvider from './providers/ClassroomProvider'
 
 const App = () => (
   <>
-    <Navbar />
+  <Navbar />
     <FetchUser>
       <Container>
         <Switch>
@@ -46,6 +46,7 @@ const App = () => (
         <Footer />
       </Container>
     </FetchUser>
+    
   </>
 )
 export default App;
