@@ -43,10 +43,10 @@ const Classroom = ({e, deleteClassroom}) => {
           >
            Update
           </Button>
-          <Button
+          <Button 
             onClick={() => deleteClassroom(classroom.id)}
           >
-            <Icon name="trash"/>Delete
+            <Icon name="trash"/>
           </Button>
         </Card.Content>
       </Card>
