@@ -38,6 +38,8 @@ const ClassroomProvider = ({ children }) => {
     .catch( err => console.log(err))
   }
 
+ 
+
   const updateClassroom = (id, classroom) => {
     axios.put(`/api/classrooms/${id}`, {classroom})
     .then( res => {
