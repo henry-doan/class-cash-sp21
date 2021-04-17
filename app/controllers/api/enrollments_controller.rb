@@ -33,9 +33,14 @@ class Api::EnrollmentsController < ApplicationController
     render json: { message: 'Enrollment Deleted!' }
   end
 
+  def findEnrollment
+    @enrollment = Enrollment.where(["user_id = ? AND classroom_id = ?", params[:user_id], params[:classroom_id] ])
+    render json: @enrollment
+  end
+
   private 
     def enrollment_params
-      params.require(:enrollment).permit(:total_points)
+      params.require(:enrollment).permit(:total_points, :classroom_id, :user_id)
     end
 
     def set_classroom
