@@ -1,9 +1,10 @@
 import React, {useState} from 'react'
 import { Dropdown } from 'semantic-ui-react'
-import UserEnrollmentsList from '../classrooms/UserEnrollmentsList';
+import DropDownList from '../classrooms/DropDownList';
 const options = [
-  <UserEnrollmentsList />,
+  <DropDownList />,
 ]
+
 
 const DropDown = () => {
   const [classroom, setClassroom] = useState([])
