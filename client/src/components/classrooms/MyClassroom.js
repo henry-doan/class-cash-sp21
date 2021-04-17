@@ -2,6 +2,7 @@ import { ClassroomConsumer } from '../../providers/ClassroomProvider'
 import { useState, useEffect } from 'react'
 import axios from 'axios'
 import ClassroomUser from './ClassroomUser'
+import AddDeleteEnrollment from '../enrollments/AddDeleteEnrollment'
 
 const MyClassroom = ({location, getClassroom}) => {
   const [classroom, setClassroom] = useState([])
@@ -19,7 +20,7 @@ const MyClassroom = ({location, getClassroom}) => {
     .catch( err => console.log(err) )
   }, [])
 
-  const renderClassrooms = () => {
+  const renderClassroomUsers = () => {
     return classroomUsers.map( c => (
       // <ClassroomUser c={c}/>
       <p>{c.name}</p>
@@ -31,7 +32,10 @@ const MyClassroom = ({location, getClassroom}) => {
     <h1>Classroom</h1>
     <h3>{classroom.name}</h3>
     <h1>Students Enrolled:</h1>
-    { renderClassrooms() }
+    { renderClassroomUsers() }
+    <AddDeleteEnrollment 
+    classroomId={location.state.classroomId}
+    classroomUsers={classroomUsers}/>
   </>
   )
 }

@@ -16,5 +16,6 @@ Rails.application.routes.draw do
     get 'classroomid', to: 'classrooms#newclassroom'
     get 'userEnrollments/:id', to: 'users#userEnrollments'
     get 'classroomUsers/:id', to: 'classrooms#classroomUsers'
+    get 'findEnrollment/:user_id/:classroom_id', to: 'enrollments#findEnrollment'
   end
 end
