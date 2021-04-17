@@ -1,9 +1,9 @@
-import ClassroomList from './UserEnrollmentsList'
+import UserEnrollmentsList from './UserEnrollmentsList'
 
 
 const ClassroomSelect = () => (
   <>
-    <ClassroomList />
+    <UserEnrollmentsList />
   </>
 )
 export default ClassroomSelect;

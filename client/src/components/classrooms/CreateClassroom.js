@@ -60,7 +60,7 @@ const CreateClassroom = ({addClassroom, user }) => {
           </Modal>
         <br />
         <br />
-        <Button style={{backgroundColor: '#1CB993' }}><Link style={{color: 'white'}}to=''>Show All Classrooms</Link></Button>
+        <Button style={{backgroundColor: '#1CB993' }}><Link style={{color: 'white'}}to='/ViewClassrooms'>Show All Classrooms</Link></Button>
       </Segment>
       </Form>
   </Segment>

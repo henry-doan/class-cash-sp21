@@ -54,12 +54,19 @@ const ClassroomProvider = ({ children }) => {
     .catch(err => console.log(err))
   } 
 
+  // const getClassroomUsers = () => {
+  //   axios.get(`/api/classroomUsers/${classroom.id}`)
+  //   .then( res => setClassroomUsers(res.data))
+  //   .catch( err => console.log(err))
+  // }
+
   return(
     <ClassroomContext.Provider value={{
       classrooms,
       addClassroom: addClassroom,
       deleteClassroom: deleteClassroom,
       updateClassroom: updateClassroom,
+      getClassroom: getClassroom
     }}>
       { children }
     </ClassroomContext.Provider>

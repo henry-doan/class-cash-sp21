@@ -25,27 +25,10 @@ const UserEnrollmentsList = ({user}) => {
       <Header>Classroom List</Header>
       <Card.Group>
         { renderUserEnrollments() }
-        <Card>
-          <Card.Content>
-            <Card.Header>
-              <Link to="/CreateClassroom">
-                Start new classroom
-              </Link>
-            </Card.Header>
-          </Card.Content>
-        </Card>
       </Card.Group>
     </Segment>
   )
 }
-
-// const ConnectedClassroomList = (props) => (
-//   <ClassroomConsumer>
-//     { value => (
-//       <ClassroomList {...props} {...value} />
-//     )}
-//   </ClassroomConsumer>
-// )
 
 const ConnectedUserEnrollmentsList = (props) => (
   <AuthConsumer>
