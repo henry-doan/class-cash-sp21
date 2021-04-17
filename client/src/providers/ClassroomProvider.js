@@ -1,13 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-
 const ClassroomContext = React.createContext();
 export const ClassroomConsumer = ClassroomContext.Consumer;
-
 const ClassroomProvider = ({ children }) => {
   const [classrooms ,setClassrooms] = useState([])
   const [classroom, setClassroom] = useState([])
-
   useEffect ( () => {
     axios.get('/api/classrooms')
       .then( res => {
@@ -15,13 +12,11 @@ const ClassroomProvider = ({ children }) => {
       })
       .catch( err => console.log(err))
   }, [])
-
   const getClassroom = (id) => {
     axios.get(`/api/classrooms/${id}`)
     .then( res => setClassroom(res.data) )
     .catch( err => console.log(err) )
   }
-
    const deleteClassroom = (id) => {
     axios.delete(`/api/classrooms/${id}`)
       .then( res => {
@@ -29,7 +24,6 @@ const ClassroomProvider = ({ children }) => {
       })
       .catch( err => console.log(err))
   }
-
   const addClassroom = (classroom) => {
     axios.post('/api/classrooms', { classroom })
     .then( res => {
@@ -71,7 +65,5 @@ const ClassroomProvider = ({ children }) => {
       { children }
     </ClassroomContext.Provider>
   )
-
 }
-
 export default ClassroomProvider;
