@@ -1,7 +1,5 @@
 import { useState, useEffect } from 'react'
 import { Card, Button, Icon } from "semantic-ui-react";
-import {ClassroomConsumer} from '../../providers/ClassroomProvider';
-import UpdateClassroom from './UpdateClassroom';
 import { Link } from 'react-router-dom'
 import axios from 'axios';
 
@@ -23,13 +21,15 @@ return(
         </Card.Header>
       </Card.Content>
       <Card.Content>
-        <Button>
+        <Button>   
           <Link to={{
             pathname: '/Dashboard',
+            
             state: {
               classroomId: classroom.id,
               enrollmentId: e.id
             }
+          
           }}>
             Select
           </Link>

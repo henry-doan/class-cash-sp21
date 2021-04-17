@@ -2,16 +2,13 @@ import { Form, Button } from "semantic-ui-react";
 import { ClassroomConsumer } from '../../providers/ClassroomProvider';
 import axios from 'axios';
 import { useState } from 'react'
-
 const UpdateClassroom = ({id, name, updateClassroom, setEditing}) => {
   const [classroom, setClassroom] = useState({name: name})
-
   const handleSubmit = (e) => {
     e.preventDefault();
     updateClassroom(id, classroom)
     setEditing(false)
   } 
-
   return(
     <Form onSubmit={handleSubmit}>
       <Form.Input 
@@ -26,8 +23,6 @@ const UpdateClassroom = ({id, name, updateClassroom, setEditing}) => {
     </Form>
   )
 }
-
-
 const ConnectedUpdateClassroom = (props) => (
   <ClassroomConsumer>
     { value => (
@@ -35,5 +30,4 @@ const ConnectedUpdateClassroom = (props) => (
     )}
   </ClassroomConsumer>
 )
-
 export default ConnectedUpdateClassroom;
