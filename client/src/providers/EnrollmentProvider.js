@@ -44,7 +44,6 @@ const EnrollmentProvider = ({ children }) => {
       enrollments,
       addEnrollment: addEnrollment,
       deleteEnrollment: deleteEnrollment,
-      
     }}>
       { children }
     </EnrollmentContext.Provider>
