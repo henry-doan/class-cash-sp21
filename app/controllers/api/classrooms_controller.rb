@@ -1,14 +1,11 @@
 class Api::ClassroomsController < ApplicationController
-
   def index
     render json: Classroom.all
   end
-
   def show
     @classroom = Classroom.find(params[:id])
     render json: @classroom
   end
-
   def create
     @classroom = Classroom.new(classroom_params)
     if @classroom.save
@@ -17,7 +14,6 @@ class Api::ClassroomsController < ApplicationController
       render json: { errors: @classroom.errors }, status: :unprocessable_entity
     end
   end
-
   def update
     @classroom = Classroom.find(params[:id])
     if @classroom.update(classroom_params)
@@ -26,11 +22,9 @@ class Api::ClassroomsController < ApplicationController
       render json: { errors: @classroom.errors }, status: :unprocessable_entity
     end
   end
-
   def newclassroom 
     render json: Classroom.last
   end
-  
   def destroy
     @classroom = Classroom.find(params[:id])
     @classroom.destroy
