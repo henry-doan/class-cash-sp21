@@ -19,7 +19,7 @@ const AddDeleteEnrollment = ({user, classroomId, classroomUsers, addEnrollment, 
 
   const handleSubmission = (e) => {
     e.preventDefault()
-    addEnrollment(enrollment, classroomId)
+    addEnrollment(classroomId, enrollment)
   }
 
   const handleDeletion = (e) => {
