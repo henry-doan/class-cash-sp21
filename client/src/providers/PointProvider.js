@@ -8,7 +8,7 @@ const PointProvider = ({ children }) => {
   const [point, setPoint] = useState([])
   const [points, setPoints] = useState([])
 
-  useEffect ( () => {
+  useEffect ( (enrollment_id) => {
     axios.get(`/api/enrollments/${enrollment_id}/points`)
       .then( res => {
         setPoints(res.data)

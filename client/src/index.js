@@ -9,6 +9,8 @@ import AuthProvider from './providers/AuthProvider';
 import { initMiddleware } from 'devise-axios';
 import ClassroomProvider from './providers/ClassroomProvider';
 import EnrollmentProvider from './providers/EnrollmentProvider';
+import PointProvider from './providers/PointProvider'
+import RewardProvider from './providers/RewardProvider'
 
 initMiddleware();
 ReactDOM.render(
@@ -16,9 +18,13 @@ ReactDOM.render(
     <AuthProvider>
         <ClassroomProvider>
           <EnrollmentProvider>
-            <BrowserRouter>
-              <App />   
-            </BrowserRouter>
+            <RewardProvider>
+              <PointProvider>
+                <BrowserRouter>
+                  <App />   
+                </BrowserRouter>
+              </PointProvider>
+            </RewardProvider>
           </EnrollmentProvider>
       </ClassroomProvider>
     </AuthProvider>
