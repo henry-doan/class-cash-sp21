@@ -19,7 +19,7 @@ const Navbar = ({ location, user, handleLogout, history }) => {
           
           
           <Menu.Menu position='right'>
-          <Menu.Item><DropdownBar/></Menu.Item>
+          <Menu.Item><DropdownBar /></Menu.Item>
             <Menu.Item
               name='logout'
               onClick={() => handleLogout(history)}

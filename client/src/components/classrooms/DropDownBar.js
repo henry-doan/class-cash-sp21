@@ -11,14 +11,13 @@ const options = [
 
 const DropDownBar = () => {
   
-
  
 
   return(
   <Dropdown 
     className='button icon'
     floating
-    placeholder="Classrooms"
+    placeholder='Classrooms'
     options={options}
   />
   )
