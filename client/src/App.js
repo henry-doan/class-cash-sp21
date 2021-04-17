@@ -21,6 +21,7 @@ import Spend from './components/rewards/Spend';
 import CreateClassroom from './components/classrooms/CreateClassroom';
 import ClassroomProvider from './providers/ClassroomProvider'
 import ViewClassrooms from './components/classrooms/ViewClassrooms'
+import AuthConsumer from './providers/AuthProvider'
 
 const App = () => (
   <>
@@ -51,4 +52,5 @@ const App = () => (
     
   </>
 )
+
 export default App;
