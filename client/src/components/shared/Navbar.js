@@ -1,7 +1,7 @@
 import { AuthConsumer } from '../../providers/AuthProvider';
 import { Menu } from 'semantic-ui-react';
 import { Link, withRouter } from 'react-router-dom';
-import Dropdown from './DropDown';
+import DropdownBar from '../classrooms/DropDownBar';
 const Navbar = ({ location, user, handleLogout, history }) => {
   const rightNavItem = () => {
     if (user) {
@@ -19,7 +19,7 @@ const Navbar = ({ location, user, handleLogout, history }) => {
           
           
           <Menu.Menu position='right'>
-          <Menu.Item><Dropdown/></Menu.Item>
+          <Menu.Item><DropdownBar/></Menu.Item>
             <Menu.Item
               name='logout'
               onClick={() => handleLogout(history)}
