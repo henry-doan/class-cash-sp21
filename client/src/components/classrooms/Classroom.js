@@ -5,7 +5,7 @@ import UpdateClassroom from './UpdateClassroom';
 import { Link } from 'react-router-dom'
 import axios from 'axios';
 
-const Classroom = ({e, deleteClassroom}) => {
+const Classroom = ({e, deleteClassroom, id}) => {
   const [editing, setEditing] = useState(false)
   const [classroom, setClassroom] = useState([])
 
@@ -29,7 +29,7 @@ const Classroom = ({e, deleteClassroom}) => {
         <Card.Content>
           <Button>
             <Link to={{
-              pathname: '/Dashboard',
+              pathname: `/Dashboard`,
               state: {
                 classroomId: classroom.id,
                 enrollmentId: e.id

@@ -21,13 +21,15 @@ return(
         </Card.Header>
       </Card.Content>
       <Card.Content>
-        <Button>
+        <Button>   
           <Link to={{
             pathname: '/Dashboard',
+            
             state: {
               classroomId: classroom.id,
               enrollmentId: e.id
             }
+          
           }}>
             Select
           </Link>
