@@ -33,7 +33,6 @@ const EnrollmentProvider = ({ children }) => {
   const addEnrollment = (classroom_id, enrollment) => {
     axios.post(`/api/classrooms/${classroom_id}/enrollments`, { enrollment })
     .then( res => {
-      debugger
       setEnrollments([...enrollments, res.data])
     })
     .catch( err => console.log(err))

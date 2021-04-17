@@ -31,8 +31,8 @@ const CreateClassroom = ({addClassroom, user }) => {
     addClassroom(classroom)
     let timer = setTimeout(getLatestClassroomId(), 1000)
     clearTimeout(timer)
-    
     setClassroom({name: ""})
+    window.location.assign('/ViewClassrooms')
   }
   
   return(
