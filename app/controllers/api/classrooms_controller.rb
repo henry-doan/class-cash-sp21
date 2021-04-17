@@ -27,6 +27,10 @@ class Api::ClassroomsController < ApplicationController
     end
   end
 
+  def newclassroom 
+    render json: Classroom.last
+  end
+  
   def destroy
     @classroom = Classroom.find(params[:id])
     @classroom.destroy
