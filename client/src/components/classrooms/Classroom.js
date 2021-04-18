@@ -49,6 +49,17 @@ const Classroom = ({e, deleteClassroom}) => {
           >
             <Icon name="trash"/>
           </Button>
+          <Button>
+            <Link to={{
+              pathname: `/Spend/${classroom.id}`,
+              state: {
+                classroomId: classroom.id,
+                enrollmentId: e.id
+              }
+            }}>
+              View Rewards
+            </Link>
+          </Button>
         </Card.Content>
       </Card>
     }   

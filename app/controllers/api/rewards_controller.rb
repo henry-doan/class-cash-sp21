@@ -1,5 +1,6 @@
 class Api::RewardsController < ApplicationController
   before_action :set_enrollment
+  before_action :set_classroom
   before_action :set_reward, only: [ :create, :update, :destroy]
   
   def index
@@ -30,11 +31,11 @@ class Api::RewardsController < ApplicationController
   private
 
     def set_reward
-      @point = @enrollment.rewards.find(params[:id])
+      @reward = @enrollment.rewards.find(params[:id])
     end
 
     def reward_params
-      params.require(:reward).permit(:name, :cost, :desc, :enrollment_id)
+      params.require(:reward).permit(:name, :cost, :desc, :enrollment_id, :classroom_id)
     end
 
     def set_enrollment
