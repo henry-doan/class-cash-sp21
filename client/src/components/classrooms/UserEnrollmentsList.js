@@ -22,7 +22,6 @@ const UserEnrollmentsList = ({user}) => {
 
   return (
     <Segment>
-      <Header>Classroom List</Header>
       <Card.Group>
         { renderUserEnrollments() }
       </Card.Group>
