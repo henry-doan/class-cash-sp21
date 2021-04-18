@@ -1,6 +1,5 @@
 class Api::RewardsController < ApplicationController
   before_action :set_enrollment
-  before_action :set_classroom
   before_action :set_reward, only: [ :create, :update, :destroy]
   
   def index
