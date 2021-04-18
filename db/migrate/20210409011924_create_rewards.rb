@@ -4,7 +4,7 @@ class CreateRewards < ActiveRecord::Migration[6.1]
       t.string :name
       t.integer :cost
       t.text :desc
-      t.belongs_to :enrollment, null: false, foreign_key: true
+      t.belongs_to :enrollment, null: true, foreign_key: true
 
       t.timestamps
     end

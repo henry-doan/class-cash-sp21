@@ -13,10 +13,12 @@ Rails.application.routes.draw do
     resources :enrollments do
       resources :rewards
     end
+
     get 'classroomid', to: 'classrooms#newclassroom'
     get 'userEnrollments/:id', to: 'users#userEnrollments'
     get 'userClassroom/:id', to: 'users#userClassrooms'
     get 'classroomUsers/:id', to: 'classrooms#classroomUsers'
     get 'findEnrollment/:user_id/:classroom_id', to: 'enrollments#findEnrollment'
+    get 'classroomRewards/:id', to: 'classrooms#classroomRewards'
   end
 end

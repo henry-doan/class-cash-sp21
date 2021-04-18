@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_13_054044) do
+ActiveRecord::Schema.define(version: 2021_04_18_042228) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -48,6 +48,8 @@ ActiveRecord::Schema.define(version: 2021_04_13_054044) do
     t.bigint "enrollment_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "classroom_id"
+    t.index ["classroom_id"], name: "index_rewards_on_classroom_id"
     t.index ["enrollment_id"], name: "index_rewards_on_enrollment_id"
   end
 
@@ -85,5 +87,6 @@ ActiveRecord::Schema.define(version: 2021_04_13_054044) do
   add_foreign_key "enrollments", "classrooms"
   add_foreign_key "enrollments", "users"
   add_foreign_key "points", "enrollments"
+  add_foreign_key "rewards", "classrooms"
   add_foreign_key "rewards", "enrollments"
 end

@@ -35,6 +35,11 @@ class Api::ClassroomsController < ApplicationController
     @classroom = Classroom.find(params[:id])
     render json: @classroom.users
   end
+
+  def classroomRewards
+    @classroom = Classroom.find(params[:id])
+    render json: @classroom.rewards
+  end
   
   private
     def classroom_params
