@@ -21,4 +21,4 @@ const Reward = ({r}) => (
   </Grid.Row>
 )
 
-export default Reward
+export default Reward;
