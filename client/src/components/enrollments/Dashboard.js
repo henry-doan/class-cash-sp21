@@ -1,4 +1,6 @@
 import MyPoints from './MyPoints'
+import MyRewards from '../rewards/MyRewards'
+
 const Dashboard = ({location}) => {
   const { classroomId } = location.state.classroomId
   const { enrollmentId } = location.state.enrollmentId
@@ -6,8 +8,11 @@ const Dashboard = ({location}) => {
   <>
     <h1>Dashboard</h1>
     <MyPoints 
-    classroomId={location.state.classroomId}
-    enrollmentId={location.state.enrollmentId}
+      classroomId={location.state.classroomId}
+      enrollmentId={location.state.enrollmentId}
+    />
+    <MyRewards
+      enrollmentId={location.state.enrollmentId}
     />
   </>
   )

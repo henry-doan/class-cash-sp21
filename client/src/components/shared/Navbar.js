@@ -17,9 +17,15 @@ const Navbar = ({ location, user, handleLogout, history }) => {
             </Link>
           </Menu>
           
-          
           <Menu.Menu position='right'>
-          <Menu.Item><DropdownBar /></Menu.Item>
+            {/* <Link to="/Dashboard">
+              <Menu.Item
+                name='dashboard'
+              />
+            </Link> */}
+            <Menu.Item>
+              <DropdownBar />
+            </Menu.Item>
             <Menu.Item
               name='logout'
               onClick={() => handleLogout(history)}
