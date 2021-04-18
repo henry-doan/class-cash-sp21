@@ -1,6 +1,8 @@
 import { RewardConsumer } from '../../providers/RewardProvider'
 import { useState, useEffect } from 'react'
 import axios from 'axios'
+import Reward from './Reward'
+import { Card, Grid, Header } from 'semantic-ui-react'
 
 const MyRewards = ({enrollmentId}) => {
   const [rewards, setRewards] = useState([])
@@ -15,14 +17,16 @@ const MyRewards = ({enrollmentId}) => {
 
   const renderRewards = () => {
     return rewards.map( r => (
-      // <Reward r={r}/>
-      <p>{r.name}</p>
+      <Reward r={r}/>
     ))
   }
 
   return(
     <>
-      {renderRewards()}
+      <Header>My Rewards</Header>
+      <Grid columns={1}>
+        {renderRewards()}
+      </Grid>
     </>
   )
 }

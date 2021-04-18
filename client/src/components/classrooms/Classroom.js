@@ -8,6 +8,7 @@ import axios from 'axios';
 const Classroom = ({e, deleteClassroom, id}) => {
   const [editing, setEditing] = useState(false)
   const [classroom, setClassroom] = useState([])
+  const [enrollmentId, setEnrollmentId] = useState(e.id)
 
   useEffect( () => {
     axios.get(`/api/classrooms/${e.classroom_id}`)

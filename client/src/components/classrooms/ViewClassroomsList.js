@@ -14,7 +14,6 @@ const ViewClassroomsList = ({classrooms}) => {
     <Segment>
       <Header>Classroom List</Header>
       <Card.Group>
-        { renderClassrooms() }
         <Card>
           <Card.Content>
             <Card.Header>
@@ -24,6 +23,7 @@ const ViewClassroomsList = ({classrooms}) => {
             </Card.Header>
           </Card.Content>
         </Card>
+        { renderClassrooms() }
       </Card.Group>
     </Segment>
   )
