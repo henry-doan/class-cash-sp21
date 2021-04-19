@@ -2,10 +2,11 @@ import MyPoints from './MyPoints';
 import MyRewards from '../rewards/MyRewards';
 import { AuthConsumer } from '../../providers/AuthProvider';
 import { Button, Grid, Segment } from 'semantic-ui-react';
-import {Link} from 'react-router-dom';
+import {Link, useParams} from 'react-router-dom';
 
 const Dashboard = ({location, user}) => {
-  const isAdmin = user.isAdmin
+  const isAdmin = user?.isAdmin
+  const {id} = useParams()
   return(
   <>
     <Grid>
@@ -23,7 +24,7 @@ const Dashboard = ({location, user}) => {
             to={{
               pathname:'/AdminRewards',
               state: {
-                enrollmentId: location.state.enrollmentId,
+                enrollmentId: id,
                 
               } }}
             > Admin Rewards</Link>
@@ -33,11 +34,11 @@ const Dashboard = ({location, user}) => {
     </Grid>
     <Segment basic>
     <MyPoints 
-      classroomId={location.state.classroomId}
-      enrollmentId={location.state.enrollmentId}
+      classroomId={id}
+      enrollmentId={id}
     />
     <MyRewards
-      enrollmentId={location.state.enrollmentId}
+      enrollmentId={id}
     /></Segment>
   </>
   )
