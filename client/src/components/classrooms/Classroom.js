@@ -31,10 +31,10 @@ const Classroom = ({e, deleteClassroom}) => {
           <Button>
             <Link to={{
               pathname: `/Dashboard/${classroom.id}`,
-              // state: {
-              //   classroomId: classroom.id,
-              //   enrollmentId: e.id
-              // }
+              state: {
+                classroomId: classroom.id,
+                enrollmentId: e.id
+              }
             }}>
               Select
             </Link>
