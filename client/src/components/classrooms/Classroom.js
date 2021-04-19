@@ -5,10 +5,10 @@ import UpdateClassroom from './UpdateClassroom';
 import { Link } from 'react-router-dom'
 import axios from 'axios';
 
-const Classroom = ({e, deleteClassroom, id}) => {
+const Classroom = ({e, deleteClassroom}) => {
   const [editing, setEditing] = useState(false)
   const [classroom, setClassroom] = useState([])
-  const [enrollmentId, setEnrollmentId] = useState(e.id)
+  // const [enrollmentId, setEnrollmentId] = useState(e.id)
 
   useEffect( () => {
     axios.get(`/api/classrooms/${e.classroom_id}`)
@@ -31,10 +31,10 @@ const Classroom = ({e, deleteClassroom, id}) => {
           <Button>
             <Link to={{
               pathname: `/Dashboard/${classroom.id}`,
-              state: {
-                classroomId: classroom.id,
-                enrollmentId: e.id
-              }
+              // state: {
+              //   classroomId: classroom.id,
+              //   enrollmentId: e.id
+              // }
             }}>
               Select
             </Link>
