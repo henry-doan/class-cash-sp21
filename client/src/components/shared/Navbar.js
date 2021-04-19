@@ -4,7 +4,10 @@ import {EnrollmentConsumer} from '../../providers/EnrollmentProvider';
 import { Menu } from 'semantic-ui-react';
 import { Link, withRouter } from 'react-router-dom';
 import DropdownBar from '../classrooms/DropDownBar';
-const Navbar = ({ location, user, handleLogout, history, classroom}) => {
+import { useState } from 'react';
+const Navbar = ({ location, user, handleLogout, history}) => {
+  const [classroom, setClassroom] = useState([])
+  const [getUserClassroom, setGetUserClassroom] = useState([])
   const rightNavItem = () => {
     if (user) {
       return (
@@ -26,7 +29,7 @@ const Navbar = ({ location, user, handleLogout, history, classroom}) => {
               />
             </Link> */}
             <Menu.Item>
-              <DropdownBar classroom={classroom} />
+              <DropdownBar classroom={setGetUserClassroom} />
             </Menu.Item>
             <Menu.Item
               name='logout'
