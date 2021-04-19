@@ -1,8 +1,10 @@
 import { AuthConsumer } from '../../providers/AuthProvider';
+import {ClassroomConsumer} from '../../providers/ClassroomProvider';
+import {EnrollmentConsumer} from '../../providers/EnrollmentProvider';
 import { Menu } from 'semantic-ui-react';
 import { Link, withRouter } from 'react-router-dom';
 import DropdownBar from '../classrooms/DropDownBar';
-const Navbar = ({ location, user, handleLogout, history }) => {
+const Navbar = ({ location, user, handleLogout, history, classroom}) => {
   const rightNavItem = () => {
     if (user) {
       return (
@@ -24,7 +26,7 @@ const Navbar = ({ location, user, handleLogout, history }) => {
               />
             </Link> */}
             <Menu.Item>
-              <DropdownBar />
+              <DropdownBar classroom={classroom} />
             </Menu.Item>
             <Menu.Item
               name='logout'
@@ -77,10 +79,32 @@ const Navbar = ({ location, user, handleLogout, history }) => {
   )
 }
 const ConnectedNavbar = (props) => (
+  <ClassroomConsumer>
+    {
+      value => (
+        <Navbar {...props} {...value} />
+      )
+    }
+  </ClassroomConsumer>
+)
+
+const EnrollmentConnectedNavbar = (props) => (
+  <EnrollmentConsumer>
+    {
+      value => (
+        <ConnectedNavbar {...props} {...value} />
+      )
+    }
+  </EnrollmentConsumer>
+)
+
+const AuthEnrollmentConnectedNavbar = (props) => (
   <AuthConsumer>
     { auth =>
-      <Navbar {...props} {...auth} />
+      <EnrollmentConnectedNavbar {...props} {...auth} />
     }
   </AuthConsumer>
 )
-export default withRouter(ConnectedNavbar);
+
+
+export default withRouter(AuthEnrollmentConnectedNavbar);

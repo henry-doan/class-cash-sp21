@@ -9,15 +9,21 @@ const options = [
 ]
 
 
-const DropDownBar = () => {
+const DropDownBar = ({classroom}) => {
+//   const [classroom, setClassroom] = useState([])
   
- 
+//  useEffect( () => {
+//   axios.get(`/api/classrooms/${e.classroom_id}`)
+//     .then( res => setClassroom(res.data))
+//     .catch( err => console.log(err))
+// }, [])
 
   return(
   <Dropdown 
     className='button icon'
     floating
-    placeholder='Classrooms'
+    key={classroom?.id}
+    placeholder={classroom?.name}
     options={options}
   />
   )

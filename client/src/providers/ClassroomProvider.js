@@ -3,8 +3,8 @@ import axios from 'axios';
 const ClassroomContext = React.createContext();
 export const ClassroomConsumer = ClassroomContext.Consumer;
 const ClassroomProvider = ({ children }) => {
-  const [classrooms ,setClassrooms] = useState([])
-  const [classroom, setClassroom] = useState([])
+  const [classrooms, setClassrooms] = useState([])
+  const [classroom, setClassroom] = useState()
   useEffect ( () => {
     axios.get('/api/classrooms')
       .then( res => {
@@ -54,9 +54,11 @@ const ClassroomProvider = ({ children }) => {
   //   .catch( err => console.log(err))
   // }
 
+  
   return(
     <ClassroomContext.Provider value={{
       classrooms,
+      classroom,
       addClassroom: addClassroom,
       deleteClassroom: deleteClassroom,
       updateClassroom: updateClassroom,
