@@ -1,4 +1,6 @@
 class Api::ClassroomsController < ApplicationController
+  before_action :set_classroom
+  
   def index
     render json: Classroom.all
   end
@@ -15,7 +17,6 @@ class Api::ClassroomsController < ApplicationController
     end
   end
   def update
-    @classroom = Classroom.find(params[:id])
     if @classroom.update(classroom_params)
       render json: @classroom
     else
@@ -26,18 +27,21 @@ class Api::ClassroomsController < ApplicationController
     render json: Classroom.last
   end
   def destroy
-    @classroom = Classroom.find(params[:id])
     @classroom.destroy
     render json: { message: 'classroom deleted' }
   end
 
   def classroomUsers
-    @classroom = Classroom.find(params[:id])
+   
     render json: @classroom.users
   end
   
   private
     def classroom_params
       params.require(:classroom).permit(:name)
+    end
+
+    def set_classroom
+      @classroom = Classroom.find(params[:id])
     end
 end

@@ -25,7 +25,7 @@ import AuthConsumer from './providers/AuthProvider'
 
 const App = () => (
   <>
-  <Navbar />
+    <Navbar />
     <FetchUser>
       <Container>
         <Switch>
@@ -39,7 +39,7 @@ const App = () => (
           <ProtectedRoute exact path="/CreateClassroom" component={CreateClassroom} />
           <ProtectedRoute exact path="/MyClassroom" component={MyClassroom} />
           <ProtectedRoute exact path="/ViewClassrooms" component={ViewClassrooms} />
-          <ProtectedRoute exact path="/Dashboard" component={Dashboard} />
+          <ProtectedRoute exact path="/Dashboard/:id" component={Dashboard} />
           <ProtectedRoute exact path="/CreatePoints" component={CreatePoints} />
           <ProtectedRoute exact path="/Earn" component={Earn} />
           <ProtectedRoute exact path="/AdminRewards" component={AdminRewards} />
