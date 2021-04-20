@@ -15,7 +15,7 @@ import MyClassroom from './components/classrooms/MyClassroom';
 import Dashboard from './components/enrollments/Dashboard';
 import Dashboards from './components/enrollments/Dashboards';
 import CreatePoints from './components/points/CreatePoints';
-import Earn from './components/points/Earn';
+import EarnPoints from './components/points/EarnPoints';
 import AdminRewards from './components/rewards/AdminRewards';
 import Spend from './components/rewards/Spend';
 import CreateClassroom from './components/classrooms/CreateClassroom';
@@ -41,7 +41,7 @@ const App = () => (
           <ProtectedRoute exact path="/ViewClassrooms" component={ViewClassrooms} />
           <ProtectedRoute exact path="/Dashboard/:enrollment_id/:classroom_id" component={Dashboard} />
           <ProtectedRoute exact path="/CreatePoints" component={CreatePoints} />
-          <ProtectedRoute exact path="/Earn" component={Earn} />
+          <ProtectedRoute exact path="/EarnPoints/:enrollment_id" component={EarnPoints} />
           <ProtectedRoute exact path="/AdminRewards" component={AdminRewards} />
           <ProtectedRoute exact path="/Spend/:id" component={Spend} />
           <Route component={NoMatch} />

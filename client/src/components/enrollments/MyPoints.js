@@ -1,17 +1,25 @@
 import { Header, Button } from 'semantic-ui-react';
-import Enrollment from './Enrollment';
+import Enrollmentpoints from './Enrollmentpoints';
 import { Link } from 'react-router-dom'
 
 const MyPoints = ({classroomId, enrollmentId}) => {
   return(
     <>
       <Header>My Points</Header>
-      <Enrollment 
+      <Enrollmentpoints 
         classroomId={classroomId}
         enrollmentId={enrollmentId}
       />
       <Button>
-          Earn
+        <Link to={{
+          pathname: `/EarnPoints/${enrollmentId}`,
+          state: {
+            classroomId: classroomId,
+            enrollmentId: enrollmentId
+          }
+        }}>
+        Earn
+        </Link>
       </Button>
       <Button>
       <Link to={{
