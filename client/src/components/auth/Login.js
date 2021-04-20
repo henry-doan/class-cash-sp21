@@ -3,7 +3,7 @@ import { AuthConsumer } from "../../providers/AuthProvider";
 import { Button, Form, Segment, Header } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 const Login = ({ handleLogin, history }) => {
-  const [user, setUser] = useState({ email: '', password: '' })
+  const [user, setUser] = useState({ email: '', password: '', name: '' })
   const handleSubmit = (e) => {
     e.preventDefault();
     handleLogin(user, history);
@@ -30,6 +30,7 @@ const Login = ({ handleLogin, history }) => {
           type='password'
           onChange={(e, { value }) => setUser({ ...user, password: value })}
         />
+        
         <Segment textAlign='center' basic>
           <Button style={{color: '#ffffff', backgroundColor: '#1CB993' }} type='submit'>Login</Button>
           <Button>
