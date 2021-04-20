@@ -5,7 +5,7 @@ import { Button, Grid, Segment } from 'semantic-ui-react';
 import {Link, useParams} from 'react-router-dom';
 
 const Dashboard = ({location, user}) => {
-  const isAdmin = user?.isAdmin
+  const isAdmin = user?.isAdmin   //user ? isAdmin : isAdmin
   const {id} = useParams()
   return(
   <>
@@ -25,7 +25,7 @@ const Dashboard = ({location, user}) => {
               pathname:'/AdminRewards',
               state: {
                 enrollmentId: id,
-                classroomId: id,
+                
               } }}
             > Admin Rewards</Link>
           </Button>
