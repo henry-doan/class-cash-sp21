@@ -16,8 +16,11 @@ const ClassroomRewards = ({classroomId, enrollmentId}) => {
 
   const renderClassroomRewards = () => {
     return classroomRewards.map( c => (
-      // <ClassroomReward c={c}/>
-      <p>{c.name}</p>
+      <ClassroomReward 
+        c={c}
+        enrollmentId={enrollmentId}
+        classroomId={classroomId}
+      />
     ))
   }
   return(

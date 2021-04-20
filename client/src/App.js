@@ -22,6 +22,7 @@ import CreateClassroom from './components/classrooms/CreateClassroom';
 import ClassroomProvider from './providers/ClassroomProvider'
 import ViewClassrooms from './components/classrooms/ViewClassrooms'
 import AuthConsumer from './providers/AuthProvider'
+import AdminCreatePoints from './components/points/CreatePoints'
 
 const App = () => (
   <>
@@ -44,6 +45,7 @@ const App = () => (
           <ProtectedRoute exact path="/EarnPoints/:enrollment_id" component={EarnPoints} />
           <ProtectedRoute exact path="/AdminRewards" component={AdminRewards} />
           <ProtectedRoute exact path="/Spend/:id" component={Spend} />
+          <ProtectedRoute exact path="/CreatePoints/:enrollment_id/:classroom_id" component={CreatePoints} />
           <Route component={NoMatch} />
         </Switch>
         <Footer />

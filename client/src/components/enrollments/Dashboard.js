@@ -48,6 +48,34 @@ const Dashboard = ({location, user, match}) => {
             />
         </Segment>  
       
+        <h1>Dashboard</h1></Segment>
+      </Grid.Column>
+      <Grid.Column floated='right' width={4}>
+        <Segment basic>
+        {
+        isAdmin ? 
+        <>
+          <Button size='large' style={{ backgroundColor: '#1CB993' }}>
+            <Link 
+            style={{color: 'white'}}
+            to={{
+              pathname:'/AdminRewards',
+              state: {
+                enrollmentId: id,
+                
+              } }}
+            > Admin Rewards</Link>
+          </Button>
+          <Button size='large' style={{ backgroundColor: '#1CB993' }}>
+            <Link 
+            style={{color: 'white'}}
+            to={{
+              pathname:`/CreatePoints/${match.params.enrollment_id}/${match.params.classroom_id}`,
+              }}
+            > Admin Award Points</Link>
+          </Button>
+        </>
+        :'' }</Segment>
       </Grid.Column>
       <Grid.Column>
         <Segment basic >

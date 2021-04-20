@@ -1,7 +1,7 @@
 import { Card } from 'semantic-ui-react'
 
 const ClassroomReward = ({c}) => (
-  <Card>
+  <Card fluid>
     <Card.Content>
       <Card.Header>
         {c.name}
@@ -9,8 +9,9 @@ const ClassroomReward = ({c}) => (
       <Card.Description>
         {c.desc}
       </Card.Description>
+      <br/>
       <Card.Meta>
-        {c.cost}
+        {c.cost} points
       </Card.Meta>
     </Card.Content>
   </Card>
