@@ -30,11 +30,11 @@ const Classroom = ({e, deleteClassroom}) => {
         <Card.Content>
           <Button>
             <Link to={{
-              pathname: `/Dashboard/${classroom.id}`,
-              // state: {
-              //   classroomId: classroom.id,
-              //   enrollmentId: e.id
-              // }
+              pathname: `/Dashboard/${classroom.id}/${e.id}`,
+              state: {
+                classroomId: classroom.id,
+                enrollmentId: e.id
+              }
             }}>
               Select
             </Link>
@@ -48,6 +48,17 @@ const Classroom = ({e, deleteClassroom}) => {
             onClick={() => deleteClassroom(classroom.id)}
           >
             <Icon name="trash"/>
+          </Button>
+          <Button>
+            <Link to={{
+              pathname: `/Spend/${classroom.id}`,
+              state: {
+                classroomId: classroom.id,
+                enrollmentId: e.id
+              }
+            }}>
+              View Rewards
+            </Link>
           </Button>
         </Card.Content>
       </Card>

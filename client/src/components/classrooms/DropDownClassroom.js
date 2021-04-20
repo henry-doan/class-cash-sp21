@@ -13,6 +13,10 @@ useEffect( () => {
     .catch( err => console.log(err))
 }, [])
 
+const handleClick = () => {
+  window.location.reload()
+}
+
 return(
     <Card key={classroom.id}>
       <Card.Content>
@@ -21,16 +25,14 @@ return(
         </Card.Header>
       </Card.Content>
       <Card.Content>
-        <Button> 
-
+        <Button onClick={handleClick}>
           <Link to={{
-            pathname: `/Dashboard/${classroom.id}`,
+            pathname: `/Dashboard/${classroom.id}/${e.id}`,
             
-            // state: {
-            //   classroomId: classroom.id,
-            //   enrollmentId: e.id
-            // }
-          
+            state: {
+              classroomId: classroom.id,
+              enrollmentId: e.id
+            }
           }}>
             Select
           </Link>

@@ -4,9 +4,10 @@ import { AuthConsumer } from '../../providers/AuthProvider';
 import { Button, Grid, Segment } from 'semantic-ui-react';
 import {Link, useParams} from 'react-router-dom';
 
-const Dashboard = ({location, user}) => {
-  const isAdmin = user.isAdmin 
+const Dashboard = ({location, user, match}) => {
+  const isAdmin = user.isAdmin
   const {id} = useParams()
+
   return(
   <>
     <Grid>
@@ -34,11 +35,11 @@ const Dashboard = ({location, user}) => {
     </Grid>
     <Segment basic>
     <MyPoints 
-      classroomId={id}
-      enrollmentId={id}
+      classroomId={match.params.classroom_id}
+      enrollmentId={match.params.enrollment_id}
     />
     <MyRewards
-      enrollmentId={id}
+      enrollmentId={match.params.enrollment_id}
     /></Segment>
   </>
   )

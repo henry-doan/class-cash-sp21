@@ -20,11 +20,13 @@ const AddDeleteEnrollment = ({user, classroomId, classroomUsers, addEnrollment, 
   const handleSubmission = (e) => {
     e.preventDefault()
     addEnrollment(classroomId, enrollment)
+    window.location.reload()
   }
 
   const handleDeletion = (e) => {
     e.preventDefault()
     deleteEnrollment(findEnrollment[0].id, classroomId)
+    window.location.reload()
   }
 
   if (classroomUsers.some( c => c.id === user.id)) {
