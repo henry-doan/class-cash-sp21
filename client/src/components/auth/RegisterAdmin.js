@@ -3,7 +3,7 @@ import { AuthConsumer } from "../../providers/AuthProvider";
 import { Button, Form, Segment, Header, Select } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 const RegisterAdmin = ({ handleRegister, history }) => {
-  const [user, setUser] = useState({ email: '', password: '', passwordConfirmation: '', isAdmin: true }) 
+  const [user, setUser] = useState({ name: '', email: '', password: '', passwordConfirmation: '', isAdmin: true }) 
   const handleSubmit = (e) => {
     e.preventDefault();
     if (user.password === user.passwordConfirmation) {
@@ -21,6 +21,16 @@ const RegisterAdmin = ({ handleRegister, history }) => {
     <Segment basic>
       <Header as='h1' textAlign='center'>Register</Header>
       <Form onSubmit={handleSubmit}>
+      <Form.Input
+          label="Name"
+          required
+          autoFocus
+          name='name'
+          value={user.name}
+          placeholder='name'
+          onChange={(e, { value }) => setUser({ ...user, name: value })}
+        />
+        
         <Form.Input
           label="Email"
           required
