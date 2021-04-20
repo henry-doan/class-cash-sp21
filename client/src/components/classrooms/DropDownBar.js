@@ -3,27 +3,39 @@ import axios from 'axios';
 import { Dropdown } from 'semantic-ui-react'
 import DropDownList from './DropDownList';
 import DropDownClassroom from './DropDownClassroom'
-import { ClassroomConsumer } from '../../providers/ClassroomProvider';
-import { useParams } from 'react-router-dom';
+import { AuthConsumer } from '../../providers/AuthProvider';
+import { withRouter} from 'react-router-dom';
+
+
 const options = [
   <DropDownList />,
 ]
 
 
-const DropDownBar = () => {
+const DropDownBar = ({location}) => {
 
-  // const [classroom, setClassroom] = useState([])
+  const [classroom, setClassroom] = useState({})
   // const [getUserClassroom, setGetUserClassroom] = useState([])
-  // useEffect( () => {
-  //   axios.get(`/api/userClassroom/${id}`)
-  //     .then( res => setGetUserClassroom(res.data))
-  //     .catch( err => console.log(err))
-  // }, [])
-
+  useEffect( () => {
     
-   
+    axios.get(`/api/classrooms/${location.pathname.split("/").pop()}`)
+      .then( res => setClassroom(res.data))
+      .catch( err => console.log(err))
+  }, [])
+
+  // const renderUserEnrollments = () => {
+  //   return userEnrollments.map( e => (
+  //     <DropDownClassroom e={e}/>
+  //   ))
+  // }
+    
+  //  const fillDropDown = (classrooms) => {
+  //    return classrooms.map(, (name, id) => ({
+      
+  //   }))
+  //  }
   
-    // const getUserClassroom = (id, classroom) => {
+    // useEffect = (id, classroom) => {
     //   axios.get(`/api/userClassroom/${id}`, {classroom})
     //     .then( res => setClassroom(res.data) )
     //     .catch( err => console.log(err))
@@ -31,21 +43,21 @@ const DropDownBar = () => {
 
   return(
   <Dropdown 
+    // key={fillDropDown}
     className='button icon'
     floating
-    // key={classroom.id}
-    placeholder= "Classrooms"//{classroom.name}
+    placeholder= {classroom.name}
     options={options}
   />
   )
 }
 
 const ConnectedDropDownBar = (props) => (
-  <ClassroomConsumer>
+  <AuthConsumer>
     { value => (
       <DropDownBar {...props} {...value} />
     )}
-  </ClassroomConsumer>
+  </AuthConsumer>
 )
 
-export default ConnectedDropDownBar;
+export default withRouter(ConnectedDropDownBar);
