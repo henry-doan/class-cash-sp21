@@ -11,7 +11,15 @@ const MyPoints = ({classroomId, enrollmentId}) => {
         enrollmentId={enrollmentId}
       />
       <Button>
-          Earn
+        <Link to={{
+          pathname: `/EarnPoints/${enrollmentId}`,
+          state: {
+            classroomId: classroomId,
+            enrollmentId: enrollmentId
+          }
+        }}>
+        Earn
+        </Link>
       </Button>
       <Button>
       <Link to={{
