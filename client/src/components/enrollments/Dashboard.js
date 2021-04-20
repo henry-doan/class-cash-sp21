@@ -25,7 +25,7 @@ const Dashboard = ({location, user}) => {
               pathname:'/AdminRewards',
               state: {
                 enrollmentId: id,
-                
+                classroomId: id,
               } }}
             > Admin Rewards</Link>
           </Button>
