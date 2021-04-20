@@ -45,7 +45,7 @@ ActiveRecord::Schema.define(version: 2021_04_13_054044) do
     t.string "name"
     t.integer "cost"
     t.text "desc"
-    t.bigint "enrollment_id"
+    t.bigint "enrollment_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["enrollment_id"], name: "index_rewards_on_enrollment_id"
