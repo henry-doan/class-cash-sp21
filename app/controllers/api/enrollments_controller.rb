@@ -38,6 +38,17 @@ class Api::EnrollmentsController < ApplicationController
     render json: @enrollment
   end
 
+  def classroomRewards
+    @rewards = []
+    @enrollment = Enrollment.all
+    @enrollment.each do |e|
+      if @classroom.id === e.classroom_id
+        @rewards << e.rewards
+      end
+    end
+    render json: @rewards.flatten
+  end
+
   private 
     def enrollment_params
       params.require(:enrollment).permit(:total_points, :classroom_id, :user_id)
