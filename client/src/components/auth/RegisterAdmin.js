@@ -3,7 +3,7 @@ import { AuthConsumer } from "../../providers/AuthProvider";
 import { Button, Form, Segment, Header, Select } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 const RegisterAdmin = ({ handleRegister, history }) => {
-  const [user, setUser] = useState({ email: '', password: '', passwordConfirmation: '', "isAdmin": true }) 
+  const [user, setUser] = useState({ email: '', password: '', passwordConfirmation: '', isAdmin: true }) 
   const handleSubmit = (e) => {
     e.preventDefault();
     if (user.password === user.passwordConfirmation) {
