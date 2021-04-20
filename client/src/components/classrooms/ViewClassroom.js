@@ -4,7 +4,7 @@ import { Card, Button, Icon } from 'semantic-ui-react'
 import { Link } from 'react-router-dom'
 import { ClassroomConsumer } from '../../providers/ClassroomProvider'
 
-const ViewClassroom = ({c, deleteClassroom}) => {
+const ViewClassroom = ({c, deleteClassroom, id}) => {
   const [editing, setEditing] = useState(false)
 
   return(
