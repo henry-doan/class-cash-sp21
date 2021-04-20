@@ -44,10 +44,10 @@ const Classroom = ({e, deleteClassroom}) => {
           >
            Update
           </Button>
-          <Button 
+          <Button color="red"
             onClick={() => deleteClassroom(classroom.id)}
           >
-            <Icon name="trash"/>
+            <Icon name="trash" />
           </Button>
           <Button>
             <Link to={{
