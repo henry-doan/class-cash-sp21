@@ -3,6 +3,7 @@ import MyRewards from '../rewards/MyRewards';
 import { AuthConsumer } from '../../providers/AuthProvider';
 import { Button, Grid, Segment } from 'semantic-ui-react';
 import {Link, useParams} from 'react-router-dom';
+import MyDashboardClassroom from './MyDashboardClassroom';
 
 const Dashboard = ({location, user, match}) => {
   const isAdmin = user.isAdmin
@@ -33,11 +34,18 @@ const Dashboard = ({location, user, match}) => {
         :'' }</Segment>
       </Grid.Column>
     </Grid>
+    <Segment basic floated='right'>
+    <MyDashboardClassroom
+      classroomId={match.params.classroom_id}
+      enrollmentId={match.params.enrollment_id}
+      />
+    </Segment>
     <Segment basic>
     <MyPoints 
       classroomId={match.params.classroom_id}
       enrollmentId={match.params.enrollment_id}
     />
+    
     <MyRewards
       enrollmentId={match.params.enrollment_id}
     /></Segment>
