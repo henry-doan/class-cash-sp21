@@ -27,7 +27,7 @@ return(
       <Card.Content>
         <Button onClick={handleClick}>
           <Link to={{
-            pathname: `/Dashboard/${classroom.id}/${e.id}`,
+            pathname: `/Dashboard/${e.id}/${classroom.id}`,
             
             state: {
               classroomId: classroom.id,
