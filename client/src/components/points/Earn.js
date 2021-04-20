@@ -2,7 +2,7 @@
 import { List } from "semantic-ui-react";
 
 const Earn = ({e}) => (
-  <List>
+  <List >
     <List.Item>
       <List.Header>  
         {e.name}

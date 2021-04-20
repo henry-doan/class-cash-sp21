@@ -1,7 +1,7 @@
 import MyPoints from './MyPoints';
 import MyRewards from '../rewards/MyRewards';
 import { AuthConsumer } from '../../providers/AuthProvider';
-import { Button, Divider, Grid, Segment } from 'semantic-ui-react';
+import { Button, Divider, Grid, GridColumn, Segment } from 'semantic-ui-react';
 import {Link, useParams} from 'react-router-dom';
 import MyDashboardClassroom from './MyDashboardClassroom';
 import MyEarned from '../points/MyEarned';
@@ -13,8 +13,7 @@ const Dashboard = ({location, user, match}) => {
   return(
   <>
    
-      <Grid columns={2} relaxed='right'>
-       
+       <Grid>
         <Grid.Column floated='right' width={4}>
           <Segment basic>
           {
@@ -35,26 +34,38 @@ const Dashboard = ({location, user, match}) => {
         
       </Grid>
    
-       <Segment basic position="right">
+  <Segment>
+    <Grid columns={2} relaxed='very'>
+      <Grid.Column>
+        <Segment basic>
+          <MyPoints 
+            classroomId={match.params.classroom_id}
+            enrollmentId={match.params.enrollment_id}
+            />
+          <br />
+          <MyRewards
+            enrollmentId={match.params.enrollment_id}
+            />
+        </Segment>  
+      
+      </Grid.Column>
+      <Grid.Column>
+        <Segment basic >
           <MyDashboardClassroom
             classroomId={match.params.classroom_id}
             enrollmentId={match.params.enrollment_id}
           />
+         <br />
+         <br />
           <MyEarned 
-          enrollmentId={match.params.enrollment_id}
+            enrollmentId={match.params.enrollment_id}
           />
-        </Segment>
-      <Segment basic>
-        <MyPoints 
-          classroomId={match.params.classroom_id}
-          enrollmentId={match.params.enrollment_id}
-       />
-    
-         <MyRewards
-          enrollmentId={match.params.enrollment_id}
-        />
-      </Segment>
-    
+          </Segment>
+       </Grid.Column>
+    </Grid>
+    <Divider hidden vertical />
+   
+  </Segment>
   </>
   )
 }
