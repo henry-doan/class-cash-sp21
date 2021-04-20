@@ -3,6 +3,8 @@ import { useState, useEffect } from 'react'
 import axios from 'axios'
 import ClassroomUser from './ClassroomUser'
 import AddDeleteEnrollment from '../enrollments/AddDeleteEnrollment'
+import { Button } from 'semantic-ui-react'
+import { Link } from 'react-router-dom'
 
 const MyClassroom = ({location, getClassroom}) => {
   const [classroom, setClassroom] = useState([])
@@ -36,6 +38,11 @@ const MyClassroom = ({location, getClassroom}) => {
     <AddDeleteEnrollment 
     classroomId={location.state.classroomId}
     classroomUsers={classroomUsers}/>
+    <br />
+    <br />
+    <Link to="/ClassroomSelect">
+      <Button>See My Classrooms</Button>
+    </Link>
   </>
   )
 }
