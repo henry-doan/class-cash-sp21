@@ -29,8 +29,8 @@ class Api::RewardsController < ApplicationController
   end
 
   def classroomRewards
-    @enrollments = Enrollment.where(['classroom_id = ?', params[:classroom_id]])
-    @classroomRewards = []
+    # @enrollments = Enrollment.where(['classroom_id = ?', params[:classroom_id]])
+    # @classroomRewards = []
     # @connection = ActiveRecord::Base.connection
 
     # @classroomRewards = @connection.exec_query("
@@ -40,15 +40,15 @@ class Api::RewardsController < ApplicationController
     #   on r.enrollment_id = e.id
     #   where e.classroom_id = 1
     # ")
-    # # @classroomRewards = Reward.left_outer_joins(:enrollment).where('classroom_id = ?', params[:classroom_id])
+    @classroomRewards = Reward.left_outer_joins(:enrollment).where('classroom_id = ?', params[:classroom_id])
     # # @classroomRewards = Reward.includes(:enrollment).where(enrollment: { classroom_id: params[:classroom_id] })
     # # render json: @classroomRewards
     # return @classroomRewards
-    @enrollments.each |i| do
-      @classroomRewards.append(i.rewards)
-    end
+    # @enrollments.each |i| do
+    #   @classroomRewards.append(i.rewards)
+    # end
 
-    render json: @clasroomRewards
+    render json: @classroomRewards
   end
 
   private
