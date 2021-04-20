@@ -29,7 +29,7 @@ const DropDownList = ({user}) => {
           <Card.Content>
             <Card.Header>
               <Link to="/ClassroomSelect">
-                See all Classrooms
+                See My Classrooms
               </Link>
             </Card.Header>
           </Card.Content>
