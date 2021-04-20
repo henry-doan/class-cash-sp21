@@ -16,6 +16,12 @@ const RewardProvider = ({ children }) => {
       .catch( err => console.log(err))
   },[])
 
+  const addReward = (enrollment_id, reward) => {
+    axios.post(`/api/enrollments/${enrollment_id}/rewards`, {reward})
+    .then(res => setRewards([...rewards, res.data]))
+    .catch( err => console.log(err))
+  }
+
   const getReward = (enrollment_id, id) => {
     axios.get(`/api/enrollments/${enrollment_id}/rewards/${id}`)
       .then( res => setReward(res.data))
@@ -47,6 +53,7 @@ const RewardProvider = ({ children }) => {
   return(
     <RewardContext.Provider value={{
       rewards,
+      addReward: addReward,
       deleteReward: deleteReward,
       updateReward: updateReward,
       getReward: getReward
