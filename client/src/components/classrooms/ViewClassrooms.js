@@ -3,7 +3,7 @@ import ViewClassroomsList from './ViewClassroomsList'
 const ViewClassrooms = () => {
   return(
     <>
-      <h1>View Classrooms</h1>
+      <h1>All Classrooms</h1>
       <ViewClassroomsList />
     </>
   )

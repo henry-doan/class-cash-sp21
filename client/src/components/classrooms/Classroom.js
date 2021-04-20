@@ -30,7 +30,7 @@ const Classroom = ({e, deleteClassroom}) => {
         <Card.Content>
           <Button>
             <Link to={{
-              pathname: `/Dashboard/${classroom.id}`,
+              pathname: `/Dashboard/${classroom.id}/${e.id}`,
               state: {
                 classroomId: classroom.id,
                 enrollmentId: e.id
