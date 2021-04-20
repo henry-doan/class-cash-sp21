@@ -29,7 +29,8 @@ const Navbar = ({ location, user, handleLogout, history}) => {
               />
             </Link> */}
             <Menu.Item>
-              <DropdownBar classroom={setGetUserClassroom} />
+              <DropdownBar //classroom={setGetUserClassroom} 
+              />
             </Menu.Item>
             <Menu.Item
               name='logout'
@@ -81,33 +82,40 @@ const Navbar = ({ location, user, handleLogout, history}) => {
     </>
   )
 }
+// const ConnectedNavbar = (props) => (
+//   <ClassroomConsumer>
+//     {
+//       value => (
+//         <Navbar {...props} {...value} />
+//       )
+//     }
+//   </ClassroomConsumer>
+// )
+
+// const EnrollmentConnectedNavbar = (props) => (
+//   <EnrollmentConsumer>
+//     {
+//       value => (
+//         <ConnectedNavbar {...props} {...value} />
+//       )
+//     }
+//   </EnrollmentConsumer>
+// )
+
+// const AuthEnrollmentConnectedNavbar = (props) => (
+//   <AuthConsumer>
+//     { auth =>
+//       <EnrollmentConnectedNavbar {...props} {...auth} />
+//     }
+//   </AuthConsumer>
+// )
+
 const ConnectedNavbar = (props) => (
-  <ClassroomConsumer>
-    {
-      value => (
-        <Navbar {...props} {...value} />
-      )
-    }
-  </ClassroomConsumer>
-)
+      <AuthConsumer>
+           { auth =>
+         <Navbar {...props} {...auth} />
+         }
+         </AuthConsumer>
+  )
 
-const EnrollmentConnectedNavbar = (props) => (
-  <EnrollmentConsumer>
-    {
-      value => (
-        <ConnectedNavbar {...props} {...value} />
-      )
-    }
-  </EnrollmentConsumer>
-)
-
-const AuthEnrollmentConnectedNavbar = (props) => (
-  <AuthConsumer>
-    { auth =>
-      <EnrollmentConnectedNavbar {...props} {...auth} />
-    }
-  </AuthConsumer>
-)
-
-
-export default withRouter(AuthEnrollmentConnectedNavbar);
+export default withRouter(ConnectedNavbar);
