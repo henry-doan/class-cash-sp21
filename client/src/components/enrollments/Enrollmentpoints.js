@@ -3,7 +3,7 @@ import { useState, useEffect, Component } from 'react'
 import axios from 'axios'
 import { Segment } from 'semantic-ui-react'
 
-const Enrollment = ({classroomId, enrollmentId}) => {
+const Enrollmentpoints = ({classroomId, enrollmentId}) => {
   const [enrollment, setEnrollment] = useState([])
 
   // const [user, setUser] = useState(user)
@@ -21,4 +21,4 @@ const Enrollment = ({classroomId, enrollmentId}) => {
   )
 }
 
-export default Enrollment
+export default Enrollmentpoints
