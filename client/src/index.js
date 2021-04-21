@@ -11,6 +11,7 @@ import ClassroomProvider from './providers/ClassroomProvider';
 import EnrollmentProvider from './providers/EnrollmentProvider';
 import PointProvider from './providers/PointProvider'
 import RewardProvider from './providers/RewardProvider'
+import ClassroomRewardProvider from './providers/ClassroomRewardProvider'
 
 initMiddleware();
 ReactDOM.render(
@@ -18,13 +19,15 @@ ReactDOM.render(
     <AuthProvider>
         <ClassroomProvider>
           <EnrollmentProvider>
-            <RewardProvider>
-              <PointProvider>
-                <BrowserRouter>
-                  <App />   
-                </BrowserRouter>
-              </PointProvider>
-            </RewardProvider>
+            <ClassroomRewardProvider>
+              <RewardProvider>
+                <PointProvider>
+                  <BrowserRouter>
+                    <App />   
+                  </BrowserRouter>
+                </PointProvider>
+              </RewardProvider>
+            </ClassroomRewardProvider>
           </EnrollmentProvider>
       </ClassroomProvider>
     </AuthProvider>

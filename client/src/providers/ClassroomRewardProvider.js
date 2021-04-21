@@ -63,4 +63,4 @@ const ClassroomRewardProvider = ({ children }) => {
   )
 }
 
-export default RewardProvider
+export default ClassroomRewardProvider

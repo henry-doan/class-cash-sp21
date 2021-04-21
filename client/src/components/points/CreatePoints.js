@@ -68,6 +68,10 @@ const CreatePoints = ({match, addPoint}) => {
         label="Student"
         options={options}
         placeholder='Choose Student'
+        required
+        name='enrollment_id'
+        value={point.enrollment_id}
+        onChange={(e, { value }) => setPoint({ ...point, enrollment_id: value })}
       />
       <Message 
         success
