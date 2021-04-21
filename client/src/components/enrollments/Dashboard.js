@@ -11,8 +11,6 @@ const Dashboard = ({location, user, match}) => {
   return(
   <>
        <Grid>
-        
-          
           {
           isAdmin ? 
           <>
@@ -39,7 +37,6 @@ const Dashboard = ({location, user, match}) => {
           </Button></Grid.Column>
           </>
           :'' }
-        
       </Grid>
   <Segment>
     <Grid columns={2} relaxed='very'>

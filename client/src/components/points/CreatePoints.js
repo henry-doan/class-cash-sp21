@@ -1,4 +1,4 @@
-import { Header, Segment, Form, Button, Message, Icon } from 'semantic-ui-react'
+import { Header, Segment, Form, Button, Message, Icon, Grid } from 'semantic-ui-react'
 import { useState, useEffect } from 'react'
 import axios from 'axios'
 import { PointConsumer } from '../../providers/PointProvider'
@@ -32,10 +32,12 @@ const CreatePoints = ({match, addPoint}) => {
 
   return(
   <>
+    
     <Segment basic>
-    <Header as='h1' textAlign='center'>Award Points</Header>
+    <Header as='h1'>Award Points</Header>
     <p>Award points to students</p>
-    <Form onSubmit={handleSubmit}>
+    
+    <Form style={{width: "50%"}} onSubmit={handleSubmit}>
     <Form.Input
       label="Name"
       required
@@ -65,7 +67,8 @@ const CreatePoints = ({match, addPoint}) => {
       onChange={(e, { value }) => setPoint({ ...point, value: value })}
       />
       <Form.Select 
-        label="Student"
+        style={{width: "193px"}}
+        label="Award To"
         options={options}
         placeholder='Choose Student'
         required
@@ -73,13 +76,15 @@ const CreatePoints = ({match, addPoint}) => {
         value={point.enrollment_id}
         onChange={(e, { value }) => setPoint({ ...point, enrollment_id: value })}
       />
+      
       <Message 
         success
         header="Points Awarded"
         content="Points have been awarded to the student"
       />
-      <Segment textAlign='center' basic>
-        <Button style={{color: '#ffffff', backgroundColor: '#1CB993' }} type='submit'>Submit</Button>
+      <Segment basic>
+        
+        <Button style={{color: '#ffffff', backgroundColor: '#1CB993' }} floated='left' type='submit'>Submit</Button>
         <br />
         <br />
         {/* <Button style={{backgroundColor: '#1CB993' }}><Link style={{color: 'white'}}to='/ViewClassrooms'>Show All Classrooms</Link></Button> */}
