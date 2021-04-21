@@ -17,19 +17,19 @@ const ClassroomRewardProvider = ({ children }) => {
   },[])
 
   const addClassroomReward = (classroom_id, classroom_reward) => {
-    axios.post(`/api/classrooms/${classroom_id}/classroom_rewards`, {classroom_reward})
+    axios.post(`/api/classrooms/${classroom_id}/classroomrewards`, {classroom_reward})
     .then(res => setClassroomRewards([...classroomRewards, res.data]))
     .catch( err => console.log(err))
   }
 
   const getClassroomReward = (classroom_id, id) => {
-    axios.get(`/api/classrooms/${classroom_id}/classroom_rewards/${id}`)
+    axios.get(`/api/classrooms/${classroom_id}/classroomrewards/${id}`)
       .then( res => setClassroomReward(res.data))
       .catch( err => console.log(err))
   }
 
   const deleteClassroomReward = (classroom_id, id) => {
-    axios.delete(`/api/classrooms/${classroom_id}/classroom_rewards/${id}`)
+    axios.delete(`/api/classrooms/${classroom_id}/classroomrewards/${id}`)
       .then( res => {
         setClassroomRewards(classroomRewards.filter((classroomReward) => classroomReward.id !== id))
       })
@@ -37,7 +37,7 @@ const ClassroomRewardProvider = ({ children }) => {
   }
 
   const updateClassroomReward = (id, classroom_id, classroom_reward) => {
-    axios.put(`/api/classrooms/${classroom_id}/classroom_rewards/${id}`, {classroom_reward})
+    axios.put(`/api/classrooms/${classroom_id}/classroomrewards/${id}`, {classroom_reward})
       .then( res => {
         const updatedClassroomRewards = classroomRewards.map( r => {
           if(r.id === id){
