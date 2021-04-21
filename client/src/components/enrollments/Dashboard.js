@@ -5,6 +5,7 @@ import { Button, Divider, Grid, GridColumn, Segment } from 'semantic-ui-react';
 import {Link, useParams} from 'react-router-dom';
 import MyDashboardClassroom from './MyDashboardClassroom';
 import MyEarned from '../points/MyEarned';
+import { ClassroomConsumer } from '../../providers/ClassroomProvider';
 const Dashboard = ({location, user, match}) => {
   const isAdmin = user.isAdmin
   const {id} = useParams()
@@ -54,10 +55,18 @@ const Dashboard = ({location, user, match}) => {
       </Grid.Column>
       <Grid.Column>
         <Segment basic >
+          <Link to={{
+                  pathname: `/MyClassroom`,
+                  state: {
+                    enrollmentId: id,
+                    classroomId: match.params.classroom_id
+                  }
+                }}>
           <MyDashboardClassroom
             classroomId={match.params.classroom_id}
             enrollmentId={match.params.enrollment_id}
           />
+          </Link>
          <br />
          <br />
           <MyEarned 
@@ -71,13 +80,23 @@ const Dashboard = ({location, user, match}) => {
   </>
   )
 }
-const connectedDashboard = (props) =>(
-  <AuthConsumer>
+const ConnectedDashboard = (props) =>(
+  <ClassroomConsumer>
     {
       value => (
         <Dashboard {...props} {...value} />
       )
     }
+  </ClassroomConsumer>
+)
+
+const AuthconnectedDashboard = (props) => (
+  <AuthConsumer>
+    {
+      value => (
+        <ConnectedDashboard {...props} {...value} />
+      )
+    }
   </AuthConsumer>
 )
-export default connectedDashboard;
+export default AuthconnectedDashboard;
