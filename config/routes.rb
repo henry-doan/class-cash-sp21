@@ -8,7 +8,7 @@ Rails.application.routes.draw do
     end
 
     resources :classrooms do
-      resources :classroom_rewards 
+      resources :classroomrewards 
     end
     
     resources :enrollments do
