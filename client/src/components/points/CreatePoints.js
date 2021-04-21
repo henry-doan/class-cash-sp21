@@ -36,6 +36,7 @@ const CreatePoints = ({match, addPoint}) => {
     <Segment basic>
     <Header as='h1'>Award Points</Header>
     <p>Award points to students</p>
+    
     <Form style={{width: "50%"}} onSubmit={handleSubmit}>
     <Form.Input
       label="Name"
@@ -66,7 +67,7 @@ const CreatePoints = ({match, addPoint}) => {
       onChange={(e, { value }) => setPoint({ ...point, value: value })}
       />
       <Form.Select 
-        style={{width: "5%"}}
+        style={{width: "193px"}}
         label="Award To"
         options={options}
         placeholder='Choose Student'
@@ -75,12 +76,13 @@ const CreatePoints = ({match, addPoint}) => {
         value={point.enrollment_id}
         onChange={(e, { value }) => setPoint({ ...point, enrollment_id: value })}
       />
+      
       <Message 
         success
         header="Points Awarded"
         content="Points have been awarded to the student"
       />
-      <Segment textAlign='center' basic>
+      <Segment basic>
         
         <Button style={{color: '#ffffff', backgroundColor: '#1CB993' }} floated='left' type='submit'>Submit</Button>
         <br />
