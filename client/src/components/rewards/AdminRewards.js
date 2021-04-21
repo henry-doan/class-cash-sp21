@@ -4,19 +4,19 @@ import Reward from './Reward';
 import axios from 'axios';
 import { useState, useEffect} from 'react';
 
-const AdminRewards = ({enrollmentId}) => {
-  const [rewards, setRewards] = useState([])
+const AdminRewards = ({location}) => {
+  const [classroomRewards, setClassroomRewards] = useState([])
 
   useEffect( () => {
-    axios.get(`/api/enrollments/${enrollmentId}/rewards`)
+    axios.get(`/api/classrooms/${location.state.classroomId}/classroomrewards`)
       .then( res => {
-        setRewards(res.data)
+        setClassroomRewards(res.data)
       })
       .catch( err => console.log(err))
   },[])
-  debugger
+  
   const renderAdminRewards = () => {
-    return rewards.map( r => (
+    return classroomRewards.map( r => (
       <Reward r={r}/>
     ))
   }
