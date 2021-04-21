@@ -1,6 +1,6 @@
 import { Header } from 'semantic-ui-react'
 import ClassroomRewards from './ClassroomRewards'
-import Enrollment from '../enrollments/Enrollment'
+import Enrollmentpoints from '../enrollments/Enrollmentpoints'
 
 const Spend = ({location}) => {
   return(
@@ -8,7 +8,7 @@ const Spend = ({location}) => {
     <Header>Spend Points</Header>
     <p>Spend Points on rewards</p>
     <p>My Points</p>
-    <Enrollment 
+    <Enrollmentpoints 
       classroomId={location.state.classroomId}
       enrollmentId={location.state.enrollmentId}
     />
