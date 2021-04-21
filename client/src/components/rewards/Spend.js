@@ -19,4 +19,5 @@ const Spend = ({location}) => {
   </>
   )
 }
+
 export default Spend;
