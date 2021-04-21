@@ -1,8 +1,9 @@
-import { Grid, Header, Segment } from "semantic-ui-react";
+import { Grid, Header, Segment, Button } from "semantic-ui-react";
 import { RewardConsumer } from "../../providers/RewardProvider";
 import Reward from './Reward';
 import axios from 'axios';
 import { useState, useEffect} from 'react';
+import {Link} from 'react-router-dom';
 
 const AdminRewards = ({location}) => {
   const [classroomRewards, setClassroomRewards] = useState([])
@@ -23,8 +24,23 @@ const AdminRewards = ({location}) => {
 
   return(
     <Segment basic>
-      <Header>Rewards</Header>
-      <Grid columns={1}>
+      <Grid>
+        <Grid.Column floated='left'>
+          <Header>Rewards</Header>
+        </Grid.Column>
+        <Grid.Column floated='right' width={4}>
+          <Link
+          to={{
+            pathname:'/CreateAdminReward',
+            
+            }}
+          > 
+          <Button size='large' style={{ backgroundColor: '#1CB993', color: 'white' }}>Create a new Reward
+          </Button>
+          </Link>
+        </Grid.Column>
+      </Grid>
+      <Grid columns={2}>
         {renderAdminRewards()}
       </Grid>
     </Segment>
