@@ -44,12 +44,21 @@ const PointProvider = ({ children }) => {
     .catch(err => console.log(err))
   } 
 
+  const addPoint = (enrollment_id, point) => {
+    axios.post(`/api/enrollments/${enrollment_id}/points`, { point })
+    .then( res => {
+      setPoints([...points, res.data])
+    })
+    .catch( err => console.log(err))
+  }
+
   return(
     <PointContext.Provider value={{
       points,
       deletePoint: deletePoint,
       updatePoint: updatePoint,
-      getPoint: getPoint
+      getPoint: getPoint,
+      addPoint: addPoint
     }}>
       { children }
     </PointContext.Provider>
