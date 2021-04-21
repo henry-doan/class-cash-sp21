@@ -1,5 +1,5 @@
-class ClassroomrewardsController < ApplicationController
-  before_action: set_classroom
+class Api::ClassroomrewardsController < ApplicationController
+  before_action :set_classroom
   def index
     render json: @classroom.classroom_rewards
   end
