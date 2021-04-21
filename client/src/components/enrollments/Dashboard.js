@@ -1,7 +1,7 @@
 import MyPoints from './MyPoints';
 import MyRewards from '../rewards/MyRewards';
 import { AuthConsumer } from '../../providers/AuthProvider';
-import { Button, Divider, Grid, GridColumn, Segment } from 'semantic-ui-react';
+import { Button, Card, Divider, Grid, GridColumn, GridRow, Segment } from 'semantic-ui-react';
 import {Link, useParams} from 'react-router-dom';
 import MyDashboardClassroom from './MyDashboardClassroom';
 import MyEarned from '../points/MyEarned';
@@ -43,10 +43,12 @@ const Dashboard = ({location, user, match}) => {
     <Grid columns={2} relaxed='very'>
       <Grid.Column>
         <Segment basic>
-          <MyPoints 
-            classroomId={match.params.classroom_id}
-            enrollmentId={match.params.enrollment_id}
-            />
+          
+            <MyPoints 
+              classroomId={match.params.classroom_id}
+              enrollmentId={match.params.enrollment_id}
+              />
+          
           <br />
           <MyRewards
             enrollmentId={match.params.enrollment_id}
