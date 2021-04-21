@@ -45,9 +45,10 @@ const DropDownBar = ({location}) => {
   <Dropdown 
     // key={fillDropDown}
     className='button icon'
-    floating
+    compact
     placeholder= {classroom.name}
-    options={options}
+    
+    options= {options}
   />
   )
 }
