@@ -11,29 +11,47 @@ const MyClassroom = ({location, user}) => {
   const [classroom, setClassroom] = useState([])
   const [classroomUsers, setClassroomUsers] = useState([])
   const isAdmin = user.isAdmin
+  
   useEffect( () => {
     axios.get(`/api/classroomUsers/${location.state.classroomId}`)
     .then( res => setClassroomUsers(res.data))
     .catch( err => console.log(err))
-  }, [])
-
-  useEffect( () => {
     axios.get(`/api/classrooms/${location.state.classroomId}`)
     .then( res => setClassroom(res.data) )
     .catch( err => console.log(err) )
   }, [])
 
+
   const renderClassroomUsers = () => {
-    return classroomUsers.map( c => (
-      // <ClassroomUser c={c}/>
-      <p>{c.name}</p>
-    ))
+    let users =[]
+    classroomUsers.map( c => {
+      if (!c.isAdmin){
+        users.push(c)
+      }
+    })
+    return users.map(u => 
+      <>
+        {/* <Image src={u.image} alt={u.name} />  */}
+        <p>{u.name}</p>
+      </>
+    )
+  }
+
+  const renderAdminClassroomUsers = () => {
+    let admins = []
+    classroomUsers.map( c => {
+      if (c.isAdmin){
+       admins.push(c)
+     }
+    })
+    return admins.map( u => <p>{u.name}</p>)
   }
 
   return(
   <>
+    
     <h3>{classroom.name}'s Classroom</h3>
-      {renderClassroomUsers() - !isAdmin}
+    { renderAdminClassroomUsers() }
     <h3>Classroom Members</h3>
     { renderClassroomUsers() }
     <AddDeleteEnrollment 
