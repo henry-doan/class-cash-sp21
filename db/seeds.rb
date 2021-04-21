@@ -26,6 +26,13 @@ classroom_array = ['Mrs. ', 'Mr. ', 'Ms. ']
       classroom_id: classroom.id
     )
 
+    ClassroomReward.create(
+      name: Faker::Vehicle.make_and_model,
+      cost: cost_array.sample,
+      desc: Faker::ChuckNorris.fact,
+      classroom_id: classroom.id
+    )
+
     5.times do
       Reward.create(
         name: Faker::Vehicle.make_and_model,
