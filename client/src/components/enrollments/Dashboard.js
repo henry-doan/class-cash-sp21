@@ -24,6 +24,7 @@ const Dashboard = ({location, user, match}) => {
                 pathname:'/AdminRewards',
                 state: {
                   enrollmentId: id,
+                  classroomId: match.params.classroom_id,
                 } }}
               > Admin Rewards</Link>
             </Button></Grid.Column>
