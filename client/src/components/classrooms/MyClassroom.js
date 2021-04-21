@@ -5,11 +5,12 @@ import ClassroomUser from './ClassroomUser'
 import AddDeleteEnrollment from '../enrollments/AddDeleteEnrollment'
 import { Button } from 'semantic-ui-react'
 import { Link } from 'react-router-dom'
+import { AuthConsumer } from '../../providers/AuthProvider'
 
-const MyClassroom = ({location, getClassroom}) => {
+const MyClassroom = ({location, user}) => {
   const [classroom, setClassroom] = useState([])
   const [classroomUsers, setClassroomUsers] = useState([])
-
+  const isAdmin = user.isAdmin
   useEffect( () => {
     axios.get(`/api/classroomUsers/${location.state.classroomId}`)
     .then( res => setClassroomUsers(res.data))
@@ -31,9 +32,9 @@ const MyClassroom = ({location, getClassroom}) => {
 
   return(
   <>
-    <h1>Classroom</h1>
-    <h3>{classroom.name}</h3>
-    <h1>Students Enrolled:</h1>
+    <h3>{classroom.name}'s Classroom</h3>
+      {renderClassroomUsers() - !isAdmin}
+    <h3>Classroom Members</h3>
     { renderClassroomUsers() }
     <AddDeleteEnrollment 
     classroomId={location.state.classroomId}
@@ -55,4 +56,12 @@ const ConnectedMyClassroom = (props) => (
   </ClassroomConsumer>
 )
 
-export default ConnectedMyClassroom;
+const AuthConnectedMyClassroom = (props) => (
+  <AuthConsumer>
+    { value => (
+      <ConnectedMyClassroom {...props} {...value} />
+    )}
+  </AuthConsumer>
+)
+
+export default AuthConnectedMyClassroom;
