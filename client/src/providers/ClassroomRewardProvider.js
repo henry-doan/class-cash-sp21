@@ -9,7 +9,7 @@ const ClassroomRewardProvider = ({ children }) => {
   const [classroomReward, setClassroomReward] = useState([])
 
   useEffect( (classroom_id) => {
-    axios.get(`/api/classrooms/${classroom_id}/classroom_rewards`)
+    axios.get(`/api/classrooms/${classroom_id}/classroomrewards`)
       .then( res => {
         setClassroomRewards(res.data)
       })
