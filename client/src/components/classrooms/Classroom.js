@@ -16,6 +16,9 @@ const Classroom = ({e, deleteClassroom}) => {
       .catch( err => console.log(err))
   }, [])
 
+  const handleClick = () => {
+    window.location.reload()
+  }
   return(
     <>
     {editing ?
@@ -28,7 +31,7 @@ const Classroom = ({e, deleteClassroom}) => {
           </Card.Header>
         </Card.Content>
         <Card.Content>
-          <Button>
+          <Button onClick={handleClick}>
             <Link to={{
               pathname: `/Dashboard/${e.id}/${classroom.id}`,
               state: {
