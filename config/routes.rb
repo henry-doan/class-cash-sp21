@@ -6,6 +6,10 @@ Rails.application.routes.draw do
     resources :classrooms do
       resources :enrollments
     end
+
+    resources :classrooms do
+      resources :classroom_rewards 
+    end
     
     resources :enrollments do
       resources :points
