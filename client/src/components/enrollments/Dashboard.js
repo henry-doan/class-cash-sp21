@@ -11,11 +11,12 @@ const Dashboard = ({location, user, match}) => {
   return(
   <>
        <Grid>
-        <Grid.Column floated='right' width={4}>
-          <Segment basic>
+        
+          
           {
           isAdmin ? 
           <>
+          <Grid.Column floated='left' width={4}>
             <Button size='large' style={{ backgroundColor: '#1CB993' }}>
               <Link 
               style={{color: 'white'}}
@@ -25,7 +26,8 @@ const Dashboard = ({location, user, match}) => {
                   enrollmentId: id,
                 } }}
               > Admin Rewards</Link>
-            </Button>
+            </Button></Grid.Column>
+            <Grid.Column floated='right' width={4}>
             <Button size='large' style={{ backgroundColor: '#1CB993' }}>
             <Link 
             style={{color: 'white'}}
@@ -33,10 +35,10 @@ const Dashboard = ({location, user, match}) => {
               pathname:`/CreatePoints/${match.params.enrollment_id}/${match.params.classroom_id}`,
               }}
             > Admin Award Points</Link>
-          </Button>
+          </Button></Grid.Column>
           </>
-          :'' }</Segment>
-        </Grid.Column>
+          :'' }
+        
       </Grid>
   <Segment>
     <Grid columns={2} relaxed='very'>
