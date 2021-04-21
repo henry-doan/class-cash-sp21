@@ -23,11 +23,10 @@ const Navbar = ({ location, user, handleLogout, history}) => {
           </Menu>
           
           <Menu.Menu position='right'>
-            {/* <Link to="/Dashboard">
-              <Menu.Item
-                name='dashboard'
-              />
-            </Link> */}
+           <Menu.Item>
+             {user.name}
+           </Menu.Item>
+           
             <Menu.Item>
               <DropdownBar //classroom={setGetUserClassroom} 
               />
