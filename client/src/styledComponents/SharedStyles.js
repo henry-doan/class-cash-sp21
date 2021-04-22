@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { Form, Image, Button } from 'semantic-ui-react'
+import { Form, Image, Button, Dropdown } from 'semantic-ui-react'
 
 export const SharedForm = styled(Form)`
   width: 50%;
@@ -36,4 +36,32 @@ export const GreyButton = styled(Button)`
   padding: 8px 16px !important;
   position: absolute !important;
   height: 41px !important;
+`
+
+export const Bar = styled(Dropdown)`
+color: #ffffff !important;
+font: 'Open sans' !important;
+background: #1CB993 !important;
+
+`
+
+export const Vutton = styled.button`
+color: #ffffff !important;
+font: 'Open sans' !important;
+background: #1CB993 !important;
+ position: inline-block !important
+`
+
+export const Divvv = styled.div`
+
+float: left;
+position: absolute !imortant;
+`
+
+
+export const Divv =styled.div`
+right: 0 !important;
+
+position: absolute !important;
+
 `

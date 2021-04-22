@@ -28,7 +28,7 @@ const DashboardLink = ({location, e, match}) => {
     return (
       
       <Link onClick={handleClick} to={{
-        pathname: `/Dashboard/${match.params.enrollmentId}/${classroom.id}`,
+        pathname: `/Dashboard/${match.params.enrollment_id}/${classroom.id}`,
         
         state: {
           classroomId: classroom.id,
