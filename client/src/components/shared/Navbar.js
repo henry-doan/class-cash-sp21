@@ -5,6 +5,8 @@ import { Menu } from 'semantic-ui-react';
 import { Link, withRouter } from 'react-router-dom';
 import DropdownBar from '../classrooms/DropDownBar';
 import { useState } from 'react';
+import DashboardLink from '../classrooms/DashboardLink';
+
 const Navbar = ({ location, user, handleLogout, history}) => {
   const [classroom, setClassroom] = useState([])
   const [getUserClassroom, setGetUserClassroom] = useState([])
@@ -23,10 +25,14 @@ const Navbar = ({ location, user, handleLogout, history}) => {
           </Menu>
           
           <Menu.Menu position='right'>
+            {/* <Menu.Item>
+              <DashboardLink />
+            </Menu.Item> */}
+          
            <Menu.Item>
              {user.name}
            </Menu.Item>
-           
+
             <Menu.Item>
               <DropdownBar //classroom={setGetUserClassroom} 
               />
