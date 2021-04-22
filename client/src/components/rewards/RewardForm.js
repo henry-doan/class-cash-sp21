@@ -1,14 +1,14 @@
 import { Form, Button } from "semantic-ui-react";
 import { useState } from 'react'
-import { RewardConsumer } from "../../providers/RewardProvider";
+import { ClassroomRewardConsumer } from "../../providers/ClassroomRewardProvider";
 
-const RewardForm = ({addReward}) => {
-  const [reward, setReward] = useState({name:"", desc: "", cost: ""})
+const RewardForm = ({addClassroomReward, location}) => {
+  const [classroomReward, setClassroomReward] = useState({name:"", desc: "", cost: ""})
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    addReward(reward)
-    setReward({name:"", desc: "", cost: ""})
+    addClassroomReward( location.state.classroomId, classroomReward)
+    setClassroomReward({name:"", desc: "", cost: ""})
   }
   return(
     <Form onSubmit={handleSubmit}>
@@ -17,24 +17,24 @@ const RewardForm = ({addReward}) => {
         placeholder='Reward Name'
         name='name'
         required
-        onChange={(e) => setReward({})}
-        value={reward.name}
+        onChange={(e, {value}) => setClassroomReward({...classroomReward, name: value})}
+        value={classroomReward.name}
       />
       <Form.Input 
         label='Reward Description'
         placeholder='Reward Description'
         name='desc'
         required
-        onChange={(e) => setReward({})}
-        value={reward.name}
+        onChange={(e, {value}) => setClassroomReward({...classroomReward, desc: value})}
+        value={classroomReward.desc}
       />
       <Form.Input 
         label='Reward Cost'
         placeholder='Reward Cost'
         name='cost'
         required
-        onChange={(e) => setReward({})}
-        value={reward.name}
+        onChange={(e, {value}) => setClassroomReward({...classroomReward, cost: value})}
+        value={classroomReward.cost}
       />
       <Button type="submit">Save</Button>
     </Form>
@@ -42,12 +42,12 @@ const RewardForm = ({addReward}) => {
 }
 
 const ConnectedRewardForm = (props) => (
-  <RewardConsumer>
+  <ClassroomRewardConsumer>
     {
       value => (
         <RewardForm {...props} {...value} />
       )
     }
-  </RewardConsumer>
+  </ClassroomRewardConsumer>
 )
 export default ConnectedRewardForm;
