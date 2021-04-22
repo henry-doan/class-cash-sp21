@@ -6,8 +6,9 @@ import AddDeleteEnrollment from '../enrollments/AddDeleteEnrollment'
 import { Button } from 'semantic-ui-react'
 import { Link } from 'react-router-dom'
 import { AuthConsumer } from '../../providers/AuthProvider'
+import { EnrollmentConsumer } from '../../providers/EnrollmentProvider'
 
-const MyClassroom = ({location, user, enrollmentId}) => {
+const MyClassroom = ({location, user}) => {
   const [classroom, setClassroom] = useState([])
   const [classroomUsers, setClassroomUsers] = useState([])
   const isAdmin = user.isAdmin
@@ -52,7 +53,7 @@ const MyClassroom = ({location, user, enrollmentId}) => {
 
   return(
   <>
-    
+    <p>{enrollment}</p>
     <h3>{classroom.name}'s Classroom</h3>
     { renderAdminClassroomUsers() }
     <h3>Classroom Members</h3>
@@ -77,12 +78,20 @@ const ConnectedMyClassroom = (props) => (
   </ClassroomConsumer>
 )
 
-const AuthConnectedMyClassroom = (props) => (
-  <AuthConsumer>
+const EnrollmentConnectedMyClassroom = (props) => (
+  <EnrollmentConsumer>
     { value => (
       <ConnectedMyClassroom {...props} {...value} />
+    )}
+  </EnrollmentConsumer>
+)
+
+const AuthEnrollmentConnectedMyClassroom = (props) => (
+  <AuthConsumer>
+    { value => (
+      <EnrollmentConnectedMyClassroom {...props} {...value} />
     )}
   </AuthConsumer>
 )
 
-export default AuthConnectedMyClassroom;
+export default AuthEnrollmentConnectedMyClassroom;
