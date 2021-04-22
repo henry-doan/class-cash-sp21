@@ -26,8 +26,8 @@ const DashboardLink = ({location, e, match}) => {
   }
 
     return (
-      <Button onClick={handleClick} >
-      <Link  to={{
+      
+      <Link onClick={handleClick} to={{
         pathname: `/Dashboard/${location.state.enrollmentId}/${classroom.id}`,
         
         state: {
@@ -35,9 +35,9 @@ const DashboardLink = ({location, e, match}) => {
           enrollmentId: enrollment.id
         }
       }}>
-      <h4>Dashboard</h4>
+      <h5>Dashboard</h5>
       </Link>
-      </Button>
+      
       
     )
 }
