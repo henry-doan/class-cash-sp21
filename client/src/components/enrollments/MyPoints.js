@@ -2,7 +2,9 @@ import { Header, Button, Card } from 'semantic-ui-react';
 import Enrollmentpoints from './Enrollmentpoints';
 import { Link } from 'react-router-dom'
 
+
 const MyPoints = ({classroomId, enrollmentId}) => {
+
   return(
     <>
      <Card style={{backgroundColor: "lightgrey"}}>
