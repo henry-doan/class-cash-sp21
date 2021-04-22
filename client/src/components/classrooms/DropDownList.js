@@ -1,4 +1,4 @@
-import { Segment, Header, Card, List, Button, Icon } from 'semantic-ui-react'
+import { Segment, Header, Card, List, Button, Icon, Grid, Divider } from 'semantic-ui-react'
 import { useState, useEffect } from 'react'
 import { AuthConsumer } from '../../providers/AuthProvider';
 import { Link } from 'react-router-dom'
@@ -21,14 +21,15 @@ const DropDownList = ({user}) => {
   }
 
   return (
+    <Grid style={{padding:'52px', width:'1700px', height:'350px'}}>
     <Segment>
-      <Header>Classroom List</Header>
+      <Divider hidden/>
       <Card.Group>
         { renderUserEnrollments() }
         <Card>
-          <Card.Content>
-            <Card.Header>
-              <Link to="/ClassroomSelect">
+          <Card.Content style={{backgroundColor:"#1CB993"}}>
+            <Card.Header style={{padding:'50px'}} textAlign='center'>
+              <Link style={{ color:'white'}} to="/ClassroomSelect">
                 See My Classrooms
               </Link>
             </Card.Header>
@@ -36,6 +37,7 @@ const DropDownList = ({user}) => {
         </Card>
       </Card.Group>
     </Segment>
+    </Grid>
   )
 }
 

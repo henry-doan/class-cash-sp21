@@ -6,6 +6,7 @@ import axios from 'axios';
 import { withRouter } from "react-router-dom";
 import { AuthConsumer } from "../../providers/AuthProvider";
 import {Vutton, Divv, Divvv} from '../../styledComponents/SharedStyles'
+import { Grid } from "semantic-ui-react";
 
 
 const PDD = ({location}) => {
@@ -45,9 +46,11 @@ const PDD = ({location}) => {
 
 const DDContent = () => {
   return (
-    <Divv style={{ right: '0, !important', height:'30px',width: '900px'}}>
+    
+    <Divv >
     <DropDownList />
     </Divv>
+   
   );
 };
 
