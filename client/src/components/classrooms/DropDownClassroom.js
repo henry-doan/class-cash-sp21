@@ -1,5 +1,5 @@
 import { useState, useEffect, useReducer } from 'react'
-import { Card, Button, Icon } from "semantic-ui-react";
+import { Card, Button, Icon, Grid } from "semantic-ui-react";
 import { Link, useParams } from 'react-router-dom';
 import { ClassroomConsumer } from '../../providers/ClassroomProvider';
 import axios from 'axios';
@@ -18,10 +18,11 @@ const handleClick = () => {
 }
 
 return(
-    <Card key={classroom.id}>
-      <Card.Content>
+    
+    <Card  key={classroom.id}>
+      <Card.Content style={{ height:'100px'}}>
         <Card.Header>
-          {classroom.name}
+          <h1>{classroom.name}</h1>
         </Card.Header>
       </Card.Content>
       <Card.Content>
