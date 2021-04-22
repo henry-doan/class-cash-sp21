@@ -28,6 +28,11 @@ class Api::PointsController < ApplicationController
     render json: { message: 'Point Removed!' }
   end
 
+  def totalPoints
+    @totalPoints = @enrollment.points.sum(:value)
+    render json: @totalPoints
+  end
+
   private
 
     def set_point

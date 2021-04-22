@@ -7,6 +7,7 @@ export const RewardConsumer = RewardContext.Consumer
 const RewardProvider = ({ children }) => {
   const [rewards, setRewards] = useState([])
   const [reward, setReward] = useState([])
+  const [points, setPoints] = useState([])
 
   useEffect( (enrollment_id) => {
     axios.get(`/api/enrollments/${enrollment_id}/rewards`)
@@ -16,9 +17,15 @@ const RewardProvider = ({ children }) => {
       .catch( err => console.log(err))
   },[])
 
-  const addReward = (enrollment_id, reward) => {
+  const addReward = (enrollment_id, reward, point) => {
     axios.post(`/api/enrollments/${enrollment_id}/rewards`, {reward})
-    .then(res => setRewards([...rewards, res.data]))
+    .then(res => setRewards([...rewards, res.data]),
+          axios.post(`/api/enrollments/${enrollment_id}/points`, { point })
+          .then( res => {
+            setPoints([...points, res.data])
+          })
+          .catch( err => console.log(err))
+    )
     .catch( err => console.log(err))
   }
 
