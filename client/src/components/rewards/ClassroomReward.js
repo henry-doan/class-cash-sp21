@@ -1,4 +1,4 @@
-import { Card } from 'semantic-ui-react'
+import { Card, Button } from 'semantic-ui-react'
 
 const ClassroomReward = ({c}) => (
   <Card fluid>
@@ -12,6 +12,11 @@ const ClassroomReward = ({c}) => (
       <br/>
       <Card.Meta>
         {c.cost} points
+      </Card.Meta>
+      <Card.Meta textAlign='right'>
+        <Button>
+          Buy for {c.cost} points
+        </Button>
       </Card.Meta>
     </Card.Content>
   </Card>
