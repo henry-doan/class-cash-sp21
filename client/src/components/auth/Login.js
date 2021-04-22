@@ -47,10 +47,10 @@ const Login = ({ handleLogin, history }) => {
               <LeftAlignDiv basic>
                 <GreenButton type='submit'>Login</GreenButton>
                 <Link to="/register">
+                  <GreyButton>
+                    Create a new account
+                  </GreyButton>
                 </Link>
-                <GreyButton>
-                  Create a new account
-                </GreyButton>
               </LeftAlignDiv>
             </SharedForm>
           </Grid.Row>
