@@ -4,19 +4,27 @@ import axios from 'axios'
 import { Segment } from 'semantic-ui-react'
 
 const Enrollmentpoints = ({classroomId, enrollmentId}) => {
-  const [enrollment, setEnrollment] = useState([])
-
-  // const [user, setUser] = useState(user)
+  // const [enrollment, setEnrollment] = useState([])
+  const [total, setTotal] = useState(0)
+ // const [user, setUser] = useState(user)
 
   useEffect( () => {
-    axios.get(`/api/classrooms/${classroomId}/enrollments/${enrollmentId}`)
-      .then( res => setEnrollment(res.data) )
-      .catch( err => console.log(err) )
-  }, [])
+    axios.get(`/api/totalPoints/${enrollmentId}`)
+      .then( res => {
+        setTotal(res.data)
+      })
+      .catch( err => console.log(err))
+  }, [])  
+
+  // useEffect( () => {
+  //   axios.get(`/api/classrooms/${classroomId}/enrollments/${enrollmentId}`)
+  //     .then( res => setEnrollment(res.data) )
+  //     .catch( err => console.log(err) )
+  // }, [])
 
   return(
     <>
-      <h1>{enrollment.total_points}</h1>
+      <h1>{total}</h1>
     </>
   )
 }
