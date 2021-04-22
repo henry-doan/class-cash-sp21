@@ -5,7 +5,7 @@ import DropDownList from "./DropDownList";
 import axios from 'axios';
 import { withRouter } from "react-router-dom";
 import { AuthConsumer } from "../../providers/AuthProvider";
-
+import {Vutton, Divv, Divvv} from '../../styledComponents/SharedStyles'
 
 
 const PDD = ({location}) => {
@@ -26,8 +26,8 @@ const PDD = ({location}) => {
 }, [])
 
   return (
-    <div style={{ position: "left"}}>
-      <animated.button
+    <div style={{ position: "relative"}}>
+      <Vutton
         style={menubg}
         className="radiowrapper"
         onClick={() => setToggle(!isToggled)}
@@ -35,19 +35,19 @@ const PDD = ({location}) => {
         <div className="radio">
           <p>{classroom.name}</p>
         </div>
-      </animated.button>
-      <animated.div style={menuAppear}>
+      </Vutton>
+      <Divvv  style={menuAppear}>
         {isToggled ? <DDContent /> : null}
-      </animated.div>
+      </Divvv>
     </div>
   );
 };
 
 const DDContent = () => {
   return (
-    <div style={{ right: '0, !important', height:'30px',width: '900px'}}>
+    <Divv style={{ right: '0, !important', height:'30px',width: '900px'}}>
     <DropDownList />
-    </div>
+    </Divv>
   );
 };
 
