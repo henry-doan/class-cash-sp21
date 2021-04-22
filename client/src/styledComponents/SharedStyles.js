@@ -53,14 +53,15 @@ background: #1CB993 !important;
 `
 
 export const Divvv = styled.div`
-float: left;
 
+float: left;
+position: absolute !imortant;
 `
 
 
 export const Divv =styled.div`
 right: 0 !important;
-float: left  !important;
-padding: 10px !important;
+
+position: absolute !important;
 
 `
