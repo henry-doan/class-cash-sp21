@@ -5,6 +5,7 @@ import DropDownList from './DropDownList';
 import DropDownClassroom from './DropDownClassroom'
 import { AuthConsumer } from '../../providers/AuthProvider';
 import { withRouter} from 'react-router-dom';
+import { Bar } from '../../styledComponents/SharedStyles';
 
 
 const options = [
@@ -42,7 +43,7 @@ const DropDownBar = ({location}) => {
     // }
 
   return(
-  <Dropdown 
+  <Bar 
     // key={fillDropDown}
     className='button icon'
     compact
