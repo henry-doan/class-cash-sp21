@@ -1,5 +1,5 @@
 import { Card, Grid, Button } from "semantic-ui-react";
-import { RewardConsumer } from '../../providers/RewardProvider'
+import { RewardConsumer } from '../../providers/RewardProvider';
 import { AuthConsumer } from '../../providers/AuthProvider';
 import { useState } from 'react';
 import UpdateReward from './UpdateReward';
@@ -13,6 +13,8 @@ const Reward = ({r, enrollmentId, deleteReward, user}) => {
     window.location.reload()
   }
 
+const Reward = ({r, user}) => {
+const isAdmin = user.isAdmin
   return(
   <> { editing? 
       <UpdateReward {...r} setEditing={setEditing}/>
@@ -67,11 +69,13 @@ const Reward = ({r, enrollmentId, deleteReward, user}) => {
 }
 
 const ConnectedReward = (props) => (
-  <RewardConsumer>
-    { value => (
-      <Reward {...props} {...value} />
-    )}
-  </RewardConsumer>
+  <AuthConsumer>
+    {
+      value => (
+        <Reward {...props} {...value} />
+      )
+    }
+  </AuthConsumer>
 )
 
 const AuthConnectedReward = (props) => (
