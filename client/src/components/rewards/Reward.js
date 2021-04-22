@@ -1,6 +1,16 @@
-import { Card, Grid } from "semantic-ui-react";
+import { Card, Grid, Button } from "semantic-ui-react";
+import { RewardConsumer } from '../../providers/RewardProvider'
+import { useState } from 'react'
 
-const Reward = ({r}) => (
+const Reward = ({r, enrollmentId, deleteReward}) => {
+
+  const handleDeletion = (e) => {
+    e.preventDefault()
+    deleteReward(enrollmentId, r.id)
+    window.location.reload()
+  }
+
+  return(
   <Grid.Row>
     <Grid.Column>
       <Card>
@@ -16,9 +26,21 @@ const Reward = ({r}) => (
             {r.cost}
           </Card.Meta>
         </Card.Content>
+        <Button onClick={handleDeletion}>
+          Use Reward
+        </Button>
       </Card>
     </Grid.Column>
   </Grid.Row>
+  )
+}
+
+const ConnectedReward = (props) => (
+  <RewardConsumer>
+    { value => (
+      <Reward {...props} {...value} />
+    )}
+  </RewardConsumer>
 )
 
-export default Reward;
+export default ConnectedReward;
