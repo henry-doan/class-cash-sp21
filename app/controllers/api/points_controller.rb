@@ -1,12 +1,13 @@
 class Api::PointsController < ApplicationController
   before_action :set_enrollment
-  before_action :set_point, only: [ :create, :update, :destroy]
+  before_action :set_point, only: [ :update, :destroy]
   
   def index
     render json: @enrollment.points
   end
 
   def create
+    @point = @enrollment.points.new(point_params)
     if @point.save
       render json: @point
     else

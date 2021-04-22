@@ -7,28 +7,37 @@ import { Link } from 'react-router-dom'
 const CreatePoints = ({match, addPoint}) => {
   const [point, setPoint] = useState({ name: '', desc: '', value: 0, enrollment_id: 0 })
   const [classroomUsers, setClassroomUsers] = useState([])
+  const [enrollments, setEnrollments] = useState([])
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    addPoint(point)
+    addPoint(point.enrollment_id, point)
     setPoint({ name: '', desc: '', value: 0, enrollment_id: 0 })
   }
 
   useEffect( () => {
     axios.get(`/api/classroomUsers/${match.params.classroom_id}`)
-    .then( res => setClassroomUsers(res.data))
-    .catch( err => console.log(err))
+      .then( res => setClassroomUsers(res.data))
+      .catch( err => console.log(err))
+    axios.get(`/api/classrooms/${match.params.classroom_id}/enrollments`)
+      .then( res => {
+        setEnrollments(res.data)
+      })
+      .catch( err => console.log(err))
   }, [])
 
-  const options = [
-    {key: 1, text: 'Billy Bob', value: 1},
-    {key: 2, text: 'Billy Bob Joe', value: 2}
-  ]
-  // classroomUsers.map( c => )
-  // [
-  //   {key: 1, text: 'Billy Bob', value: enrollment_id},
-  //   {key: 1, text: 'Billy Bob Joe', value: enrollment_id}
-  // ]
+  const createOptions = () => {
+    let options = []
+    for(let u of classroomUsers){
+      for(let e of enrollments){
+        if (u.id === e.user_id) {
+          let opt = { key: u.id, text: u.name, value: e.id }
+          options.push(opt)
+        }
+        }
+      }
+      return options
+    }
 
   return(
   <>
@@ -67,9 +76,8 @@ const CreatePoints = ({match, addPoint}) => {
       onChange={(e, { value }) => setPoint({ ...point, value: value })}
       />
       <Form.Select 
-        style={{width: "193px"}}
-        label="Award To"
-        options={options}
+        label="Student"
+        options={createOptions()}
         placeholder='Choose Student'
         required
         name='enrollment_id'
