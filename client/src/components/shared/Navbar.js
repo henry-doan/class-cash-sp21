@@ -44,7 +44,8 @@ const Navbar = ({ location, user, handleLogout, history}) => {
           </Menu.Menu>
         </>
       )
-    } else {
+    } 
+    else {
       return (
         <Menu.Menu position='right'>
           <Link to='/login'>
