@@ -7,7 +7,6 @@ import {Link} from 'react-router-dom';
 
 const AdminRewards = ({location}) => {
   const [classroomRewards, setClassroomRewards] = useState([])
-
   useEffect( () => {
     axios.get(`/api/classrooms/${location.state.classroomId}/classroomrewards`)
       .then( res => {
@@ -32,7 +31,9 @@ const AdminRewards = ({location}) => {
           <Link
           to={{
             pathname:'/CreateAdminReward',
-            
+            state: {
+              classroomId: location.state.classroomId,
+            }
             }}
           > 
           <Button size='large' style={{ backgroundColor: '#1CB993', color: 'white' }}>Create a new Reward
