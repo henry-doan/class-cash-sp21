@@ -7,17 +7,20 @@ import { Button } from 'semantic-ui-react'
 import { Link } from 'react-router-dom'
 import { AuthConsumer } from '../../providers/AuthProvider'
 
-const MyClassroom = ({location, user}) => {
+const MyClassroom = ({location, user, enrollmentId}) => {
   const [classroom, setClassroom] = useState([])
   const [classroomUsers, setClassroomUsers] = useState([])
   const isAdmin = user.isAdmin
-  
+  const [enrollment, setEnrollment] = useState([])
   useEffect( () => {
     axios.get(`/api/classroomUsers/${location.state.classroomId}`)
     .then( res => setClassroomUsers(res.data))
     .catch( err => console.log(err))
     axios.get(`/api/classrooms/${location.state.classroomId}`)
     .then( res => setClassroom(res.data) )
+    .catch( err => console.log(err) )
+    axios.get(`/api/enrollments/${location.state.enrollmentId}`)
+    .then( res => setEnrollment(res.data) )
     .catch( err => console.log(err) )
   }, [])
 
