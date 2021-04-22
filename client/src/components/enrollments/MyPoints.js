@@ -17,7 +17,7 @@ const MyPoints = ({classroomId, enrollmentId}) => {
      <Card.Content>
       <Button>
         <Link to={{
-          pathname: `/EarnPoints/${enrollmentId}`,
+          pathname: `/EarnPoints/${enrollmentId}/${classroomId}`,
           state: {
             classroomId: classroomId,
             enrollmentId: enrollmentId
@@ -29,7 +29,7 @@ const MyPoints = ({classroomId, enrollmentId}) => {
     
       <Button>
       <Link to={{
-          pathname: `/Spend/${classroomId}`,
+          pathname: `/Spend/${enrollmentId}/${classroomId}`,
           state: {
             classroomId: classroomId,
             enrollmentId: enrollmentId
