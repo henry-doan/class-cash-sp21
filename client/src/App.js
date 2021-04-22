@@ -43,10 +43,10 @@ const App = () => (
           <ProtectedRoute exact path="/ViewClassrooms" component={ViewClassrooms} />
           <ProtectedRoute exact path="/Dashboard/:enrollment_id/:classroom_id" component={Dashboard} />
           <ProtectedRoute exact path="/CreatePoints" component={CreatePoints} />
-          <ProtectedRoute exact path="/EarnPoints/:enrollment_id" component={EarnPoints} />
+          <ProtectedRoute exact path="/EarnPoints/:enrollment_id/:classroom_id" component={EarnPoints} />
           <ProtectedRoute exact path="/AdminRewards" component={AdminRewards} />
           <ProtectedRoute exact path="/CreateAdminReward" component={RewardForm} />
-          <ProtectedRoute exact path="/Spend/:id" component={Spend} />
+          <ProtectedRoute exact path="/Spend/:enrollment_id/:classroom_id" component={Spend} />
           <ProtectedRoute exact path="/CreatePoints/:enrollment_id/:classroom_id" component={CreatePoints} />
           <Route component={NoMatch} />
         </Switch>
