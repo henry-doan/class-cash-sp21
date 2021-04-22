@@ -25,9 +25,9 @@ const Navbar = ({ location, user, handleLogout, history}) => {
           </Menu>
           
           <Menu.Menu position='right'>
-            {/* <Menu.Item>
+            <Menu.Item>
               <DashboardLink />
-            </Menu.Item> */}
+            </Menu.Item>
           
            <Menu.Item>
              {user.name}
