@@ -43,5 +43,24 @@ color: #ffffff !important;
 font: 'Open sans' !important;
 background: #1CB993 !important;
 
+`
+
+export const Vutton = styled.button`
+color: #ffffff !important;
+font: 'Open sans' !important;
+background: #1CB993 !important;
+ position: inline-block !important
+`
+
+export const Divvv = styled.div`
+float: left;
+
+`
+
+
+export const Divv =styled.div`
+right: 0 !important;
+float: left  !important;
+padding: 10px !important;
 
 `
