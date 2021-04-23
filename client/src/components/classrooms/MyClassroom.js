@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react'
 import axios from 'axios'
 import ClassroomUser from './ClassroomUser'
 import AddDeleteEnrollment from '../enrollments/AddDeleteEnrollment'
-import { Button } from 'semantic-ui-react'
+import { Button, Image } from 'semantic-ui-react'
 import { Link } from 'react-router-dom'
 import { AuthConsumer } from '../../providers/AuthProvider'
 import { EnrollmentConsumer } from '../../providers/EnrollmentProvider'
@@ -35,8 +35,15 @@ const MyClassroom = ({location, user}) => {
     })
     return users.map(u => 
       <>
-        {/* <Image src={u.image} alt={u.name} />  */}
-        <p>{u.name}</p>
+        <Image style={{
+        borderRadius: '50%', 
+        width: '137px', 
+        height: '137px',
+        display: 'inline'
+        }} 
+        src={u.image} 
+        alt={u.name} /> 
+        {u.name}
       </>
     )
   }
@@ -48,7 +55,19 @@ const MyClassroom = ({location, user}) => {
        admins.push(c)
      }
     })
-    return admins.map( u => <p>{u.name}</p>)
+    return admins.map( u => 
+      <>
+        <Image style={{
+          borderRadius: '50%', 
+          width: '137px', 
+          height: '137px',
+          display: 'inline'
+          }} 
+          src={u.image} 
+          alt={u.name} />
+          {u.name}
+      </> 
+    )
   }
 
   return(
@@ -58,6 +77,8 @@ const MyClassroom = ({location, user}) => {
     { renderAdminClassroomUsers() }
     <h3>Classroom Members</h3>
     { renderClassroomUsers() }
+    <br />
+    <br />
     <AddDeleteEnrollment 
     classroomId={location.state.classroomId}
     classroomUsers={classroomUsers}/>
