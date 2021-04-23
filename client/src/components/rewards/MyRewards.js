@@ -16,7 +16,8 @@ const MyRewards = ({enrollmentId}) => {
   },[])
 
   const renderRewards = () => {
-    return rewards.map( r => (
+    return rewards.map( r => 
+      (
       <Reward 
         r={r}
         enrollmentId={enrollmentId}
