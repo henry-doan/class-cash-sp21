@@ -5,9 +5,10 @@ import { useState } from 'react';
 import UpdateReward from './UpdateReward';
 
 const Reward = ({r, enrollmentId, updateReward, user}) => {
-  const isAdmin = user.isAdmin
+  const [reward, setReward] = useState({name: r.name, cost: r.cost, desc: r.desc, redeemed: true, enrollment_id: r.enrollment_id})
   const [editing, setEditing] = useState(false)
-  const handleDeletion = (e) => {
+  const isAdmin = user.isAdmin
+  const handleRedeem = (e) => {
     e.preventDefault()
     updateReward(r.id, enrollmentId, reward)
     window.location.reload()
@@ -54,7 +55,7 @@ const Reward = ({r, enrollmentId, updateReward, user}) => {
                 {r.cost}
               </Card.Meta>
             </Card.Content>
-            <Button onClick={handleDeletion}>
+            <Button onClick={handleRedeem}>
               Use Reward
             </Button>
           </Card>
