@@ -4,6 +4,7 @@ import axios from 'axios'
 import Earn from "./Earn"
 import { PointConsumer } from "../../providers/PointProvider"
 import MyEarned from "./MyEarned"
+import { GreenButton } from "../../styledComponents/SharedStyles"
 
 
 
@@ -33,6 +34,11 @@ const EarnPoints = ({location}) => {
       classroomId={location.state.classroomId}
       enrollmentId={location.state.enrollmentId}
     />
+       
+    <GreenButton >
+      <a style={{color: 'white'}} href="javascript:history.back()">Dashboard</a>
+      </GreenButton>
+     
 
     </>
   )

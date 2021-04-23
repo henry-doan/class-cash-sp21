@@ -4,6 +4,7 @@ import {ClassroomConsumer} from '../../providers/ClassroomProvider';
 import UpdateClassroom from './UpdateClassroom';
 import { Link } from 'react-router-dom'
 import axios from 'axios';
+import { AuthConsumer } from '../../providers/AuthProvider';
 
 const Classroom = ({e, deleteClassroom}) => {
   const [editing, setEditing] = useState(false)
@@ -15,7 +16,7 @@ const Classroom = ({e, deleteClassroom}) => {
       .then( res => setClassroom(res.data))
       .catch( err => console.log(err))
   }, [])
-
+  
   const handleClick = () => {
     window.location.reload()
   }
@@ -24,7 +25,7 @@ const Classroom = ({e, deleteClassroom}) => {
     {editing ?
     <UpdateClassroom {...e } setEditing={setEditing} />
             :
-    <Card key={classroom.id}>
+      <Card key={classroom.id}>
         <Card.Content>
           <Card.Header>
             {classroom.name}
@@ -42,29 +43,9 @@ const Classroom = ({e, deleteClassroom}) => {
               Select
             </Link>
           </Button>
-          <Button
-            onClick={() => setEditing(!editing)}
-          >
-           Update
-          </Button>
-          <Button color="red"
-            onClick={() => deleteClassroom(classroom.id)}
-          >
-            <Icon name="trash" />
-          </Button>
-          <Button>
-            <Link to={{
-              pathname: `/Spend/${classroom.id}`,
-              state: {
-                classroomId: classroom.id,
-                enrollmentId: e.id
-              }
-            }}>
-              View Rewards
-            </Link>
-          </Button>
         </Card.Content>
       </Card>
+    
     }   
     </>
   )

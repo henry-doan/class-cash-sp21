@@ -1,7 +1,7 @@
 import { AuthConsumer } from '../../providers/AuthProvider';
 import {ClassroomConsumer} from '../../providers/ClassroomProvider';
 import {EnrollmentConsumer} from '../../providers/EnrollmentProvider';
-import { Menu } from 'semantic-ui-react';
+import { Menu, Image } from 'semantic-ui-react';
 import { Link, withRouter } from 'react-router-dom';
 import DropdownBar from '../classrooms/DropDownBar';
 import { useState } from 'react';
@@ -32,7 +32,14 @@ const Navbar = ({ location, user, handleLogout, history}) => {
            
           
            <Menu.Item>
-             {user.name}
+           <Image style={{
+              borderRadius: '50%', 
+              width: '45px', 
+              height: '45px',
+             
+              }} 
+              src={user.image} 
+              alt={user.name} /> 
            </Menu.Item>
 
             <Menu.Item>

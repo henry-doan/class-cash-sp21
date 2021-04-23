@@ -1,6 +1,6 @@
 import { useState, useEffect, Component } from 'react'
 import axios from 'axios'
-import { Segment } from 'semantic-ui-react'
+import { Image, Segment } from 'semantic-ui-react'
 import { ClassroomConsumer } from '../../providers/ClassroomProvider'
 
 const EnrollmentClass = (props, user) => {
@@ -22,8 +22,16 @@ const EnrollmentClass = (props, user) => {
     })
     return users.map(u => 
       <>
-        {/* <Image src={u.image} alt={u.name} />  */}
-           {u.name}|| <space />   
+        
+        <Image style={{
+          borderRadius: '50%', 
+          width: '98px', 
+          height: '98px',
+          display: 'inline'
+          }} 
+          src={u.image} 
+          alt={u.name} /> 
+             
       </>
     )
   }
@@ -35,13 +43,24 @@ const EnrollmentClass = (props, user) => {
        admins.push(c)
      }
     })
-    return admins.map( u => u.name)
+    return admins.map( u => 
+      <>
+       <Image style={{
+          borderRadius: '50%', 
+          width: '98px', 
+          height: '98px',
+          display: 'inline'
+          }} 
+          src={u.image} 
+          alt={u.name} /> 
+        </>
+        )
   }
 
   return(
     <>
-      <h4></h4>
-      <h4>{renderAdminClassroomUsers()}|| {renderClassroomUsers()}</h4>
+      
+      {renderAdminClassroomUsers()} {renderClassroomUsers()}
       
     </>
   )
