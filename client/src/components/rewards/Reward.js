@@ -43,4 +43,4 @@ const ConnectedReward = (props) => (
   </RewardConsumer>
 )
 
-export default AuthConnectedReward;
+export default ConnectedReward;
