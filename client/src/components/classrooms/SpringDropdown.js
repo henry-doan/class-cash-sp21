@@ -6,7 +6,7 @@ import axios from 'axios';
 import { withRouter } from "react-router-dom";
 import { AuthConsumer } from "../../providers/AuthProvider";
 import {Vutton, Divv, Divvv} from '../../styledComponents/SharedStyles'
-import { Grid } from "semantic-ui-react";
+import { Button, Grid } from "semantic-ui-react";
 
 
 const PDD = ({location}) => {
