@@ -2,36 +2,43 @@ import { Card, Grid, Button } from "semantic-ui-react";
 import { RewardConsumer } from '../../providers/RewardProvider'
 import { useState } from 'react'
 
-const Reward = ({r, enrollmentId, deleteReward}) => {
+const Reward = ({r, enrollmentId, updateReward}) => {
+  const [reward, setReward] = useState({name: r.name, cost: r.cost, desc: r.desc, redeemed: true, enrollment_id: r.enrollment_id})
 
-  const handleDeletion = (e) => {
+  const handleRedeem = (e) => {
     e.preventDefault()
-    deleteReward(enrollmentId, r.id)
+    updateReward(r.id, enrollmentId, reward)
     window.location.reload()
   }
 
   return(
-  <Grid.Row>
-    <Grid.Column>
-      <Card>
-        <Card.Content>
-          <Card.Header>
-            {r.name}
-          </Card.Header>
-          <Card.Description>
-            {r.desc}
-          </Card.Description>
-          <br/>
-          <Card.Meta>
-            {r.cost}
-          </Card.Meta>
-        </Card.Content>
-        <Button onClick={handleDeletion}>
-          Use Reward
-        </Button>
-      </Card>
-    </Grid.Column>
-  </Grid.Row>
+    <>
+    {
+      !r.redeemed ?
+
+    <Grid.Row>
+      <Grid.Column>
+        <Card>
+          <Card.Content>
+            <Card.Header>
+              {r.name}
+            </Card.Header>
+            <Card.Description>
+              {r.desc}
+            </Card.Description>
+            <br/>
+            <Card.Meta>
+              {r.cost}
+            </Card.Meta>
+          </Card.Content>
+          <Button onClick={handleRedeem}>
+            Use Reward
+          </Button>
+        </Card>
+      </Grid.Column>
+    </Grid.Row>
+    : ''}
+  </>
   )
 }
 
