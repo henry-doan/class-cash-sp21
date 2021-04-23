@@ -4,7 +4,7 @@ import { AuthConsumer } from '../../providers/AuthProvider';
 import { useState } from 'react';
 import UpdateReward from './UpdateReward';
 
-const Reward = ({r, enrollmentId, deleteReward, user}) => {
+const Reward = ({r, enrollmentId, updateReward, user}) => {
   const isAdmin = user.isAdmin
   const [editing, setEditing] = useState(false)
   const handleDeletion = (e) => {
@@ -12,9 +12,6 @@ const Reward = ({r, enrollmentId, deleteReward, user}) => {
     updateReward(r.id, enrollmentId, reward)
     window.location.reload()
   }
-
-const Reward = ({r, user}) => {
-const isAdmin = user.isAdmin
   return(
   <> { editing? 
       <UpdateReward {...r} setEditing={setEditing}/>
