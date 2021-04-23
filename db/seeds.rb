@@ -15,6 +15,7 @@ classroom_array = ['Mrs. ', 'Mr. ', 'Ms. ']
   5.times do
     user = User.create(
     name: Faker::FunnyName.two_word_name,
+    image: Faker::Avatar.image,
     email: "test#{@i}@email.com",
     password: "password"
     )
