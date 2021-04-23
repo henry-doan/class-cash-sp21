@@ -1,9 +1,12 @@
 import { Card, Grid, Button } from "semantic-ui-react";
 import { RewardConsumer } from '../../providers/RewardProvider'
-import { useState } from 'react'
+import { AuthConsumer } from '../../providers/AuthProvider';
+import { useState } from 'react';
+import UpdateReward from './UpdateReward';
 
-const Reward = ({r, enrollmentId, deleteReward}) => {
-
+const Reward = ({r, enrollmentId, deleteReward, user}) => {
+  const isAdmin = user.isAdmin
+  const [editing, setEditing] = useState(false)
   const handleDeletion = (e) => {
     e.preventDefault()
     deleteReward(enrollmentId, r.id)
@@ -11,28 +14,56 @@ const Reward = ({r, enrollmentId, deleteReward}) => {
   }
 
   return(
-  <Grid.Row>
-    <Grid.Column>
-      <Card>
-        <Card.Content>
-          <Card.Header>
-            {r.name}
-          </Card.Header>
-          <Card.Description>
-            {r.desc}
-          </Card.Description>
-          <br/>
-          <Card.Meta>
-            {r.cost}
-          </Card.Meta>
-        </Card.Content>
-        <Button onClick={handleDeletion}>
-          Use Reward
-        </Button>
-      </Card>
-    </Grid.Column>
-  </Grid.Row>
-  )
+  <> { editing? 
+      <UpdateReward {...r} setEditing={setEditing}/>
+      :
+    <>{ isAdmin? 
+      <Grid.Row>
+        <Grid.Column>
+          <Card>
+            <Card.Content>
+              <Card.Header>
+                {r.name}
+              </Card.Header>
+              <Card.Description>
+                {r.desc}
+              </Card.Description>
+              <br/>
+              <Card.Meta>
+                {r.cost}
+              </Card.Meta>
+            </Card.Content>
+            <Button onClick={() => setEditing(!editing)}>
+              Update Reward
+            </Button>
+          </Card>
+        </Grid.Column>
+      </Grid.Row>
+      : 
+      <Grid.Row>
+        <Grid.Column>
+          <Card>
+            <Card.Content>
+              <Card.Header>
+                {r.name}
+              </Card.Header>
+              <Card.Description>
+                {r.desc}
+              </Card.Description>
+              <br/>
+              <Card.Meta>
+                {r.cost}
+              </Card.Meta>
+            </Card.Content>
+            <Button onClick={handleDeletion}>
+              Use Reward
+            </Button>
+          </Card>
+        </Grid.Column>
+      </Grid.Row>
+}</>
+}
+</>)
 }
 
 const ConnectedReward = (props) => (
@@ -43,4 +74,13 @@ const ConnectedReward = (props) => (
   </RewardConsumer>
 )
 
-export default ConnectedReward;
+const AuthConnectedReward = (props) => (
+  <AuthConsumer>
+    {
+      value => (
+        <ConnectedReward {...props} {...value} />
+      )
+    }
+  </AuthConsumer>
+)
+export default AuthConnectedReward;

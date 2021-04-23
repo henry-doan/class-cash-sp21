@@ -42,6 +42,7 @@ const ClassroomRewardProvider = ({ children }) => {
         const updatedClassroomRewards = classroomRewards.map( r => {
           if(r.id === id){
             return res.data
+            
           }
           return r
         })
