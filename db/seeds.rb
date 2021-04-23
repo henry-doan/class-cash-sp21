@@ -38,6 +38,7 @@ classroom_array = ['Mrs. ', 'Mr. ', 'Ms. ']
         name: Faker::Vehicle.make_and_model,
         cost: cost_array.sample,
         desc: Faker::ChuckNorris.fact,
+        redeemed: false,
         enrollment_id: enrollment.id
       )
       Point.create(
