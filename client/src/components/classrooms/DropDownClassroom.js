@@ -1,9 +1,9 @@
 import { useState, useEffect, useReducer } from 'react'
-import { Card, Button, Icon, Grid } from "semantic-ui-react";
+import { Card, Button, Icon, Grid, Divider } from "semantic-ui-react";
 import { Link, useParams } from 'react-router-dom';
 import { ClassroomConsumer } from '../../providers/ClassroomProvider';
 import axios from 'axios';
-
+import { HoverButton } from '../../styledComponents/SharedStyles'
 const DropDownClassroom = ({e}) => {
   const [classroom, setClassroom] = useState([])
   
@@ -18,16 +18,8 @@ const handleClick = () => {
 }
 
 return(
-    
-    <Card  key={classroom.id}>
-      <Card.Content style={{ height:'100px'}}>
-        <Card.Header>
-          <h1>{classroom.name}</h1>
-        </Card.Header>
-      </Card.Content>
-      <Card.Content>
-        <Button onClick={handleClick}>
-          <Link to={{
+  <Button style={{backgroundColor:"white", height:'auto', width:'auto'}} onClick={handleClick}>
+    <Link  to={{
             pathname: `/Dashboard/${e.id}/${classroom.id}`,
             
             state: {
@@ -35,12 +27,21 @@ return(
               enrollmentId: e.id
             }
           }}>
-            Select
-          </Link>
-        </Button>
-        </Card.Content>
+  
+    <HoverButton >
+    <Card style={{color:"F5F5F5"}}  key={classroom.id}>
+      <Card.Content style={{ height:'191px'}}>
+        <Card.Header>
+          <Divider hidden />
+          <h1>{classroom.name}</h1>
+        </Card.Header>
+      </Card.Content>
+      
         </Card>
-        
+        </HoverButton>
+     
+        </Link>
+        </Button>
   
 )
 }
