@@ -36,7 +36,7 @@ class Api::RewardsController < ApplicationController
     end
 
     def reward_params
-      params.require(:reward).permit(:name, :cost, :desc, :enrollment_id, :classroom_id)
+      params.require(:reward).permit(:name, :cost, :desc, :redeemed, :enrollment_id, :classroom_id)
     end
 
     def set_enrollment
