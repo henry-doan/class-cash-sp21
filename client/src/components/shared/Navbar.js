@@ -8,6 +8,7 @@ import { useState } from 'react';
 import DashboardLink from '../classrooms/DashboardLink';
 import PDD from '../classrooms/SpringDropdown';
 import basicDD from '../classrooms/basicDD';
+import DropDownBar from '../classrooms/DropDownBar';
 
 const Navbar = ({ location, user, handleLogout, history}) => {
   const [classroom, setClassroom] = useState([])
@@ -27,16 +28,14 @@ const Navbar = ({ location, user, handleLogout, history}) => {
           </Menu>
           
           <Menu.Menu position='right'>
-            <Menu.Item>
-              <DashboardLink />
-            </Menu.Item>
+           
           
            <Menu.Item>
              {user.name}
            </Menu.Item>
 
             <Menu.Item>
-              <PDD
+              <DropDownBar
               />
             </Menu.Item>
             <Menu.Item
