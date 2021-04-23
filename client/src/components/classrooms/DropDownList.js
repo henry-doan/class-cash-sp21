@@ -4,7 +4,7 @@ import { AuthConsumer } from '../../providers/AuthProvider';
 import { Link } from 'react-router-dom'
 import DropDownClassroom from './DropDownClassroom';
 import axios from 'axios';
-import { DropdownGrid } from '../../styledComponents/SharedStyles'
+import { DropdownGrid, HoverButton } from '../../styledComponents/SharedStyles'
 
 const DropDownList = ({user}) => {
   const [userEnrollments, setUserEnrollments] = useState([])
@@ -22,22 +22,29 @@ const DropDownList = ({user}) => {
   }
 
   return (
-    <DropdownGrid style={{padding:'52px', height:'350px'}}>
-    <Container>
-      <Divider hidden/>
-      <Card.Group>
-        { renderUserEnrollments() }
-        <Card>
-          <Card.Content style={{backgroundColor:"#1CB993"}}>
-            <Card.Header style={{padding:'50px'}} textAlign='center'>
-              <Link style={{ color:'white'}} to="/ClassroomSelect">
-                See My Classrooms
-              </Link>
-            </Card.Header>
-          </Card.Content>
-        </Card>
-      </Card.Group>
-    </Container>
+    <DropdownGrid style={{padding:'52px', height:'251px'}}>
+      <Container>
+        <Divider hidden/>
+        <Card.Group>
+          
+          { renderUserEnrollments() }
+          
+          <Button style={{backgroundColor:"white", height:'auto', width:'275px'}}>
+            <Link style={{ color:'white'}} to="/ViewClassrooms">
+              <HoverButton >
+                <Card style={{backgroundColor:'#1CB993'}}>
+                  <Card.Content style={{ height:'191px'}}>
+                    <Card.Header style={{color: 'white'}}>
+                      <Divider hidden />
+                        <h1>View All Classrooms</h1>
+                    </Card.Header>
+                  </Card.Content>
+                </Card>
+              </HoverButton>
+            </Link>
+          </Button>
+        </Card.Group>
+      </Container>
     </DropdownGrid>
   )
 }

@@ -49,7 +49,7 @@ const DropDownBar = ({location}) => {
     compact
     placeholder= {classroom.name}
     options= {options}
-    scrolling
+    scrolling 
     floating
   />
 

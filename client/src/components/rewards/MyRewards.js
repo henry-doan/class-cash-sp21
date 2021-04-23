@@ -1,7 +1,7 @@
 import { RewardConsumer } from '../../providers/RewardProvider'
 import { useState, useEffect } from 'react'
 import axios from 'axios'
-import Reward from './Reward'
+import DashboardReward from './DashboardReward'
 import { Card, Grid, Header } from 'semantic-ui-react'
 
 const MyRewards = ({enrollmentId}) => {
@@ -18,7 +18,7 @@ const MyRewards = ({enrollmentId}) => {
   const renderRewards = () => {
     return rewards.map( r => 
       (
-      <Reward 
+      <DashboardReward 
         r={r}
         enrollmentId={enrollmentId}
       />
