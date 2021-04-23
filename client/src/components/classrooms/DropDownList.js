@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom'
 import DropDownClassroom from './DropDownClassroom';
 import axios from 'axios';
 import { DropdownGrid, HoverButton } from '../../styledComponents/SharedStyles'
+import { NavCard, NavH1 } from '../../styledComponents/NavStyles'
 
 const DropDownList = ({user}) => {
   const [userEnrollments, setUserEnrollments] = useState([])
@@ -22,24 +23,25 @@ const DropDownList = ({user}) => {
   }
 
   return (
-    <DropdownGrid style={{padding:'52px', height:'251px'}}>
+    <DropdownGrid style={{padding:'15px', height:'251px'}}>
       <Container>
         <Divider hidden/>
         <Card.Group>
           
           { renderUserEnrollments() }
           
-          <Button style={{backgroundColor:"white", height:'auto', width:'275px'}}>
+          <Button style={{backgroundColor:"white", height: '191px', width:'275px'}}>
             <Link style={{ color:'white'}} to="/ViewClassrooms">
               <HoverButton >
-                <Card style={{backgroundColor:'#1CB993'}}>
+                <NavCard style={{backgroundColor:'#1CB993'}}>
                   <Card.Content style={{ height:'191px'}}>
                     <Card.Header style={{color: 'white'}}>
                       <Divider hidden />
-                        <h1>View All Classrooms</h1>
+                      <Divider hidden />
+                        <h3>View All Classrooms</h3>
                     </Card.Header>
                   </Card.Content>
-                </Card>
+                </NavCard>
               </HoverButton>
             </Link>
           </Button>

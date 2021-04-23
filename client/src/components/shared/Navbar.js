@@ -10,6 +10,8 @@ import PDD from '../classrooms/SpringDropdown';
 import basicDD from '../classrooms/basicDD';
 import DropDownBar from '../classrooms/DropDownBar';
 import { HoverButton } from '../../styledComponents/SharedStyles';
+import { NavLogo, NavMenuItem } from '../../styledComponents/NavStyles'
+import Logo from '../images/Logo.png'
 
 const Navbar = ({ location, user, handleLogout, history}) => {
   const [classroom, setClassroom] = useState([])
@@ -18,20 +20,16 @@ const Navbar = ({ location, user, handleLogout, history}) => {
     if (user) {
       return (
         <>
-          <Menu pointing secondary>
+          <Menu secondary>
             <Link to='/home'>
-              <Menu.Item
-                name='ClassCash'
-                id='home'
-                active={location.pathname === '/home'}
-              />
+              <NavLogo src={Logo} centered/>
             </Link>
           </Menu>
           
           <Menu.Menu position='right'>
            
           
-           <Menu.Item>
+           <NavMenuItem>
            <Image style={{
               borderRadius: '50%', 
               width: '45px', 
@@ -40,7 +38,7 @@ const Navbar = ({ location, user, handleLogout, history}) => {
               }} 
               src={user.image} 
               alt={user.name} /> 
-           </Menu.Item>
+           </NavMenuItem>
 
             <Menu.Item>
               
@@ -48,7 +46,7 @@ const Navbar = ({ location, user, handleLogout, history}) => {
               />
               
             </Menu.Item>
-            <Menu.Item
+            <NavMenuItem
               name='logout'
               onClick={() => handleLogout(history)}
             />
@@ -60,21 +58,21 @@ const Navbar = ({ location, user, handleLogout, history}) => {
       return (
         <Menu.Menu position='right'>
           <Link to='/login'>
-            <Menu.Item
+            <NavMenuItem
               name='login'
               id='login'
               active={location.pathname === '/login'}
             />
           </Link>
           <Link to='/register'>
-            <Menu.Item
+            <NavMenuItem
               name='register'
               id='register'
               active={location.pathname === '/register'}
             />
           </Link>
           <Link to='/registerAdmin'>
-            <Menu.Item
+            <NavMenuItem
               name='registerAdmin'
               id='registerAdmin'
               active={location.pathname === '/registerAdmin'}
@@ -86,14 +84,14 @@ const Navbar = ({ location, user, handleLogout, history}) => {
   }
   return(
     <>
-      <Menu pointing secondary>
-      <Link to='/about'>
-              <Menu.Item
-                name='about'
-                id='about'
-                active={location.pathname === '/about'}
-              />
-            </Link>
+      <Menu pointing secondary style={{height: '72px'}}>
+      {/* <Link to='/about'>
+        <Menu.Item
+          name='about'
+          id='about'
+          active={location.pathname === '/about'}
+        />
+      </Link> */}
         { rightNavItem() }
       </Menu>
     </>
