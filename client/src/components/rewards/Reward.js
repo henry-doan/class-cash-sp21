@@ -1,4 +1,5 @@
 import { Card, Grid, Button } from "semantic-ui-react";
+
 import { RewardConsumer } from '../../providers/RewardProvider';
 import { AuthConsumer } from '../../providers/AuthProvider';
 import { useState } from 'react';
@@ -8,6 +9,7 @@ const Reward = ({r, enrollmentId, updateReward, user}) => {
   const [reward, setReward] = useState({name: r.name, cost: r.cost, desc: r.desc, redeemed: true, enrollment_id: r.enrollment_id})
   const [editing, setEditing] = useState(false)
   const isAdmin = user.isAdmin
+
   const handleRedeem = (e) => {
     e.preventDefault()
     updateReward(r.id, enrollmentId, reward)
