@@ -14,6 +14,8 @@ const Reward = ({r, enrollmentId, updateReward, user}) => {
     window.location.reload()
   }
   return(
+    <>
+{   !r.redeemed? 
   <> { editing? 
       <UpdateReward {...r} setEditing={setEditing}/>
       :
@@ -62,9 +64,9 @@ const Reward = ({r, enrollmentId, updateReward, user}) => {
         </Grid.Column>
       </Grid.Row>
 }</>
-}
-</>)
-}
+}</>: ""
+}</>
+)}
 
 const ConnectedReward = (props) => (
   <AuthConsumer>
