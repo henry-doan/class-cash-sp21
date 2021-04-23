@@ -5,7 +5,7 @@ import DropDownList from './DropDownList';
 import DropDownClassroom from './DropDownClassroom'
 import { AuthConsumer } from '../../providers/AuthProvider';
 import { withRouter} from 'react-router-dom';
-import { Bar } from '../../styledComponents/SharedStyles';
+import { Bar, MyDropdownMenu } from '../../styledComponents/SharedStyles';
 
 
 const options = [
@@ -48,9 +48,11 @@ const DropDownBar = ({location}) => {
     className='button icon'
     compact
     placeholder= {classroom.name}
-    
     options= {options}
+    scrolling
+    floating
   />
+
   )
 }
 

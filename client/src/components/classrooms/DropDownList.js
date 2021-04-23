@@ -1,9 +1,10 @@
-import { Segment, Header, Card, List, Button, Icon, Grid, Divider } from 'semantic-ui-react'
+import { Segment, Header, Card, List, Button, Icon, Grid, Divider, Container } from 'semantic-ui-react'
 import { useState, useEffect } from 'react'
 import { AuthConsumer } from '../../providers/AuthProvider';
 import { Link } from 'react-router-dom'
 import DropDownClassroom from './DropDownClassroom';
 import axios from 'axios';
+import { DropdownGrid } from '../../styledComponents/SharedStyles'
 
 const DropDownList = ({user}) => {
   const [userEnrollments, setUserEnrollments] = useState([])
@@ -21,8 +22,8 @@ const DropDownList = ({user}) => {
   }
 
   return (
-    <Grid style={{padding:'52px', width:'1700px', height:'350px'}}>
-    <Segment>
+    <DropdownGrid style={{padding:'52px', height:'350px'}}>
+    <Container>
       <Divider hidden/>
       <Card.Group>
         { renderUserEnrollments() }
@@ -36,8 +37,8 @@ const DropDownList = ({user}) => {
           </Card.Content>
         </Card>
       </Card.Group>
-    </Segment>
-    </Grid>
+    </Container>
+    </DropdownGrid>
   )
 }
 
