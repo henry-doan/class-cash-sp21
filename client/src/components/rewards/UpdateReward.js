@@ -1,13 +1,15 @@
 import { Form, Button } from 'semantic-ui-react';
 import { useState } from 'react';
-import { RewardConsumer } from '../../providers/RewardProvider';
-
-const UpdateReward = ({id, name, desc, cost, UpdateReward, setEditing}) => {
-  const [reward, setReward] = useState({name: name, desc: desc, cost: cost})
+import { ClassroomRewardConsumer } from '../../providers/ClassroomRewardProvider';
+import {withRouter} from 'react-router-dom';
+const UpdateReward = ({id, name, desc, cost, updateClassroomReward, setEditing, classroom_id}) => {
+  const [reward, setReward] = useState({name: name, desc: desc, cost: cost, classroom_id: classroom_id})
+  
   const handleSubmit = (e) => {
     e.preventDefault();
-    UpdateReward(id, reward)
+    updateClassroomReward(id, classroom_id, reward)
     setEditing(false)
+    
   }
 
   return(
@@ -36,18 +38,18 @@ const UpdateReward = ({id, name, desc, cost, UpdateReward, setEditing}) => {
         onChange={(e) => setReward({cost: e.target.value})}
         value={reward.cost}
       />
-      <Button type="submit">Update</Button>
+      <Button type="submit" onClick={() => window.location.reload()}>Update</Button>
     </Form>
   )
 }
 
 const ConnectedUpdateReward = (props) => (
-  <RewardConsumer>
+  <ClassroomRewardConsumer>
     {
       value => (
         <UpdateReward {...props} {...value} />
       )
     }
-  </RewardConsumer>
+  </ClassroomRewardConsumer>
 )
-export default ConnectedUpdateReward;
+export default withRouter(ConnectedUpdateReward);
