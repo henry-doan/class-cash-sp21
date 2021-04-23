@@ -1,9 +1,14 @@
+import { useState } from "react";
 import { Button, Card, Grid } from "semantic-ui-react";
 import { AuthConsumer } from '../../providers/AuthProvider';
+import { ClassroomRewardConsumer } from "../../providers/ClassroomRewardProvider";
 
-const Reward = ({r, user}) => {
+const Reward = ({r, user, updateClassroomReward}) => {
 const isAdmin = user.isAdmin
+const [editing, setEditing] = useState(false)
   return(
+    <> {
+      editing? <h1>Test</h1> :
     <>
     { isAdmin? 
     <Grid.Row>
@@ -18,7 +23,7 @@ const isAdmin = user.isAdmin
           </Card.Description>
           <br/>
           <Card.Meta>
-            {r.cost} <Button floated='right'>Edit</Button>
+            {r.cost} <Button floated='right' onClick={ ()=> setEditing(!editing)}>Edit</Button>
           </Card.Meta>
         </Card.Content>
       </Card>
@@ -43,17 +48,27 @@ const isAdmin = user.isAdmin
       </Card>
     </Grid.Column>
   </Grid.Row>
-}</>
+}</>}</>
   )}
 
 const ConnectedReward = (props) => (
-  <AuthConsumer>
+  <ClassroomRewardConsumer>
     {
       value => (
         <Reward {...props} {...value} />
       )
     }
+  </ClassroomRewardConsumer>
+)
+
+const AuthConnectedReward = (props) => (
+  <AuthConsumer>
+    {
+      value => (
+        <ConnectedReward {...props} {...value} />
+      )
+    }
   </AuthConsumer>
 )
 
-export default ConnectedReward;
+export default AuthConnectedReward;
