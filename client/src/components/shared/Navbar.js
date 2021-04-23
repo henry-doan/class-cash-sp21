@@ -9,6 +9,7 @@ import DashboardLink from '../classrooms/DashboardLink';
 import PDD from '../classrooms/SpringDropdown';
 import basicDD from '../classrooms/basicDD';
 import DropDownBar from '../classrooms/DropDownBar';
+import { HoverButton } from '../../styledComponents/SharedStyles';
 
 const Navbar = ({ location, user, handleLogout, history}) => {
   const [classroom, setClassroom] = useState([])
@@ -35,8 +36,10 @@ const Navbar = ({ location, user, handleLogout, history}) => {
            </Menu.Item>
 
             <Menu.Item>
+              
               <DropDownBar
               />
+              
             </Menu.Item>
             <Menu.Item
               name='logout'
