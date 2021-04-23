@@ -9,7 +9,7 @@ const Reward = ({r, enrollmentId, deleteReward, user}) => {
   const [editing, setEditing] = useState(false)
   const handleDeletion = (e) => {
     e.preventDefault()
-    deleteReward(enrollmentId, r.id)
+    updateReward(r.id, enrollmentId, reward)
     window.location.reload()
   }
 
