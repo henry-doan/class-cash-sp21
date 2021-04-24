@@ -24,6 +24,7 @@ import ViewClassrooms from './components/classrooms/ViewClassrooms'
 import AuthConsumer from './providers/AuthProvider';
 import AdminCreatePoints from './components/points/CreatePoints';
 import RewardForm from './components/rewards/RewardForm';
+import Profile from './components/auth/Profile';
 
 const App = () => (
   <>
@@ -37,6 +38,7 @@ const App = () => (
           <Route exact path="/about" component={About} />
           <ProtectedRoute exact path="/" component={Home} />
           <ProtectedRoute exact path="/home" component={Home} />
+          <ProtectedRoute exact path='/profile' component={Profile} />
           <ProtectedRoute exact path="/ClassroomSelect" component={ClassroomSelect} />
           <ProtectedRoute exact path="/CreateClassroom" component={CreateClassroom} />
           <ProtectedRoute exact path="/MyClassroom" component={MyClassroom} />
