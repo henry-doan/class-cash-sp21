@@ -27,7 +27,7 @@ const EnrollmentClass = (props, user) => {
           borderRadius: '50%', 
           width: '98px', 
           height: '98px',
-          display: 'inline'
+          display: 'inline',
           }} 
           src={u.image} 
           alt={u.name} /> 
@@ -49,7 +49,8 @@ const EnrollmentClass = (props, user) => {
           borderRadius: '50%', 
           width: '98px', 
           height: '98px',
-          display: 'inline'
+          display: 'inline',
+          border: '4px solid #1CB993'
           }} 
           src={u.image} 
           alt={u.name} /> 

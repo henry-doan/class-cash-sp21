@@ -2,6 +2,7 @@ import { Card, Grid, Button } from "semantic-ui-react";
 import { RewardConsumer } from '../../providers/RewardProvider';
 import { useState } from 'react';
 import UpdateReward from './UpdateReward';
+import { MyHeader } from '../../styledComponents/SharedStyles'
 
 const Reward = ({r, enrollmentId, updateReward, user}) => {
   const [reward, setReward] = useState({name: r.name, cost: r.cost, desc: r.desc, redeemed: true, enrollment_id: r.enrollment_id})
@@ -19,22 +20,33 @@ const Reward = ({r, enrollmentId, updateReward, user}) => {
   <>
       <Grid.Row>
         <Grid.Column>
-          <Card>
+          <Card style={{width: '396px', height: '147px', boxShadow: '0px 4px 10px rgba(0, 0, 0, 0.161522)', borderRadius: '16px'}}>
             <Card.Content>
-              <Card.Header>
+              <MyHeader>
                 {r.name}
-              </Card.Header>
-              <Card.Description>
+              </MyHeader>
+              <Card.Description style={{fontSize: '16px', color: 'black'}}>
                 {r.desc}
               </Card.Description>
               <br/>
-              <Card.Meta>
-                {r.cost}
-              </Card.Meta>
+              <Grid centered columns={2}>
+                <Grid.Column float='left' width={11}>
+                  <Card.Meta style={{fontSize: '14px', color: 'black'}}>
+                    {r.cost}
+                  </Card.Meta>
+                </Grid.Column>
+                <Grid.Column float='right' width={5}>
+                  <a onClick={handleRedeem} pointing
+                    style={{
+                      color: '#2C698D',
+                      fontSize: '14px',
+                    }}
+                  >
+                    Use Reward
+                  </a>
+                </Grid.Column>
+              </Grid>
             </Card.Content>
-            <Button onClick={handleRedeem}>
-              Use Reward
-            </Button>
           </Card>
         </Grid.Column>
       </Grid.Row>

@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react'
 import axios from 'axios'
 import DashboardReward from './DashboardReward'
 import { Card, Grid, Header } from 'semantic-ui-react'
+import { MyHeader } from '../../styledComponents/SharedStyles'
 
 const MyRewards = ({enrollmentId}) => {
   const [rewards, setRewards] = useState([])
@@ -27,7 +28,7 @@ const MyRewards = ({enrollmentId}) => {
 
   return(
     <>
-      <Header>My Rewards</Header>
+      <MyHeader>My Rewards</MyHeader>
       <Grid columns={1}>
         {renderRewards()}
       </Grid>

@@ -52,6 +52,8 @@ const DropDownBar = ({location}) => {
       options= {options}
       scrolling 
       floating
+      icon=''
+      text= {classroom.name}
       />
     )
   } else {
@@ -64,6 +66,8 @@ const DropDownBar = ({location}) => {
       options= {options}
       scrolling 
       floating
+      icon=''
+      text='Choose Classroom'
       />
     )
   }
