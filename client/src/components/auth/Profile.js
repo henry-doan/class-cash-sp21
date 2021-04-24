@@ -53,7 +53,7 @@ const Profile = ({ user, updateUser }) => {
             }}
           </Dropzone>
         </Grid.Column>
-        <Grid.Column width={10}>
+        <Grid.Column width={8}>
           <Form.Input
             label="Name"
             name="name"

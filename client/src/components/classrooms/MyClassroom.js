@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react'
 import axios from 'axios'
 import ClassroomUser from './ClassroomUser'
 import AddDeleteEnrollment from '../enrollments/AddDeleteEnrollment'
-import { Button, Image } from 'semantic-ui-react'
+import { Button, Grid, Image } from 'semantic-ui-react'
 import { Link } from 'react-router-dom'
 import { AuthConsumer } from '../../providers/AuthProvider'
 import { EnrollmentConsumer } from '../../providers/EnrollmentProvider'
@@ -34,17 +34,23 @@ const MyClassroom = ({location, user}) => {
       }
     })
     return users.map(u => 
-      <>
-        <Image style={{
-        borderRadius: '50%', 
-        width: '137px', 
-        height: '137px',
-        display: 'inline'
-        }} 
-        src={u.image} 
-        alt={u.name} /> 
-        {u.name}
-      </>
+      <Grid style={{display: 'inline-block', padding:'2%'}}>
+        <Grid.Row>
+        <Grid.Row >
+          <Image style={{
+            borderRadius: '50%', 
+            width: '137px', 
+            height: '137px',
+            display: 'inline'
+            }} 
+              src={u.image} 
+              alt={u.name} />
+               {/* </Grid.Row>
+               <Grid.Row> */}
+            <div style={{textAlign:'center'}}>{u.name}</div>
+        </Grid.Row>
+        </Grid.Row>
+    </Grid> 
     )
   }
 
@@ -56,17 +62,23 @@ const MyClassroom = ({location, user}) => {
      }
     })
     return admins.map( u => 
-      <>
+      <Grid style={{display: 'inline-block', padding:'2%'}}>
+      <Grid.Row>
+      <Grid.Row >
         <Image style={{
           borderRadius: '50%', 
           width: '137px', 
           height: '137px',
           display: 'inline'
           }} 
-          src={u.image} 
-          alt={u.name} />
-          {u.name}
-      </> 
+            src={u.image} 
+            alt={u.name} />
+             {/* </Grid.Row>
+             <Grid.Row> */}
+          <div style={{textAlign:'center'}}>{u.name}</div>
+      </Grid.Row>
+      </Grid.Row>
+  </Grid>
     )
   }
 
