@@ -29,7 +29,8 @@ const Navbar = ({ location, user, handleLogout, history}) => {
           <Menu.Menu position='right'>
            
           
-           <NavMenuItem>
+          <Link to='/profile'>
+          <Menu.Item>
            <Image style={{
               borderRadius: '50%', 
               width: '45px', 
@@ -37,8 +38,11 @@ const Navbar = ({ location, user, handleLogout, history}) => {
              
               }} 
               src={user.image} 
-              alt={user.name} /> 
-           </NavMenuItem>
+              alt={user.name} 
+              id='profile'
+              active={location.pathname === '/profile'}/> 
+           </Menu.Item>
+           </Link>
 
             <Menu.Item>
               
