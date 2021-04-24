@@ -2,7 +2,8 @@ import { PointConsumer } from '../../providers/PointProvider'
 import { useState, useEffect } from 'react'
 import axios from 'axios'
 import Earn from './Earn'
-import { Card, Grid, Header } from 'semantic-ui-react'
+import { Card, List, Header, Grid } from 'semantic-ui-react'
+import { MyHeader } from '../../styledComponents/SharedStyles'
 
 const MyEarned = ({enrollmentId}) => {
   const [points, setPoints] = useState([])
@@ -17,16 +18,18 @@ const MyEarned = ({enrollmentId}) => {
 
   const renderEarned = () => {
     return points.map( e => (
-      <Earn e={e}/>
+      <Grid.Row>
+        <Earn e={e}/>
+      </Grid.Row>
     ))
   }
 
   return(
     <>
-      <Header>Activities</Header>
-      
+      <MyHeader>Activity</MyHeader>
+      <Grid columns={4}>
         {renderEarned()}
-    
+      </Grid>
     </>
   )
 }

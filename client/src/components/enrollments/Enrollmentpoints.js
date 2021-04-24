@@ -2,6 +2,7 @@ import AuthConsumer from '../../providers/AuthProvider'
 import { useState, useEffect, Component } from 'react'
 import axios from 'axios'
 import { Segment } from 'semantic-ui-react'
+import { MyPoints } from '../../styledComponents/DashboardStyles'
 
 const Enrollmentpoints = ({classroomId, enrollmentId}) => {
   // const [enrollment, setEnrollment] = useState([])
@@ -24,7 +25,7 @@ const Enrollmentpoints = ({classroomId, enrollmentId}) => {
 
   return(
     <>
-      <h1>{total}</h1>
+      <MyPoints>{total}</MyPoints>
     </>
   )
 }

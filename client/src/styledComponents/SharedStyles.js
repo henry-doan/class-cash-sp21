@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { Form, Image, Button, Dropdown, Grid } from 'semantic-ui-react'
+import { Form, Image, Button, Dropdown, Grid, Header } from 'semantic-ui-react'
 
 export const SharedForm = styled(Form)`
   width: 50%;
@@ -44,7 +44,7 @@ export const Bar = styled(Dropdown)`
   height: 41px !important;
   font-weight: lighter !important;
   font-size: 18px !important;
-  padding: 10px 16px 8px 16px !important;
+  padding: 10px 0px 8px 16px !important;
   margin-bottom: 3px !important;
 `
 
@@ -77,4 +77,11 @@ export const HoverButton = styled(Button)`
 background: white !important;
 &:hover {
   background: #1CB993 !important ;}
+`
+
+export const MyHeader = styled(Header)`
+  font: 'Open sans' !important;
+  font-style: normal !important;
+  font-weight: bold !important;
+  font-size: 24px !important;
 `

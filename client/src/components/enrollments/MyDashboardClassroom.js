@@ -1,11 +1,12 @@
 import { Header, Button } from 'semantic-ui-react';
 import EnrollmentClass from './EnrollmentClass';
 import { Link } from 'react-router-dom'
+import { DashboardSubHeader } from '../../styledComponents/DashboardStyles'
 
 const MyDashboardClassroom = ({classroomId, enrollmentId}) => {
   return(
     <>
-      <Header>My Classroom</Header>
+      <DashboardSubHeader>My Classroom</DashboardSubHeader>
       <EnrollmentClass
         classroomId={classroomId}
         enrollmentId={enrollmentId}
