@@ -26,11 +26,12 @@ gem 'bootsnap', '>= 1.4.4', require: false
 
 
 gem 'devise_token_auth'
-
+gem 'cloudinary'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'pry'
   gem 'faker'
+  gem 'dotenv-rails'
 end
 
 group :development do
