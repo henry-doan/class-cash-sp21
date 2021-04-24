@@ -23,7 +23,6 @@ export const GreenButton = styled(Button)`
   font-weight: lighter !important;
   font-size: 18px !important;
   padding: 8px 16px !important;
-  padding: 8px 16px !important;
   height: 41px !important;
 `
 
@@ -39,9 +38,14 @@ export const GreyButton = styled(Button)`
 `
 
 export const Bar = styled(Dropdown)`
-color: #ffffff !important;
-font: 'Open sans' !important;
-background: #1CB993 !important;
+  color: #ffffff !important;
+  font: 'Open sans' !important;
+  background: #1CB993 !important;
+  height: 41px !important;
+  font-weight: lighter !important;
+  font-size: 18px !important;
+  padding: 10px 16px 8px 16px !important;
+  margin-bottom: 3px !important;
 `
 
 export const Vutton = styled.button`
@@ -67,12 +71,10 @@ position: absolute !important;
 
 export const DropdownGrid = styled(Grid)`
   min-width: 90vw !important;
+  height: 251px !important;
 `
 export const HoverButton = styled(Button)`
 background: white !important;
 &:hover {
-  background: #1CB993 !important; }
-
-
-
+  background: #1CB993 !important ;}
 `
