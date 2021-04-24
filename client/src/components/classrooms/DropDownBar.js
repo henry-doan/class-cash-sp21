@@ -42,18 +42,32 @@ const DropDownBar = ({location}) => {
     //     .catch( err => console.log(err))
     // }
 
-  return(
-  <Bar 
-    // key={fillDropDown}
-    className='button icon'
-    compact
-    placeholder= {classroom.name}
-    options= {options}
-    scrolling 
-    floating
-  />
+  if (classroom.name !== undefined){
+    return(
+    <Bar 
+      // key={fillDropDown}
+      className='button icon'
+      compact
+      placeholder= {classroom.name}
+      options= {options}
+      scrolling 
+      floating
+      />
+    )
+  } else {
+    return(
+      <Bar 
+      // key={fillDropDown}
+      className='button icon'
+      compact
+      placeholder= 'Choose Classroom'
+      options= {options}
+      scrolling 
+      floating
+      />
+    )
+  }
 
-  )
 }
 
 const ConnectedDropDownBar = (props) => (

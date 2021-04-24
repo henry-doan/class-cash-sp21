@@ -31,16 +31,23 @@ const ViewClassroom = ({c, deleteClassroom, id, user}) => {
                   Select
                 </Link>
               </Button>
-              <Button
-                onClick={() => setEditing(!editing)}
-              >
-              Update
-              </Button>
-              <Button color='red'
-                onClick={() => deleteClassroom(c.id)}
-              >
-                <Icon name="trash"/>
-              </Button>
+              {
+                isAdmin ?
+                <>
+                  <Button
+                    onClick={() => setEditing(!editing)}
+                  >
+                    Update
+                  </Button>
+                  <Button color='red'
+                    onClick={() => deleteClassroom(c.id)}
+                  >
+                    <Icon name="trash"/>
+                  </Button>
+                </>
+              : ''
+              }
+              
             </Card.Content>
           </Card>
           :

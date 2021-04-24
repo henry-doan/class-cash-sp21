@@ -4,6 +4,8 @@ import { Link, useParams } from 'react-router-dom';
 import { ClassroomConsumer } from '../../providers/ClassroomProvider';
 import axios from 'axios';
 import { HoverButton } from '../../styledComponents/SharedStyles'
+import { NavCard, NavH1 } from '../../styledComponents/NavStyles'
+
 const DropDownClassroom = ({e}) => {
   const [classroom, setClassroom] = useState([])
   
@@ -26,18 +28,19 @@ return(
               classroomId: classroom.id,
               enrollmentId: e.id
             }
-          }}>
+          }}
+          >
   
     <HoverButton >
-    <Card style={{color:"F5F5F5"}}  key={classroom.id}>
-      <Card.Content style={{ height:'191px'}}>
+    <NavCard style={{backgroundColor:"#F5F5F5"}}  key={classroom.id}>
+      <Card.Content>
         <Card.Header>
           <Divider hidden />
-          <h1>{classroom.name}</h1>
+          <NavH1 style={{color: '#304540'}}>{classroom.name}</NavH1>
         </Card.Header>
       </Card.Content>
       
-        </Card>
+    </NavCard>
         </HoverButton>
      
         </Link>
