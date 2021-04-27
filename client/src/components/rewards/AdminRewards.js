@@ -4,6 +4,7 @@ import Reward from './Reward';
 import axios from 'axios';
 import { useState, useEffect} from 'react';
 import {Link} from 'react-router-dom';
+import { GreenButton } from "../../styledComponents/SharedStyles";
 
 const AdminRewards = ({location}) => {
   const [classroomRewards, setClassroomRewards] = useState([])
@@ -18,14 +19,16 @@ const AdminRewards = ({location}) => {
   const renderAdminRewards = () => {
     return classroomRewards.map( r => (
       <Reward r={r}/>
+       
     ))
   }
 
   return(
-    <Segment basic>
+    <>
       <Grid>
-        <Grid.Column floated='left'>
-          <Header>Rewards</Header>
+        <Grid.Column style={{width: "215px"}}>
+          <br />
+          <Header style={{ fontSize:'36px'}} >Rewards</Header>
         </Grid.Column>
         <Grid.Column floated='right' width={4}>
           <Link
@@ -36,15 +39,22 @@ const AdminRewards = ({location}) => {
             }
             }}
           > 
+          <br />
+          <br />
+          <br />
           <Button size='large' style={{ backgroundColor: '#1CB993', color: 'white' }}>Create a new Reward
           </Button>
           </Link>
         </Grid.Column>
+
+          {renderAdminRewards()}
+          <GreenButton >
+      <a style={{color: 'white'}} href="javascript:history.back()">Dashboard</a>
+      </GreenButton>
+      
+
       </Grid>
-      <Grid columns={2}>
-        {renderAdminRewards()}
-      </Grid>
-    </Segment>
+   </>
   )}
 
 const ConnectedAdminRewards = (props) => (

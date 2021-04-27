@@ -1,5 +1,5 @@
-import { Card, Grid, Button } from "semantic-ui-react";
-import { GreenButton } from '../../styledComponents/SharedStyles';
+import { Card, Grid, Button, Divider } from "semantic-ui-react";
+
 import { RewardConsumer } from '../../providers/RewardProvider';
 import { AuthConsumer } from '../../providers/AuthProvider';
 import { useState } from 'react';
@@ -24,7 +24,7 @@ const Reward = ({r, enrollmentId, updateReward, user}) => {
     <>{ isAdmin? 
       <Grid.Row>
         <Grid.Column>
-          <Card>
+          <Card style={{ width: '1070px'}}>
             <Card.Content>
               <Card.Header>
                 {r.name}
@@ -33,13 +33,26 @@ const Reward = ({r, enrollmentId, updateReward, user}) => {
                 {r.desc}
               </Card.Description>
               <br/>
-              <Card.Meta>
-                {r.cost}
-              </Card.Meta>
+            
+              <Grid centered columns={2}>
+                <Grid.Column float='left' width={9}>
+                  <Card.Meta style={{fontSize: '14px', color: 'black'}}>
+                    {r.cost}
+                  </Card.Meta>
+                </Grid.Column>
+                <Grid.Column float='right' width={6}>
+                <a onClick={() => setEditing(!editing)}
+                    style={{
+                      color: '#2C698D',
+                      fontSize: '14px',
+                    }}
+                  >
+                    Edit
+                  </a>
+                </Grid.Column>
+              </Grid>
+
             </Card.Content>
-            <GreenButton onClick={() => setEditing(!editing)}>
-              Update Reward
-            </GreenButton>
           </Card>
         </Grid.Column>
       </Grid.Row>
@@ -59,9 +72,9 @@ const Reward = ({r, enrollmentId, updateReward, user}) => {
                 {r.cost}
               </Card.Meta>
             </Card.Content>
-            <GreenButton onClick={handleRedeem}>
+            <Button onClick={handleRedeem}>
               Use Reward
-            </GreenButton>
+            </Button>
           </Card>
         </Grid.Column>
       </Grid.Row>
