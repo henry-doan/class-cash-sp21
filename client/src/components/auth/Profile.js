@@ -1,36 +1,57 @@
 import { useState, useEffect } from 'react';
+import axios from 'axios'
 import { AuthConsumer } from '../../providers/AuthProvider';
-import { Form, Grid, Image, Button, Header, Container } from 'semantic-ui-react';
+import { Form, Grid, Image, Button, Header, Container, Divider, Segment, Card } from 'semantic-ui-react';
 import Dropzone from 'react-dropzone';
-import {GreenButton} from '../../styledComponents/SharedStyles';
+import {GreenButton, SharedForm, LeftAlignDiv} from '../../styledComponents/SharedStyles';
+import Classroom from '../classrooms/Classroom'
 
 const defaultImage = 'https://d30y9cdsu7xlg0.cloudfront.net/png/15724-200.png';
 const Profile = ({ user, updateUser }) => {
   const [editing, setEditing] = useState(false)
   const [formVals, setFormVals] = useState({ name: '', email: '', file: '' })
+  const [userEnrollments, setUserEnrollments] = useState([])
+
   useEffect ( () => {
     const { name, email, image } = user
     setFormVals({ name, email, image })
+    axios.get(`/api/userEnrollments/${user.id}`)
+      .then( res => setUserEnrollments(res.data))
+      .catch( err => console.log(err))
   }, [])
+
   const onDrop = (files) => {
     setFormVals({ ...formVals, file: files[0]})
   }
+
+  const renderUserEnrollments = () => {
+    return userEnrollments.map( e => (
+      <Classroom e={e}/>
+    ))
+  }
+
   const profileView = () => {
     return(
       <>
-        <Grid.Column width={4}>
-          <Image style={{borderRadius: '50%'}} src={user.image || defaultImage} />
-        </Grid.Column>
-        <Grid.Column width={12}>
+        <Grid.Row>
+          <Container>
+            <Image style={{borderRadius: '50%', height: '200px'}} src={user.image || defaultImage} />
+          </Container>
+        </Grid.Row>
+        <Grid.Row >
+          <Divider hidden />
           <Header>{user.name}</Header>
           <Header>{user.email}</Header>
-        </Grid.Column>
+          <GreenButton onClick={() => setEditing(!editing)}>
+            Edit Profile
+          </GreenButton>
+        </Grid.Row>
       </>
     )
   }
   const editView = () => {
     return(
-      <Form onSubmit={handleSubmit}>
+      <SharedForm onSubmit={handleSubmit}>
         <Grid.Column width={4}>
           <Dropzone
             onDrop={onDrop}
@@ -46,31 +67,39 @@ const Profile = ({ user, updateUser }) => {
                   {
                     isDragActive ?
                     <p>File grabbed</p>
-                    : <p>Drop Files here</p>
+                    : <p>Drop File Here</p>
                   }
                 </div>
               )
             }}
           </Dropzone>
+          <Divider hidden />
         </Grid.Column>
         <Grid.Column width={8}>
+          <LeftAlignDiv>
+            <label>Name</label>
+          </LeftAlignDiv>
           <Form.Input
-            label="Name"
             name="name"
             value={formVals.name}
             required
             onChange={(e, inputAttr) => setFormVals({ ...formVals, name: inputAttr.value})}
           />
+          <LeftAlignDiv>
+            <label>Email</label>
+          </LeftAlignDiv>
           <Form.Input
-            label="Email"
             name="email"
             value={formVals.email}
             required
             onChange={(e, inputAttr) => setFormVals({ ...formVals, email: inputAttr.value})}
           />
-          <Button>Update</Button>
+          <Button type='submit'>Update</Button>
+          <GreenButton onClick={() => setEditing(!editing)}>
+            Cancel
+          </GreenButton>
         </Grid.Column>
-      </Form>
+      </SharedForm>
     )
   }
   const handleSubmit = (e) => {
@@ -82,15 +111,18 @@ const Profile = ({ user, updateUser }) => {
   return (
     <Container>
       <Grid>
+        <Divider hidden />
+        <h1>Profile</h1>
         <Grid.Row>
           { editing ? editView() : profileView() }
-          <Grid.Column>
-            <GreenButton onClick={() => setEditing(!editing)}>
-              { editing ? 'Cancel' : 'Edit'}
-            </GreenButton>
-          </Grid.Column>
         </Grid.Row>
       </Grid>
+      <Divider hidden />
+      <Divider />
+      <h2>Current Enrollments</h2>
+      <Card.Group>
+        { renderUserEnrollments() }
+      </Card.Group>
     </Container>
   )
 }
