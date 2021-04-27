@@ -39,18 +39,18 @@ const CreateClassroom = ({addClassroom, user }) => {
   return(
   <Segment basic textAlign='center'>
     <Divider horizontal>
-      <Header as='h3'><Icon name='folder' />Create a new ClassRoom</Header></Divider>
+      <Header as='h3'><Icon name='folder' />Create a new Classroom</Header></Divider>
       <Divider hidden />
       <Form onSubmit={handleSubmit}>
         <Form.Group inline>
           <Form.Input
             width={12}
-            label="ClassRoom Name"
+            label="Classroom Name"
             required
             autoFocus
             name='name'
             value={classroom.name}
-            placeholder='Enter ClassRoom Name'
+            placeholder='Enter Classroom Name'
             onChange={(e, { value }) => setClassroom({ ...classroom, name: value })}
             />
             <Modal 

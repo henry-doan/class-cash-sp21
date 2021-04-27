@@ -5,6 +5,7 @@ import UpdateClassroom from './UpdateClassroom';
 import { Link } from 'react-router-dom'
 import axios from 'axios';
 import { AuthConsumer } from '../../providers/AuthProvider';
+import { GreenButton } from '../../styledComponents/SharedStyles'
 
 const Classroom = ({e, deleteClassroom}) => {
   const [editing, setEditing] = useState(false)
@@ -32,17 +33,19 @@ const Classroom = ({e, deleteClassroom}) => {
           </Card.Header>
         </Card.Content>
         <Card.Content>
-          <Button onClick={handleClick}>
+          <GreenButton onClick={handleClick}>
             <Link to={{
               pathname: `/Dashboard/${e.id}/${classroom.id}`,
               state: {
                 classroomId: classroom.id,
                 enrollmentId: e.id
               }
-            }}>
-              Select
+            }}
+            style={{color: 'white'}}
+            >
+              View Dashboard
             </Link>
-          </Button>
+          </GreenButton>
         </Card.Content>
       </Card>
     

@@ -13,7 +13,7 @@ const Dashboard = ({location, user, match}) => {
   const {id} = useParams()
   return(
   <>
-       <Grid>
+       <Grid stackable doubled>
           {
           isAdmin ? 
           <>
