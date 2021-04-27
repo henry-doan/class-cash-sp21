@@ -94,7 +94,7 @@ const Profile = ({ user, updateUser }) => {
             required
             onChange={(e, inputAttr) => setFormVals({ ...formVals, email: inputAttr.value})}
           />
-          <Button>Update</Button>
+          <GreenButton type="submit">Update</GreenButton>
           <GreenButton onClick={() => setEditing(!editing)}>
             Cancel
           </GreenButton>
