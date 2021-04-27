@@ -16,8 +16,8 @@ const About = () => {
               <Header>Harry Dhillon</Header>
             </Card.Content>
             <Card.Description >
-            <a style={{color: 'black'}} href="https://github.com"><Icon name='github' size='big' /></a>
-            <a href="https://linkedin.com"><Icon name='linkedin' size='big'/></a>
+            <a style={{color: 'black'}} href="https://github.com/hary-singh"><Icon name='github' size='big' /></a>
+            <a href="https://www.linkedin.com/in/navbirsdhillon/"><Icon name='linkedin' size='big'/></a>
             </Card.Description>
             <Divider hidden />
             <Card.Description>
@@ -36,7 +36,7 @@ const About = () => {
               <a style={{color: 'black'}} href='https://github.com/schmidtsean'>
               <Icon name='github' size='big' /> 
               </a>
-              <a href='https://www.linkedin.com/in/sean-schmidt-737a7420b/'>
+              <a href='https://www.linkedin.com/in/seanschmidt50/'>
                 <Icon name='linkedin'  size='big' /></a>
             </Card.Description>
             <Divider hidden />
@@ -54,7 +54,7 @@ const About = () => {
               <Header>Tyler Cheney</Header>
             </Card.Content>
             <Card.Description>
-              <a style={{color: 'black'}} href='http://www.linkedin.com/in/tyler-cheney'>
+              <a style={{color: 'black'}} href='https://github.com/tylercheney05'>
                 <Icon name='github' size="big" />
               </a>
               <a href='http://www.linkedin.com/in/tyler-cheney'>
