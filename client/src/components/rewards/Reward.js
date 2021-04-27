@@ -24,7 +24,7 @@ const Reward = ({r, enrollmentId, updateReward, user}) => {
     <>{ isAdmin? 
       <Grid.Row>
         <Grid.Column>
-          <Card style={{ width: '1070px'}}>
+          <Card style={{ width: '1070px', boxShadow: '0px 4px 10px rgba(0, 0, 0, 0.161522)', borderRadius: '16px'}}>
             <Card.Content>
               <Card.Header>
                 {r.name}
@@ -35,16 +35,16 @@ const Reward = ({r, enrollmentId, updateReward, user}) => {
               <br/>
             
               <Grid centered columns={2}>
-                <Grid.Column float='left' width={9}>
-                  <Card.Meta style={{fontSize: '14px', color: 'black'}}>
+                <Grid.Column float='left' width={15}>
+                  <Card.Meta style={{fontSize: '1rem', color: 'black'}}>
                     {r.cost}
                   </Card.Meta>
                 </Grid.Column>
-                <Grid.Column float='right' width={6}>
+                <Grid.Column float='right' width={1}>
                 <a onClick={() => setEditing(!editing)}
                     style={{
                       color: '#2C698D',
-                      fontSize: '14px',
+                      fontSize: '1rem',
                     }}
                   >
                     Edit

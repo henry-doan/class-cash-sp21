@@ -5,7 +5,6 @@ import axios from 'axios';
 import { useState, useEffect} from 'react';
 import {Link} from 'react-router-dom';
 import { GreenButton } from "../../styledComponents/SharedStyles";
-
 const AdminRewards = ({location}) => {
   const [classroomRewards, setClassroomRewards] = useState([])
   useEffect( () => {
@@ -42,8 +41,8 @@ const AdminRewards = ({location}) => {
           <br />
           <br />
           <br />
-          <Button size='large' style={{ backgroundColor: '#1CB993', color: 'white' }}>Create a new Reward
-          </Button>
+          <GreenButton>Create a new Reward
+          </GreenButton>
           </Link>
         </Grid.Column>
 
