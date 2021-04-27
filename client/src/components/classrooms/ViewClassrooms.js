@@ -1,15 +1,19 @@
 import ViewClassroomsList from './ViewClassroomsList'
-import { Divider } from 'semantic-ui-react'
+import { Divider, Header, Icon } from 'semantic-ui-react'
 import { MyHeader } from '../../styledComponents/SharedStyles'
 
 const ViewClassrooms = () => {
   return(
     <>
-      <h1>All Classrooms</h1>
+      <Divider hidden />
+      <Divider hidden />
+      <Divider horizontal>
+        <Header as='h2'><Icon name='folder outline' />All Classrooms</Header>
+      </Divider>
       <Divider hidden />
       <ViewClassroomsList />
     </>
   )
 }
 
-export default ViewClassrooms
+export default ViewClassrooms;
