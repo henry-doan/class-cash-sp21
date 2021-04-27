@@ -40,8 +40,8 @@ const Profile = ({ user, updateUser }) => {
         </Grid.Row>
         <Grid.Row >
           <Divider hidden />
-          <Header>{user.name}</Header>
-          <Header>{user.email}</Header>
+          <h3>Name: {user.name}</h3>
+          <h3>Email: {user.email}</h3>
           <GreenButton onClick={() => setEditing(!editing)}>
             Edit Profile
           </GreenButton>
@@ -94,7 +94,7 @@ const Profile = ({ user, updateUser }) => {
             required
             onChange={(e, inputAttr) => setFormVals({ ...formVals, email: inputAttr.value})}
           />
-          <Button type='submit'>Update</Button>
+          <Button>Update</Button>
           <GreenButton onClick={() => setEditing(!editing)}>
             Cancel
           </GreenButton>
@@ -115,6 +115,11 @@ const Profile = ({ user, updateUser }) => {
         <h1>Profile</h1>
         <Grid.Row>
           { editing ? editView() : profileView() }
+          {/* <Grid.Column>
+            <GreenButton onClick={() => setEditing(!editing)}>
+              { editing ? 'Cancel' : 'Edit'}
+            </GreenButton>
+          </Grid.Column> */}
         </Grid.Row>
       </Grid>
       <Divider hidden />
