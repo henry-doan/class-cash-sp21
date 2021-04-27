@@ -1,5 +1,5 @@
 import { Card, Grid, Button } from "semantic-ui-react";
-
+import { GreenButton } from '../../styledComponents/SharedStyles';
 import { RewardConsumer } from '../../providers/RewardProvider';
 import { AuthConsumer } from '../../providers/AuthProvider';
 import { useState } from 'react';
@@ -37,9 +37,9 @@ const Reward = ({r, enrollmentId, updateReward, user}) => {
                 {r.cost}
               </Card.Meta>
             </Card.Content>
-            <Button onClick={() => setEditing(!editing)}>
+            <GreenButton onClick={() => setEditing(!editing)}>
               Update Reward
-            </Button>
+            </GreenButton>
           </Card>
         </Grid.Column>
       </Grid.Row>
@@ -59,9 +59,9 @@ const Reward = ({r, enrollmentId, updateReward, user}) => {
                 {r.cost}
               </Card.Meta>
             </Card.Content>
-            <Button onClick={handleRedeem}>
+            <GreenButton onClick={handleRedeem}>
               Use Reward
-            </Button>
+            </GreenButton>
           </Card>
         </Grid.Column>
       </Grid.Row>
