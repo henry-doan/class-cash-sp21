@@ -2,6 +2,7 @@ import { useState, useEffect, Component } from 'react'
 import axios from 'axios'
 import { Image, Segment } from 'semantic-ui-react'
 import { ClassroomConsumer } from '../../providers/ClassroomProvider'
+import ImageDefault from '../images/ImageDefault.jpeg'
 
 const EnrollmentClass = (props, user) => {
   const [classroomUsers, setClassroomUsers] = useState([])
@@ -29,7 +30,7 @@ const EnrollmentClass = (props, user) => {
           height: '98px',
           display: 'inline',
           }} 
-          src={u.image} 
+          src={u.image || ImageDefault} 
           alt={u.name} /> 
              
       </>
@@ -52,7 +53,7 @@ const EnrollmentClass = (props, user) => {
           display: 'inline',
           border: '4px solid #1CB993'
           }} 
-          src={u.image} 
+          src={u.image || ImageDefault} 
           alt={u.name} /> 
         </>
         )
