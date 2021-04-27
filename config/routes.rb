@@ -27,6 +27,7 @@ Rails.application.routes.draw do
     get 'findEnrollment/:user_id/:classroom_id', to: 'enrollments#findEnrollment'
     get 'classroomRewards/:classroom_id', to: 'enrollments#classroomRewards'
     get 'totalPoints/:enrollment_id', to: 'points#totalPoints'
-    get '*other', to: 'static#index'
+    
   end
+  get '*other', to: 'static#index'
 end
