@@ -25,13 +25,13 @@ const Reward = ({r, enrollmentId, updateReward, user}) => {
               <MyHeader>
                 {r.name}
               </MyHeader>
-              <Card.Description style={{fontSize: '16px', color: 'black'}}>
+              <Card.Description style={{fontSize: '1rem', color: 'black'}}>
                 {r.desc}
               </Card.Description>
               <br/>
               <Grid centered columns={2}>
                 <Grid.Column float='left' width={11}>
-                  <Card.Meta style={{fontSize: '14px', color: 'black'}}>
+                  <Card.Meta style={{fontSize: '1rem', color: 'black'}}>
                     {r.cost}
                   </Card.Meta>
                 </Grid.Column>
@@ -39,7 +39,7 @@ const Reward = ({r, enrollmentId, updateReward, user}) => {
                   <a onClick={handleRedeem} pointing
                     style={{
                       color: '#2C698D',
-                      fontSize: '14px',
+                      fontSize: '1rem',
                     }}
                   >
                     Use Reward

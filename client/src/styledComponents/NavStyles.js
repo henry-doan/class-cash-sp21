@@ -11,8 +11,9 @@ export const NavMenuItem = styled(Menu.Item)`
   font: 'Open sans' !important;
   font-style: normal !important;
   font-weight: normal !important;
-  font-size: 18px !important;
+  font-size: 1.125rem !important;
   margin: 8px !important;
+  padding-bottom: 18px !important;
 `
 
 export const NavCard = styled(Card)`

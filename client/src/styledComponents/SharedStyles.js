@@ -3,17 +3,20 @@ import { Form, Image, Button, Dropdown, Grid, Header } from 'semantic-ui-react'
 
 export const SharedForm = styled(Form)`
   width: 50%;
-  font-size: 16px !important;
+  font-size: 1rem !important;
 `
 
 export const LeftAlignDiv = styled.div`
   text-align: left;
-  margin-bottom: 10px
+  margin-bottom: 10px;
 `
 
 export const MainLogo = styled(Image)`
   width: 256.7px;
-  height: 51px;
+`
+
+export const HomeLogo = styled(Image)`
+  width: 216.43px;
 `
 
 export const GreenButton = styled(Button)`
@@ -21,7 +24,7 @@ export const GreenButton = styled(Button)`
   background: #1CB993 !important;
   font: 'Open sans' !important;
   font-weight: lighter !important;
-  font-size: 18px !important;
+  font-size: 1.125rem !important;
   padding: 8px 16px !important;
   height: 41px !important;
 `
@@ -31,7 +34,7 @@ export const GreyButton = styled(Button)`
   color: #2A3532 !important;
   font: 'Open sans' !important;
   font-weight: lighter !important;
-  font-size: 18px !important;
+  font-size: 1.125rem !important;
   padding: 8px 16px !important;
   position: absolute !important;
   height: 41px !important;
@@ -43,8 +46,8 @@ export const Bar = styled(Dropdown)`
   background: #1CB993 !important;
   height: 41px !important;
   font-weight: lighter !important;
-  font-size: 18px !important;
-  padding: 10px 0px 8px 16px !important;
+  font-size: 1.125rem !important;
+  padding: 10px 0px 10px 16px !important;
   margin-bottom: 3px !important;
 `
 
@@ -74,6 +77,7 @@ export const DropdownGrid = styled(Grid)`
   height: 251px !important;
 `
 export const HoverButton = styled(Button)`
+border-radius: 16px !important;
 background: white !important;
 &:hover {
   background: #1CB993 !important ;}
@@ -83,5 +87,12 @@ export const MyHeader = styled(Header)`
   font: 'Open sans' !important;
   font-style: normal !important;
   font-weight: bold !important;
-  font-size: 24px !important;
+  font-size: 1.5rem !important;
+`
+
+export const MyPoints2 = styled.h1`
+  font-style: normal !important;
+  font-weight: bold !important;
+  font-size: 2.25rem !important;
+  line-height: 1rem !important;
 `

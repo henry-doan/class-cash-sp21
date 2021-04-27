@@ -1,4 +1,4 @@
-import { Card, Button } from 'semantic-ui-react'
+import { Card, Button, Grid } from 'semantic-ui-react'
 import { useState, useEffect } from 'react'
 import { RewardConsumer } from '../../providers/RewardProvider'
 import axios from 'axios'
@@ -25,16 +25,22 @@ const ClassroomReward = ({c, enrollmentId, addReward}) => {
   const rewardButton = () => {
     if(total >= c.cost){
       return(
-        <Button onClick={handleSubmission}>
+        <a onClick={handleSubmission} pointing style={{
+          color: '#2C698D',
+          fontSize: '1rem',
+        }}>
           Buy for {c.cost} points
-        </Button>
+        </a>
       )
     }
     else{
       return(
-        <Button>
-          Not Enough Points
-        </Button>
+        <a style={{
+          color: '#2C698D',
+          fontSize: '1rem',
+        }}>
+          Insufficient Points
+        </a>
       )
     }
   }
@@ -42,19 +48,25 @@ const ClassroomReward = ({c, enrollmentId, addReward}) => {
   return(
   <Card fluid>
     <Card.Content>
-      <Card.Header>
+      <Card.Header style={{fontSize: '1.5rem'}}>
         {c.name}
       </Card.Header>
-      <Card.Description>
+      <Card.Description style={{fontSize: '1rem', color: 'black'}}>
         {c.desc}
       </Card.Description>
       <br/>
-      <Card.Meta>
-        {c.cost} points
-      </Card.Meta>
-      <Card.Meta textAlign='right'>
-        {rewardButton()}
-      </Card.Meta>
+      <Grid centered columns={2}>
+        <Grid.Column width={11}>
+          <Card.Meta style={{fontSize: '1rem', color: 'black'}}>
+            {c.cost} points
+          </Card.Meta>
+        </Grid.Column>
+        <Grid.Column width={5}>
+          <Card.Meta textAlign='right'>
+            {rewardButton()}
+          </Card.Meta>
+        </Grid.Column>
+      </Grid>
     </Card.Content>
   </Card>
   )

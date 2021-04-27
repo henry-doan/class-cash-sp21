@@ -5,13 +5,13 @@ const Earn = ({e}) => {
   const displayValue = () => {
     if(e.value >= 0){
       return(
-        <p style={{fontSize: '18px', fontWeight: 'bold', color: '#1CB993'}}>
+        <p style={{fontSize: '1.125rem', fontWeight: 'bold', color: '#1CB993'}}>
         +{e.value}
         </p>
       )
     }else{
       return(
-        <p style={{fontSize: '18px', fontWeight: 'bold', color: '#1CB993'}}>
+        <p style={{fontSize: '1.125rem', fontWeight: 'bold', color: '#1CB993'}}>
           {e.value}
         </p>
       )
@@ -21,13 +21,13 @@ const Earn = ({e}) => {
   const displayName = () => {
     if(e.value >=0){
       return(
-        <p style={{fontSize: '16px', fontWeight: 'bold'}}>  
+        <p style={{fontSize: '1rem', fontWeight: 'bold'}}>  
           {e.name} &nbsp; &nbsp;
         </p> 
       )
     }else{
       return(
-        <p style={{fontSize: '16px', fontWeight: 'bold'}}>  
+        <p style={{fontSize: '1rem', fontWeight: 'bold'}}>  
           Purchased {e.name} &nbsp; &nbsp;
         </p>
       )
@@ -37,13 +37,13 @@ const Earn = ({e}) => {
   return(
   <>
     <Grid.Column width={5}>
-      <p style={{fontSize: '16px'}}>{moment(e.created_at).format('LLL')} &nbsp; &nbsp;</p>
+      <p style={{fontSize: '1rem'}}>{moment(e.created_at).format('LLL')} &nbsp; &nbsp;</p>
     </Grid.Column>
     <Grid.Column width={3}>
       {displayName()}
     </Grid.Column>
     <Grid.Column width={7}>
-      <p style={{fontSize: '16px'}}>
+      <p style={{fontSize: '1rem'}}>
         {e.desc} &nbsp; &nbsp;
       </p>
     </Grid.Column>

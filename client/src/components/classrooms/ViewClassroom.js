@@ -1,76 +1,73 @@
 import { useState } from 'react'
 import UpdateClassroom from './UpdateClassroom'
-import { Card, Button, Icon } from 'semantic-ui-react'
+import { Card, Button, Icon, Divider, Grid, Container } from 'semantic-ui-react'
 import { Link } from 'react-router-dom'
 import { ClassroomConsumer } from '../../providers/ClassroomProvider'
 import { AuthConsumer } from '../../providers/AuthProvider'
+import { HoverButton } from '../../styledComponents/SharedStyles'
+import { ClassroomCard } from '../../styledComponents/ClassroomStyles'
 
 const ViewClassroom = ({c, deleteClassroom, id, user}) => {
   const [editing, setEditing] = useState(false)
   const isAdmin = user.isAdmin
+
+  const updateDelete = () => {
+    if(isAdmin){
+      return(
+        <Card.Content>
+          <Button
+            onClick={() => setEditing(!editing)}
+            style={{width: '100px'}}
+          >
+            Update
+          </Button>
+          <Button color='red'
+            onClick={() => deleteClassroom(c.id)}
+            style={{
+              margin: 'auto',
+              width: '100px'
+            }} 
+          >
+            Delete
+          </Button>
+        </Card.Content>
+      )
+    }else{
+      return(
+        <>
+        </>
+      )
+    }
+  }
   return(
     <>
       {editing ?
         <UpdateClassroom {...c } setEditing={setEditing} />
                 :
-        <>{isAdmin ?
-        <Card key={c.id}>
-            <Card.Content>
-              <Card.Header>
-                {c.name}
-              </Card.Header>
-            </Card.Content>
-            <Card.Content>
-              <Button>
-                <Link to={{
-                  pathname: '/MyClassroom',
-                  state: {
-                    classroomId: c.id
-                  }
-                }}>
-                  Select
-                </Link>
-              </Button>
-              {
-                isAdmin ?
-                <>
-                  <Button
-                    onClick={() => setEditing(!editing)}
-                  >
-                    Update
-                  </Button>
-                  <Button color='red'
-                    onClick={() => deleteClassroom(c.id)}
-                  >
-                    <Icon name="trash"/>
-                  </Button>
-                </>
-              : ''
-              }
-              
-            </Card.Content>
-          </Card>
-          :
-          <Card key={c.id}>
-          <Card.Content>
-            <Card.Header>
-              {c.name}
-            </Card.Header>
-          </Card.Content>
-          <Card.Content>
-            <Button>
-              <Link to={{
-                pathname: '/MyClassroom',
-                state: {
-                  classroomId: c.id
-                }
-              }}>
-                Select
-              </Link>
-            </Button>
-          </Card.Content>
-        </Card>
-        } </>
+        <Grid.Column>
+          <Container style={{backgroundColor:"white", height:'auto', width:'auto'}}>
+              <HoverButton>
+                <ClassroomCard key={c.id} style={{backgroundColor:"#F5F5F5"}}>
+                  <Link to={{
+                    pathname: '/MyClassroom',
+                    state: {
+                      classroomId: c.id
+                    }
+                  }}>
+                    <Card.Content>
+                      <Card.Header style={{fontSize: '2.25rem', color: '#304540'}}>
+                        <Divider hidden />
+                        <Divider hidden />
+                        {c.name}
+                        <Divider hidden />
+                      </Card.Header>
+                    </Card.Content>
+                  </Link>
+                  {updateDelete()}
+                </ClassroomCard>
+              </HoverButton>
+          </Container>
+        </Grid.Column>
       }  
     </>
   )
