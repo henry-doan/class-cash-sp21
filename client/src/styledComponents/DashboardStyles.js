@@ -13,14 +13,14 @@ export const DashboardSubHeader = styled(Header)`
   font: 'Open sans' !important;
   font-style: normal !important;
   font-weight: bold !important;
-  font-size: 16px !important;
+  font-size: 1rem !important;
   padding: 5px 0px 0px 10px !important;
 `
 
 export const MyPoints = styled.h1`
 font-style: normal !important;
 font-weight: bold !important;
-font-size: 60px !important;
+font-size: 3.75rem !important;
 line-height: 82px !important;
 padding-left: 10px !important;
 `

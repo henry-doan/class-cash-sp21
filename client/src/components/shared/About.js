@@ -1,7 +1,7 @@
 import Footer from './Footer';
 import { Container, Divider, Icon, Header, Card, Image, Grid} from 'semantic-ui-react';
 import Harry from '../images/Harry.png';
-import Tyler from '../images/Tyler.jpeg';
+import Tyler from '../images/Tyler.png';
 import Sean from '../images/Sean.jpg';
 const About = () => {
   return(
@@ -63,7 +63,7 @@ const About = () => {
             </Card.Description>
             <Divider hidden />
             <Card.Description>
-            After getting a degree in Supply Chain from BYU, I quickly realized that coding is a passion of mine and that I had to make it a career if it killed me | I believe that innovative thinking plus technology can produce unimaginable results | Everyone has a creative outlet, for me..it's coding | Runner: 2 marathons, 10+ half marathons.
+            After getting a degree in Supply Chain from BYU, I quickly realized that coding is a passion and I needed to make it a career | I believe that innovative thinking plus technology can produce unimaginable results | Runner: 2 marathons, 10+ half marathons.
             </Card.Description>
             <Divider hidden />
           </Card>
