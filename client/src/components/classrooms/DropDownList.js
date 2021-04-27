@@ -30,7 +30,7 @@ const DropDownList = ({user}) => {
           
           { renderUserEnrollments() }
           
-          <Button style={{backgroundColor:"white", height: '191px', width:'275px'}}>
+          <Container style={{backgroundColor:"white", height: '191px', width:'275px'}}>
             <Link style={{ color:'white'}} to="/ViewClassrooms">
               <HoverButton >
                 <NavCard style={{backgroundColor:'#1CB993'}}>
@@ -44,7 +44,7 @@ const DropDownList = ({user}) => {
                 </NavCard>
               </HoverButton>
             </Link>
-          </Button>
+          </Container>
         </Card.Group>
       </Container>
     </DropdownGrid>

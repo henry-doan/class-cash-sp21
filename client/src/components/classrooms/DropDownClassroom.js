@@ -1,5 +1,5 @@
 import { useState, useEffect, useReducer } from 'react'
-import { Card, Button, Icon, Grid, Divider } from "semantic-ui-react";
+import { Card, Button, Icon, Grid, Divider, Container } from "semantic-ui-react";
 import { Link, useParams } from 'react-router-dom';
 import { ClassroomConsumer } from '../../providers/ClassroomProvider';
 import axios from 'axios';
@@ -20,7 +20,7 @@ const handleClick = () => {
 }
 
 return(
-  <Button style={{backgroundColor:"white", height:'auto', width:'auto'}} onClick={handleClick}>
+  <Container style={{backgroundColor:"white", height:'auto', width:'auto'}} onClick={handleClick}>
     <Link  to={{
             pathname: `/Dashboard/${e.id}/${classroom.id}`,
             
@@ -44,7 +44,7 @@ return(
         </HoverButton>
      
         </Link>
-        </Button>
+        </Container>
   
 )
 }
