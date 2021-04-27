@@ -23,7 +23,7 @@ const Home = () => (
             <Divider hidden />
             To get started, you need to be a part of a Classroom. You can join a Classroom in multiple ways.
             <List style={{fontSize: '1rem'}}>
-              <List.Item>1. Ask an owner of an existing Classroom to add you by your email.</List.Item>
+              <List.Item>1. View all classrooms, enroll into your class.</List.Item>
               <List.Item>2. Start your own Classroom.</List.Item>
             </List>
           </LeftAlignDiv>

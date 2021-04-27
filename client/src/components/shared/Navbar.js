@@ -12,7 +12,7 @@ import DropDownBar from '../classrooms/DropDownBar';
 import { HoverButton } from '../../styledComponents/SharedStyles';
 import { NavLogo, NavMenuItem } from '../../styledComponents/NavStyles'
 import Logo from '../images/Logo.png'
-
+import ImageDefault from '../images/ImageDefault.jpeg'
 const Navbar = ({ location, user, handleLogout, history}) => {
   const [classroom, setClassroom] = useState([])
   const [getUserClassroom, setGetUserClassroom] = useState([])
@@ -37,8 +37,8 @@ const Navbar = ({ location, user, handleLogout, history}) => {
               height: '45px',
              
               }} 
-              src={user.image} 
-              alt={user.name} 
+              src={user.image || ImageDefault} 
+              alt= {user.name}
               id='profile'
               active={location.pathname === '/profile'}/> 
            </Menu.Item>
