@@ -62,11 +62,12 @@ const CreateClassroom = ({addClassroom, user }) => {
                     </Button>
                   </Modal.Actions>
             </Modal> 
-          </Form.Group></Form>
-          <Divider hidden />
-          <Divider hidden />
-        <Divider horizontal>
-      <Header as='h3'><Icon name='folder outline' />Show all Classrooms</Header></Divider>
+          </Form.Group>
+        </Form>
+      <Divider hidden />
+      <Divider hidden />
+      <Divider horizontal>
+        <Header as='h3'><Icon name='folder outline' />Show all Classrooms</Header></Divider>
       <Divider hidden />
       <Link style={{color: 'white'}}to='/ViewClassrooms'>
         <GreenButton>
