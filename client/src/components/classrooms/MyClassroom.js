@@ -7,6 +7,7 @@ import { Button, Grid, Image } from 'semantic-ui-react'
 import { Link } from 'react-router-dom'
 import { AuthConsumer } from '../../providers/AuthProvider'
 import { EnrollmentConsumer } from '../../providers/EnrollmentProvider'
+import ImageDefault from '../images/ImageDefault.jpeg'
 
 const MyClassroom = ({location, user}) => {
   const [classroom, setClassroom] = useState([])
@@ -43,7 +44,7 @@ const MyClassroom = ({location, user}) => {
             height: '137px',
             display: 'inline'
             }} 
-              src={u.image} 
+              src={u.image || ImageDefault } 
               alt={u.name} />
                {/* </Grid.Row>
                <Grid.Row> */}
