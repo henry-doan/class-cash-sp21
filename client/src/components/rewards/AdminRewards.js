@@ -25,33 +25,30 @@ const AdminRewards = ({location}) => {
   return(
     <>
       <Grid>
+        <Grid.Row>
+          <Grid.Column floated='left' width={6}>
+            <GreenButton >
+              <a style={{color: 'white'}} href="javascript:history.back()"> Back to Dashboard</a>
+            </GreenButton>
+          </Grid.Column>
+          <Grid.Column floated='right' width={4}>
+            <Link
+            to={{
+              pathname:'/CreateAdminReward',
+              state: {
+                classroomId: location.state.classroomId,
+              }
+              }}
+            > 
+            <GreenButton>Create a new Reward
+            </GreenButton>
+            </Link>
+          </Grid.Column>
+        </Grid.Row>
         <Grid.Column style={{width: "215px"}}>
-          <br />
           <Header style={{ fontSize:'36px'}} >Rewards</Header>
         </Grid.Column>
-        <Grid.Column floated='right' width={4}>
-          <Link
-          to={{
-            pathname:'/CreateAdminReward',
-            state: {
-              classroomId: location.state.classroomId,
-            }
-            }}
-          > 
-          <br />
-          <br />
-          <br />
-          <GreenButton>Create a new Reward
-          </GreenButton>
-          </Link>
-        </Grid.Column>
-
-          {renderAdminRewards()}
-          <GreenButton >
-      <a style={{color: 'white'}} href="javascript:history.back()">Dashboard</a>
-      </GreenButton>
-      
-
+        {renderAdminRewards()}
       </Grid>
    </>
   )}
