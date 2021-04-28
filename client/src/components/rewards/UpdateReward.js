@@ -2,6 +2,7 @@ import { Form, Button } from 'semantic-ui-react';
 import { useState } from 'react';
 import { ClassroomRewardConsumer } from '../../providers/ClassroomRewardProvider';
 import {withRouter} from 'react-router-dom';
+import { GreenButton } from '../../styledComponents/SharedStyles';
 const UpdateReward = ({id, name, desc, cost, updateClassroomReward, setEditing, classroom_id}) => {
   const [reward, setReward] = useState({name: name, desc: desc, cost: cost, classroom_id: classroom_id})
   
@@ -38,13 +39,13 @@ const UpdateReward = ({id, name, desc, cost, updateClassroomReward, setEditing, 
         onChange={(e) => setReward({cost: e.target.value})}
         value={reward.cost}
       />
-      <Button type="submit" 
+      <GreenButton type="submit" 
       //onClick={() => 
       //window.location.href = window.location.href
       //}
       >
       Update
-      </Button>
+      </GreenButton>
     </Form>
   )
 }

@@ -1,7 +1,7 @@
 import { Form, Button } from "semantic-ui-react";
 import { useState } from 'react'
 import { ClassroomRewardConsumer } from "../../providers/ClassroomRewardProvider";
-
+import { GreenButton } from '../../styledComponents/SharedStyles';
 const RewardForm = ({addClassroomReward, location}) => {
   const [classroomReward, setClassroomReward] = useState({name:"", desc: "", cost: ""})
 
@@ -36,7 +36,8 @@ const RewardForm = ({addClassroomReward, location}) => {
         onChange={(e, {value}) => setClassroomReward({...classroomReward, cost: value})}
         value={classroomReward.cost}
       />
-      <Button type="submit">Save</Button>
+      <GreenButton type="submit">Save</GreenButton>
+      <GreenButton><a style={{color: 'white'}} href="javascript:history.back()"> Back to Admin Rewards</a></GreenButton>
     </Form>
   )
 }
