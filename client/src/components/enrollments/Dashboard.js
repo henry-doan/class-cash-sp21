@@ -8,7 +8,7 @@ import MyEarned from '../points/MyEarned';
 import { ClassroomConsumer } from '../../providers/ClassroomProvider';
 import { GreenButton } from '../../styledComponents/SharedStyles'
 
-const Dashboard = ({location, user, match}) => {
+const Dashboard = ({ user, match}) => {
   const isAdmin = user.isAdmin
   const {id} = useParams()
   return(
@@ -54,7 +54,7 @@ const Dashboard = ({location, user, match}) => {
           <Link to={{
                   pathname: `/MyClassroom`,
                   state: {
-                    enrollmentId: id,
+                    enrollmentId: match.params.enrollment_id,
                     classroomId: match.params.classroom_id
                   }
                 }}>
