@@ -33,19 +33,21 @@ const Profile = ({ user, updateUser }) => {
   const profileView = () => {
     return(
       <>
-        <Grid.Row>
-          <Container>
-            <Image style={{borderRadius: '50%', height: '200px'}} src={user.image || defaultImage} />
-          </Container>
-        </Grid.Row>
-        <Grid.Row >
-          <Divider hidden />
-          <h3>Name: {user.name}</h3>
-          <h3>Email: {user.email}</h3>
-          <GreenButton onClick={() => setEditing(!editing)}>
-            Edit Profile
-          </GreenButton>
-        </Grid.Row>
+        <Grid>
+          <Grid.Row>
+            <Grid.Column width={8}>
+              <Image style={{borderRadius: '50%', height: '200px'}} src={user.image || defaultImage} />
+            </Grid.Column>
+            <Grid.Column width={8}>
+              <Divider hidden />
+              <h3>Name: {user.name}</h3>
+              <h3>Email: {user.email}</h3>
+              <GreenButton onClick={() => setEditing(!editing)}>
+                Edit Profile
+              </GreenButton>
+            </Grid.Column>
+          </Grid.Row>
+        </Grid>
       </>
     )
   }
@@ -115,15 +117,10 @@ const Profile = ({ user, updateUser }) => {
       <Grid>
         <Grid.Row>
           { editing ? editView() : profileView() }
-          {/* <Grid.Column>
-            <GreenButton onClick={() => setEditing(!editing)}>
-              { editing ? 'Cancel' : 'Edit'}
-            </GreenButton>
-          </Grid.Column> */}
         </Grid.Row>
       </Grid>
       <Divider hidden />
-      <Divider horizontal><Header as='h2'><Icon name='book' />Current Enrollments</Header></Divider>
+      <Divider horizontal><Header as='h2'><Icon name='book' />Current Enrollments</Header></Divider><Divider hidden />
       <Card.Group>
         { renderUserEnrollments() }
       </Card.Group>
