@@ -16,18 +16,13 @@ useEffect( () => {
 }, [])
 
 const handleClick = () => {
-  //window.location.href = window.location.href
+  window.location.href = window.location.href
 }
 
 return(
   <Container style={{backgroundColor:"white", height:'auto', width:'auto'}} onClick={handleClick}>
     <Link  to={{
             pathname: `/Dashboard/${e.id}/${classroom.id}`,
-            
-            state: {
-              classroomId: classroom.id,
-              enrollmentId: e.id
-            }
           }}
           >
   
