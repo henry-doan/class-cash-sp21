@@ -33,7 +33,9 @@ const Profile = ({ user, updateUser }) => {
   const profileView = () => {
     return(
       <>
-        <Grid>
+        <Grid style={{
+          margin: '0 auto'
+        }}>
           <Grid.Row>
             <Grid.Column width={8}>
               <Image style={{borderRadius: '50%', height: '200px'}} src={user.image || defaultImage} />
