@@ -17,12 +17,12 @@ const DropDownBar = ({match}) => {
 
   const [classroom, setClassroom] = useState({})
   // const [getUserClassroom, setGetUserClassroom] = useState([])
-  // useEffect( () => {
+  useEffect( () => {
     
-  //   axios.get(`/api/classrooms/${location.pathname.split("/").pop()}`)
-  //     .then( res => setClassroom(res.data))
-  //     .catch( err => console.log(err))
-  // }, [])
+    axios.get(`/api/classrooms/${location.pathname.split("/").pop()}`)
+      .then( res => setClassroom(res.data))
+      .catch( err => console.log(err))
+  }, [])
 
   // const renderUserEnrollments = () => {
   //   return userEnrollments.map( e => (
