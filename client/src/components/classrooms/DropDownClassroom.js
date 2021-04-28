@@ -16,7 +16,7 @@ useEffect( () => {
 }, [])
 
 const handleClick = () => {
-  window.location.reload()
+  window.location.href = window.location.href
 }
 
 return(

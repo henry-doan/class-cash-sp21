@@ -22,7 +22,7 @@ const DashboardLink = ({location, e, match}) => {
   
   
   const handleClick = () => {
-    window.location.reload()
+    window.location.href = window.location.href
   }
 
     return (
