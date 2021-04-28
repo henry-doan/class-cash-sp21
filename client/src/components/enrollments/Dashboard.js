@@ -24,7 +24,7 @@ const Dashboard = ({ user, match}) => {
               to={{
                 pathname:'/AdminRewards',
                 state: {
-                  enrollmentId: id,
+                  enrollmentId: match.params.enrollment_id,
                   classroomId: match.params.classroom_id,
                 } }}
               > View All Rewards</Link>
