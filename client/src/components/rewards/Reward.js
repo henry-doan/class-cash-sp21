@@ -13,7 +13,7 @@ const Reward = ({r, enrollmentId, updateReward, user}) => {
   const handleRedeem = (e) => {
     e.preventDefault()
     updateReward(r.id, enrollmentId, reward)
-    window.location.reload()
+    window.location.href = window.location.href
   }
   return(
     <>
