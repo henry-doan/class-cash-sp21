@@ -101,6 +101,9 @@ const CreatePoints = ({match, addPoint}) => {
           content="Points have been awarded to the student"
         />
         <GreenButton type='submit'>Submit</GreenButton>
+        <GreenButton >
+          <a style={{color: 'white'}} href="javascript:history.back()"> Back to Dashboard</a>
+        </GreenButton>
       </SharedForm>
     </Container>
   </Segment>
