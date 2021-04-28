@@ -13,7 +13,7 @@ const options = [
 ]
 
 
-const DropDownBar = ({match}) => {
+const DropDownBar = ({match,location}) => {
 
   const [classroom, setClassroom] = useState({})
   // const [getUserClassroom, setGetUserClassroom] = useState([])
