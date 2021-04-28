@@ -28,18 +28,15 @@ const EarnPoints = ({location}) => {
   
   return(
     <>
-    <h1>Earn Points</h1>
-    <p>Your teacher can award you classroom points</p>
-    <MyEarned
-      classroomId={location.state.classroomId}
-      enrollmentId={location.state.enrollmentId}
-    />
-       
-    <GreenButton >
-      <a style={{color: 'white'}} href="javascript:history.back()">Dashboard</a>
+      <GreenButton >
+        <a style={{color: 'white'}} href="javascript:history.back()">Back to Dashboard</a>
       </GreenButton>
-     
-
+      <h1>Earn Points</h1>
+      <p>Your teacher can award you classroom points</p>
+      <MyEarned
+        classroomId={location.state.classroomId}
+        enrollmentId={location.state.enrollmentId}
+      />
     </>
   )
 }

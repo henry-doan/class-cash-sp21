@@ -3,6 +3,7 @@ import { AuthConsumer } from '../../providers/AuthProvider'
 import { EnrollmentConsumer } from '../../providers/EnrollmentProvider'
 import { useState, useEffect } from 'react'
 import axios from 'axios'
+import { GreenButton } from '../../styledComponents/SharedStyles'
 
 const AddDeleteEnrollment = ({user, classroomId, classroomUsers, addEnrollment, deleteEnrollment}) => {
   const [enrollment, setEnrollment] = useState({ total_points: 0, user_id: user.id })
@@ -32,18 +33,18 @@ const AddDeleteEnrollment = ({user, classroomId, classroomUsers, addEnrollment, 
   if (classroomUsers.some( c => c.id === user.id)) {
     return(
       <>
-        <Button
+        <GreenButton
           onClick={handleDeletion}
-        >Leave Class</Button>
+        >Leave Class</GreenButton>
       </>
     )
   }
 
   return(
     <>
-      <Button
+      <GreenButton
         onClick={handleSubmission}
-      >Enroll in Class</Button>
+      >Enroll in Class</GreenButton>
     </>
   )
 }

@@ -8,6 +8,7 @@ import { Link } from 'react-router-dom'
 import { AuthConsumer } from '../../providers/AuthProvider'
 import { EnrollmentConsumer } from '../../providers/EnrollmentProvider'
 import ImageDefault from '../images/ImageDefault.jpeg'
+import { GreenButton} from '../../styledComponents/SharedStyles'
 
 const MyClassroom = ({location, user}) => {
   const [classroom, setClassroom] = useState([])
@@ -98,7 +99,7 @@ const MyClassroom = ({location, user}) => {
     <br />
     <br />
     <Link to="/ClassroomSelect">
-      <Button>See My Classrooms</Button>
+      <GreenButton>See My Classrooms</GreenButton>
     </Link>
   </>
   )
