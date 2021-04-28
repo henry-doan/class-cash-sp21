@@ -40,9 +40,9 @@ const UpdateReward = ({id, name, desc, cost, updateClassroomReward, setEditing, 
         value={reward.cost}
       />
       <GreenButton type="submit" 
-      //onClick={() => 
-      //window.location.href = window.location.href
-      //}
+      onClick={() => 
+      window.location.href = window.location.href
+      }
       >
       Update
       </GreenButton>
