@@ -19,7 +19,7 @@ const ClassroomReward = ({c, enrollmentId, addReward}) => {
   const handleSubmission = (e) => {
     e.preventDefault()
     addReward(enrollmentId, reward, point)
-    window.location.href = window.location.href
+    //window.location.href = window.location.href
   }
 
   const rewardButton = () => {
