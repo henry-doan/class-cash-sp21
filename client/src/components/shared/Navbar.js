@@ -40,7 +40,8 @@ const Navbar = ({ location, user, handleLogout, history}) => {
               src={user.image || ImageDefault} 
               alt= {user.name}
               id='profile'
-              active={location.pathname === '/profile'}/> 
+              // active={location.pathname === '/profile'}
+              /> 
            </Menu.Item>
            </Link>
 
@@ -65,21 +66,21 @@ const Navbar = ({ location, user, handleLogout, history}) => {
             <NavMenuItem
               name='login'
               id='login'
-              active={location.pathname === '/login'}
+              // active={location.pathname === '/login'}
             />
           </Link>
           <Link to='/register'>
             <NavMenuItem
               name='register'
               id='register'
-              active={location.pathname === '/register'}
+              // active={location.pathname === '/register'}
             />
           </Link>
           <Link to='/registerAdmin'>
             <NavMenuItem
               name='registerAdmin'
               id='registerAdmin'
-              active={location.pathname === '/registerAdmin'}
+              // active={location.pathname === '/registerAdmin'}
             />
           </Link>
         </Menu.Menu>
