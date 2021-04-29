@@ -56,7 +56,10 @@ const Profile = ({ user, updateUser }) => {
   const editView = () => {
     return(
       <SharedForm onSubmit={handleSubmit}>
-        <Grid.Column width={4}>
+        <Grid style={{
+          margin: '0 auto'
+        }}>
+        <Grid.Column width={8}>
           <Dropzone
             onDrop={onDrop}
             multiple={false}
@@ -102,7 +105,7 @@ const Profile = ({ user, updateUser }) => {
           <GreenButton onClick={() => setEditing(!editing)}>
             Cancel
           </GreenButton>
-        </Grid.Column>
+        </Grid.Column></Grid>
       </SharedForm>
     )
   }
