@@ -27,9 +27,7 @@ const AdminRewards = ({location}) => {
       <Grid>
         <Grid.Row>
           <Grid.Column floated='left' width={6}>
-            <GreenButton >
-              <a style={{color: 'white'}} href="javascript:history.back()"> Back to Dashboard</a>
-            </GreenButton>
+            <a style={{color: 'white'}} href="javascript:history.back()"><GreenButton > Back to Dashboard </GreenButton></a>
           </Grid.Column>
           <Grid.Column floated='right' width={4}>
             <Link

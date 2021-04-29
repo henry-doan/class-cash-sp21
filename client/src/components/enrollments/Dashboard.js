@@ -18,7 +18,7 @@ const Dashboard = ({ user, match}) => {
           isAdmin ? 
           <>
           <Grid.Column width={3}>
-            <GreenButton style={{width: '170px'}}>
+            
               <Link 
               style={{color: 'white'}}
               to={{
@@ -27,18 +27,18 @@ const Dashboard = ({ user, match}) => {
                   enrollmentId: match.params.enrollment_id,
                   classroomId: match.params.classroom_id,
                 } }}
-              > View All Rewards</Link>
-              </GreenButton>
+              > <GreenButton style={{width: '170px'}}>View All Rewards</GreenButton></Link>
+              
             </Grid.Column>
             <Grid.Column width={3}>
-            <GreenButton style={{width: '170px'}}>
+            
             <Link 
             style={{color: 'white'}}
             to={{
               pathname:`/CreatePoints/${match.params.enrollment_id}/${match.params.classroom_id}`,
               }}
-            > Award Points</Link>
-          </GreenButton></Grid.Column>
+            ><GreenButton style={{width: '170px'}}> Award Points</GreenButton></Link>
+          </Grid.Column>
           </>
           :'' }
       </Grid>
