@@ -28,9 +28,9 @@ const EarnPoints = ({location}) => {
   
   return(
     <>
-      <GreenButton >
-        <a style={{color: 'white'}} href="javascript:history.back()">Back to Dashboard</a>
-      </GreenButton>
+      
+        <a style={{color: 'white'}} href="javascript:history.back()"><GreenButton >Back to Dashboard</GreenButton></a>
+      
       <h1>Earn Points</h1>
       <p>Your teacher can award you classroom points</p>
       <MyEarned

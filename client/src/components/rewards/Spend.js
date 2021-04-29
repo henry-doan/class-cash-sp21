@@ -9,9 +9,9 @@ const Spend = ({location}) => {
   <>
   <Grid columns={2}>
     <Grid.Column floated='left' width={13}>
-      <GreenButton >
-        <a style={{color: 'white'}} href="javascript:history.back()">Back to Dashboard</a>
-      </GreenButton>
+      
+        <a style={{color: 'white'}} href="javascript:history.back()"><GreenButton >Back to Dashboard</GreenButton></a>
+      
       <Header style={{fontSize: "1.5rem"}}>Spend Points</Header>
       <p style={{fontSize: "1.125rem"}}>Spend Points on rewards</p>
     </Grid.Column>
