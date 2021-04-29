@@ -65,22 +65,21 @@ const MyClassroom = ({location, user}) => {
     })
     return admins.map( u => 
       <Grid style={{display: 'inline-block', padding:'2%'}}>
-      <Grid.Row>
+      <Grid.Column>
       <Grid.Row >
         <Image style={{
           borderRadius: '50%', 
           width: '137px', 
           height: '137px',
           display: 'inline',
-          padding: '15px'
           }} 
-            src={u.image} 
+            src={u.image || ImageDefault } 
             alt={u.name} />
              {/* </Grid.Row>
              <Grid.Row> */}
           <div style={{textAlign:'center'}}>{u.name}</div>
       </Grid.Row>
-      </Grid.Row>
+      </Grid.Column>
   </Grid>
     )
   }
@@ -100,10 +99,8 @@ const MyClassroom = ({location, user}) => {
       </Grid.Column>
     </Grid>
     <MyHeader>{classroom.name}'s Classroom</MyHeader>
-    <div style={{borderRadius: '16px', backgroundColor: '#EDF9F6', display: 'inline-block', padding: '25px'}}>
       <h3>Classroom Admins</h3>
       { renderAdminClassroomUsers() }
-    </div>
     <h3>Classroom Members</h3>
     { renderClassroomUsers() }
   </>
