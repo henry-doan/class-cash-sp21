@@ -23,31 +23,36 @@ const DropDownList = ({user}) => {
   }
 
   return (
-    <DropdownGrid padded centered columns={3}>
-        <Divider hidden/>
-        <Card.Group>
-          
-          { renderUserEnrollments() }
-          
-          <Grid.Column>
-            <Container style={{backgroundColor:"white", height: '191px', width:'275px'}}>
-              <Link style={{ color:'white'}} to="/ViewClassrooms">
-                <HoverButton >
-                  <NavCard style={{backgroundColor:'#1CB993'}}>
-                    <Card.Content style={{ height:'191px'}}>
-                      <Card.Header style={{color: 'white'}}>
-                        <Divider hidden />
-                        <Divider hidden />
-                          <h3>View All Classrooms</h3>
-                      </Card.Header>
-                    </Card.Content>
-                  </NavCard>
-                </HoverButton>
-              </Link>
-            </Container>
-          </Grid.Column>
-        </Card.Group>
-    </DropdownGrid>
+    <>
+      <Divider hidden />
+      <DropdownGrid padded centered columns={3} verticalAlign="middle">
+          <Divider hidden/>
+          <Card.Group>
+            
+            { renderUserEnrollments() }
+            
+            <Grid.Column>
+              <Container style={{backgroundColor:"white", height: '191px', width:'275px'}}>
+                <Link style={{ color:'white'}} to="/ViewClassrooms">
+                  <HoverButton >
+                    <NavCard style={{backgroundColor:'#1CB993'}}>
+                      <Card.Content style={{ height:'191px'}}>
+                        <Card.Header style={{color: 'white'}}>
+                          <Divider hidden />
+                          <Divider hidden />
+                            <h3>View All Classrooms</h3>
+                        </Card.Header>
+                      </Card.Content>
+                    </NavCard>
+                  </HoverButton>
+                </Link>
+              </Container>
+            </Grid.Column>
+          </Card.Group>
+      </DropdownGrid>
+
+    </>
+
   )
 }
 

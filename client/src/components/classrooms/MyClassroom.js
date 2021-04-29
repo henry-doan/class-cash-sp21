@@ -71,7 +71,8 @@ const MyClassroom = ({location, user}) => {
           borderRadius: '50%', 
           width: '137px', 
           height: '137px',
-          display: 'inline'
+          display: 'inline',
+          padding: '15px'
           }} 
             src={u.image} 
             alt={u.name} />
