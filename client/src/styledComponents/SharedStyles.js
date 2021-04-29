@@ -97,3 +97,10 @@ export const MyPoints2 = styled.h1`
   font-size: 2.25rem !important;
   line-height: 1rem !important;
 `
+
+export const Foot = styled.div`
+position:absolute;
+left:0;
+bottom:0;
+right:0;
+`

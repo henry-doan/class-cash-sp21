@@ -1,7 +1,8 @@
 import { Link } from "react-router-dom";
 import { Container, Divider, Icon } from "semantic-ui-react";
-
+import {Foot} from '../../styledComponents/SharedStyles';
 const Footer = () => (
+      <Foot>
       <Container textAlign='center' className='footer'>
       
       <Divider />
@@ -11,5 +12,6 @@ const Footer = () => (
       
       <Divider hidden />
       </Container>
+      </Foot>
 )
 export default Footer;
