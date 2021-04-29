@@ -20,26 +20,28 @@ const handleClick = () => {
 }
 
 return(
-  <Container style={{backgroundColor:"white", height:'auto', width:'auto'}} onClick={handleClick}>
-    <Link  to={{
-            pathname: `/Dashboard/${e.id}/${classroom.id}`,
-          }}
-          >
-  
-    <HoverButton >
-    <NavCard style={{backgroundColor:"#F5F5F5"}}  key={classroom.id}>
-      <Card.Content>
-        <Card.Header>
-          <Divider hidden />
-          <NavH1 style={{color: '#304540'}}>{classroom.name}</NavH1>
-        </Card.Header>
-      </Card.Content>
+  <Grid.Column>
+    <Container style={{backgroundColor:"white", height:'auto', width:'auto'}} onClick={handleClick}>
+      <Link  to={{
+              pathname: `/Dashboard/${e.id}/${classroom.id}`,
+            }}
+            >
+    
+      <HoverButton >
+      <NavCard style={{backgroundColor:"#F5F5F5"}}  key={classroom.id}>
+        <Card.Content>
+          <Card.Header>
+            <Divider hidden />
+            <NavH1 style={{color: '#304540'}}>{classroom.name}</NavH1>
+          </Card.Header>
+        </Card.Content>
+        
+      </NavCard>
+          </HoverButton>
       
-    </NavCard>
-        </HoverButton>
-     
-        </Link>
-        </Container>
+          </Link>
+          </Container>
+  </Grid.Column>
   
 )
 }

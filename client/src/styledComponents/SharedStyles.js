@@ -75,6 +75,7 @@ position: absolute !important;
 export const DropdownGrid = styled(Grid)`
   min-width: 90vw !important;
   height: 251px !important;
+  padding-left: 50px !important;
 `
 export const HoverButton = styled(Button)`
 border-radius: 16px !important;

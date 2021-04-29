@@ -123,7 +123,7 @@ const Profile = ({ user, updateUser }) => {
       </Grid>
       <Divider hidden />
       <Divider horizontal><Header as='h2'><Icon name='book' />Current Enrollments</Header></Divider><Divider hidden />
-      <Card.Group>
+      <Card.Group centered>
         { renderUserEnrollments() }
       </Card.Group>
     </Container>

@@ -35,6 +35,7 @@ const AddDeleteEnrollment = ({user, classroomId, classroomUsers, addEnrollment, 
       <>
         <GreenButton
           onClick={handleDeletion}
+          style={{width: '175px'}}
         >Leave Class</GreenButton>
       </>
     )
@@ -44,6 +45,7 @@ const AddDeleteEnrollment = ({user, classroomId, classroomUsers, addEnrollment, 
     <>
       <GreenButton
         onClick={handleSubmission}
+        style={{width: '175px'}}
       >Enroll in Class</GreenButton>
     </>
   )
