@@ -3,12 +3,12 @@ import { useState, useEffect } from 'react'
 import axios from 'axios'
 import ClassroomUser from './ClassroomUser'
 import AddDeleteEnrollment from '../enrollments/AddDeleteEnrollment'
-import { Button, Grid, Image } from 'semantic-ui-react'
+import { Button, Grid, Image, Container } from 'semantic-ui-react'
 import { Link } from 'react-router-dom'
 import { AuthConsumer } from '../../providers/AuthProvider'
 import { EnrollmentConsumer } from '../../providers/EnrollmentProvider'
 import ImageDefault from '../images/ImageDefault.jpeg'
-import { GreenButton} from '../../styledComponents/SharedStyles'
+import { GreenButton, MyHeader } from '../../styledComponents/SharedStyles'
 
 const MyClassroom = ({location, user}) => {
   const [classroom, setClassroom] = useState([])
@@ -86,21 +86,25 @@ const MyClassroom = ({location, user}) => {
 
   return(
   <>
-    <p>{enrollment}</p>
-    <h3>{classroom.name}'s Classroom</h3>
-    { renderAdminClassroomUsers() }
+    <Grid>
+      <Grid.Column floated='left' width={3}>
+        <AddDeleteEnrollment 
+        classroomId={location.state.classroomId}
+        classroomUsers={classroomUsers}/>
+      </Grid.Column>
+      <Grid.Column floated='left' width={13}>
+        <Link to="/ViewClassrooms">
+          <GreenButton style={{width: '175px'}}>See All Classrooms</GreenButton>
+        </Link>
+      </Grid.Column>
+    </Grid>
+    <MyHeader>{classroom.name}'s Classroom</MyHeader>
+    <div style={{borderRadius: '16px', backgroundColor: '#EDF9F6', display: 'inline-block', padding: '25px'}}>
+      <h3>Classroom Admins</h3>
+      { renderAdminClassroomUsers() }
+    </div>
     <h3>Classroom Members</h3>
     { renderClassroomUsers() }
-    <br />
-    <br />
-    <AddDeleteEnrollment 
-    classroomId={location.state.classroomId}
-    classroomUsers={classroomUsers}/>
-    <br />
-    <br />
-    <Link to="/ClassroomSelect">
-      <GreenButton>See My Classrooms</GreenButton>
-    </Link>
   </>
   )
 }

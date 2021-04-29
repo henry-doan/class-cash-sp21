@@ -23,30 +23,30 @@ const DropDownList = ({user}) => {
   }
 
   return (
-    <DropdownGrid style={{padding:'15px', height:'251px'}}>
-      <Container>
+    <DropdownGrid padded centered columns={3}>
         <Divider hidden/>
         <Card.Group>
           
           { renderUserEnrollments() }
           
-          <Container style={{backgroundColor:"white", height: '191px', width:'275px'}}>
-            <Link style={{ color:'white'}} to="/ViewClassrooms">
-              <HoverButton >
-                <NavCard style={{backgroundColor:'#1CB993'}}>
-                  <Card.Content style={{ height:'191px'}}>
-                    <Card.Header style={{color: 'white'}}>
-                      <Divider hidden />
-                      <Divider hidden />
-                        <h3>View All Classrooms</h3>
-                    </Card.Header>
-                  </Card.Content>
-                </NavCard>
-              </HoverButton>
-            </Link>
-          </Container>
+          <Grid.Column>
+            <Container style={{backgroundColor:"white", height: '191px', width:'275px'}}>
+              <Link style={{ color:'white'}} to="/ViewClassrooms">
+                <HoverButton >
+                  <NavCard style={{backgroundColor:'#1CB993'}}>
+                    <Card.Content style={{ height:'191px'}}>
+                      <Card.Header style={{color: 'white'}}>
+                        <Divider hidden />
+                        <Divider hidden />
+                          <h3>View All Classrooms</h3>
+                      </Card.Header>
+                    </Card.Content>
+                  </NavCard>
+                </HoverButton>
+              </Link>
+            </Container>
+          </Grid.Column>
         </Card.Group>
-      </Container>
     </DropdownGrid>
   )
 }

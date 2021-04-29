@@ -13,5 +13,5 @@ export const ClassroomH1 = styled.h1`
 `
 export const ClassroomGrid = styled(Grid)`
   height: 251px !important;
-  padding-left: 50px !important;  
+  padding-left: 50px !important;
 `
