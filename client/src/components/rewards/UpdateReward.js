@@ -20,24 +20,27 @@ const UpdateReward = ({id, name, desc, cost, updateClassroomReward, setEditing, 
         placeholder="Reward Name"
         name="name"
         required
-        onChange={(e) => setReward({name: e.target.value})}
         value={reward.name}
+        // onChange={(e) => setReward({name: e.target.value})}
+        onChange={(e, inputAttr) => setReward({ ...reward, name: inputAttr.value})}
       />
       <Form.Input 
         label="Reward Description"
         placeholder="Reward Description"
         name="desc"
         required
-        onChange={(e) => setReward({desc: e.target.value})}
         value={reward.desc}
+        // onChange={(e) => setReward({desc: e.target.value})}
+        onChange={(e, inputAttr) => setReward({ ...reward, desc: inputAttr.value})}
       />
       <Form.Input 
         label="Reward Cost"
         placeholder="Reward Cost"
         name="cost"
         required
-        onChange={(e) => setReward({cost: e.target.value})}
         value={reward.cost}
+        // onChange={(e) => setReward({cost: e.target.value})}
+        onChange={(e, inputAttr) => setReward({ ...reward, cost: inputAttr.value})}
       />
       <GreenButton type="submit" 
       onClick={() => 
